@@ -9,7 +9,7 @@ const SearchPagePage = () => {
     <>
       <div className="bg-gradient  flex flex-col font-opensans sm:gap-[40px] md:gap-[40px] gap-[441px] items-center justify-start mx-[auto] w-[100%]">
         <div className="md:h-[1071px] sm:h-[1107px] h-[1320px] md:px-[20px] relative w-[100%]">
-          <div className="absolute bg-white_A700 bottom-[0] flex flex-col md:gap-[40px] gap-[76px] inset-x-[0] justify-start mx-[auto] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[99%]">
+          <div className="absolute bottom-[0] flex flex-col md:gap-[40px] gap-[76px] inset-x-[0] justify-start mx-[auto] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[99%]">
             <Text
               className="font-semibold md:ml-[0] ml-[292px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
               as="h1"
@@ -18,11 +18,11 @@ const SearchPagePage = () => {
               Type the link of the website you want access below
             </Text>
             <div className="font-dmsans h-[500px] md:h-[721px] mb-[221px] mr-[294px] relative md:w-[100%] w-[81%]">
-              <Img
+              {/* <Img
                 src="images/img_searchbar.svg"
                 className="absolute h-[36px] right-[9%] top-[25%] w-[930px]"
                 alt="searchbar"
-              />
+              /> */}
               <Img
                 src="images/img_websitebackgro.png"
                 className="absolute h-[500px] inset-y-[0] left-[0] my-[auto] object-cover w-[39%]"
