@@ -72,8 +72,28 @@ const HomepagePage = () => {
                   }
                 />
               </div>
-              <HomepageStackone className="flex flex-1 flex-col items-center justify-start w-[100%]" />
-              <HomepageStackone className="flex flex-1 flex-col items-center justify-start w-[100%]" />
+              <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
+                <HomepageStackone
+                  className="h-[267px] relative w-[100%]"
+                  thiswebsiteis={
+                    <>
+                      This website is useful and real help me <br />
+                      to avoid the scam
+                    </>
+                  }
+                />
+              </div>
+              <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
+                <HomepageStackone
+                  className="h-[267px] relative w-[100%]"
+                  thiswebsiteis={
+                    <>
+                      This website is useful and real help me <br />
+                      to avoid the scam
+                    </>
+                  }
+                />
+              </div>
             </List>
             <Img
               src="images/img_group9.svg"

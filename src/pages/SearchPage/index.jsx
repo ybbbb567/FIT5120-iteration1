@@ -24,11 +24,6 @@ const SearchPagePage = () => {
           </Text>
           <div className="font-dmsans h-[500px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
             <Img
-              src="images/img_searchbar.svg"
-              className="absolute h-[36px] right-[8%] top-[25%] w-[930px]"
-              alt="searchbar"
-            />
-            <Img
               src="images/img_websitebackgro_500x500.png"
               className="absolute h-[500px] inset-y-[0] left-[0] my-[auto] object-cover w-[500px]"
               alt="websitebackgro"
