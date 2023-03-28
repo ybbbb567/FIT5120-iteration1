@@ -13,20 +13,18 @@ const HomepagePage = () => {
     <>
       <div className="bg-gray_400 font-opensans h-[2015px] mx-[auto] relative w-[100%]">
         <div className="absolute bg-gradient2  bottom-[0] flex inset-x-[0] items-center justify-start mx-[auto] py-[38px] w-[100%]">
-          <div className="flex flex-col justify-start mb-[4px] w-[100%]">
+          <div className="flex flex-col justify-start mb-[6px] w-[100%]">
             <div className="flex md:flex-col flex-row gap-[31px] items-start justify-start max-w-[1553px] mx-[auto] md:px-[20px] w-[100%]">
               <div className="flex md:flex-1 flex-col items-start justify-start md:mt-[0] mt-[122px] md:w-[100%] w-[49%]">
                 <Text
                   className="font-bold font-opensans text-gray_903 text-left tracking-[-0.36px] w-[auto]"
-                  as="h6"
-                  variant="h6"
+                  variant="body1"
                 >
                   Let’s check the security of the website you will browse
                 </Text>
                 <Text
                   className="font-normal font-opensans leading-[72.00px] mt-[83px] not-italic text-gray_903 text-left tracking-[-0.36px] w-[100%]"
-                  as="h6"
-                  variant="h6"
+                  variant="body1"
                 >
                   The internet makes it easy for scammers to trick people into
                   giving away their money and personal information
@@ -53,8 +51,8 @@ const HomepagePage = () => {
             </div>
             <Text
               className="md:ml-[0] ml-[597px] mt-[80px] text-center text-gray_903 w-[auto]"
-              as="h2"
-              variant="h2"
+              as="h3"
+              variant="h3"
             >
               What our users say about us
             </Text>
@@ -82,14 +80,14 @@ const HomepagePage = () => {
               className="h-[56px] md:ml-[0] ml-[717px] mt-[123px] w-[auto]"
               alt="groupNine"
             />
-            <Footer className="flex flex-col font-spacegrotesk items-center justify-start mt-[266px] w-[100%]" />
+            <Footer className="flex flex-col font-spacegrotesk items-center justify-start mt-[264px] w-[100%]" />
           </div>
         </div>
         <Navigationbar
           className="absolute flex inset-x-[0] items-center justify-center mx-[auto] md:px-[20px] top-[0] w-[100%]"
           home="Home"
-          picwishone="images/img_picwish1.png"
           language="Chinese"
+          picwishone="images/img_picwish2_125x227.png"
         />
       </div>
     </>

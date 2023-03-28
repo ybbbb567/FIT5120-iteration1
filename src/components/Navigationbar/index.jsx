@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, Img } from "components";
+import { Img, Text } from "components";
 import { useNavigate } from "react-router-dom";
 
 const Navigationbar = (props) => {
@@ -9,13 +9,18 @@ const Navigationbar = (props) => {
   return (
     <>
       <div className={props.className}>
-        <div className="absolute flex inset-x-[0] items-center justify-start mx-[auto] top-[0] w-[100%]">
-          <div className="bg-black_900_e5 flex items-start justify-start p-[26px] sm:px-[20px] w-[100%]">
-            <div className="flex items-center justify-start mb-[31px] md:ml-[0] ml-[342px] md:w-[100%] w-[auto]">
+        <div className="flex items-center justify-start mx-[auto] w-[100%]">
+          <div className="bg-black_900_e5 flex flex-row gap-[14px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
+            <Img
+              src={props?.picwishone}
+              className="h-[121px] md:h-[auto] object-cover w-[64%]"
+              alt="picwishOne"
+            />
+            <div className="flex items-center justify-start w-[auto]">
               <Text
-                className="common-pointer font-bold font-opensans text-center text-white_A700 tracking-[-0.39px] w-[auto]"
-                as="h4"
-                variant="h4"
+                className="common-pointer font-opensans text-center text-white_A700 tracking-[-0.60px] w-[auto]"
+                as="h2"
+                variant="h2"
                 onClick={() => navigate("/")}
               >
                 {props?.home}
@@ -23,12 +28,7 @@ const Navigationbar = (props) => {
             </div>
           </div>
         </div>
-        <Img
-          src={props?.picwishone}
-          className="absolute h-[125px] left-[0] object-cover top-[0] w-[13%]"
-          alt="picwishOne"
-        />
-        <div className="absolute h-[257px] md:h-[61px] inset-y-[0] my-[auto] py-[24px] right-[5%] w-[14%]">
+        <div className="md:h-[-60px] h-[257px] mb-[auto] ml-[auto] mr-[27px] mt-[-121px] py-[24px] w-[14%] z-[1]">
           <div className="absolute bg-white_A700 flex inset-x-[0] items-end justify-start mx-[auto] p-[15px] rounded-[8px] shadow-bs top-[0] w-[91%]">
             <Img
               src="images/img_arrowdown.svg"
@@ -41,7 +41,7 @@ const Navigationbar = (props) => {
               <div className="flex items-start justify-end p-[11px] w-[100%]">
                 <Text
                   className="font-montserrat md:ml-[0] ml-[4px] not-italic text-bluegray_900 text-left w-[auto]"
-                  variant="body2"
+                  variant="body3"
                 >
                   {props?.language}
                 </Text>
@@ -56,8 +56,8 @@ const Navigationbar = (props) => {
 
 Navigationbar.defaultProps = {
   home: "Home",
-  picwishone: "images/img_picwish1_125x203.png",
   language: "Chinese",
+  picwishone: "images/img_picwish2_125x227.png",
 };
 
 export default Navigationbar;

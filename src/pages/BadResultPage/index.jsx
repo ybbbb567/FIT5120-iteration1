@@ -12,7 +12,7 @@ const BadResultPagePage = () => {
     <>
       <div className="bg-gradient  flex flex-col font-opensans gap-[171px] sm:gap-[40px] md:gap-[40px] items-center justify-start mx-[auto] w-[100%]">
         <div className="md:h-[1368px] h-[1590px] md:px-[20px] relative w-[100%]">
-          <div className="absolute bg-white_A700 bottom-[0] flex flex-col inset-x-[0] justify-start mx-[auto] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[99%]">
+          <div className="absolute bottom-[0] flex flex-col inset-x-[0] justify-start mx-[auto] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
             <Text
               className="font-semibold md:ml-[0] ml-[292px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
               as="h1"
@@ -46,8 +46,8 @@ const BadResultPagePage = () => {
                 </div>
                 <Text
                   className="common-pointer mr-[492px] not-italic text-left text-white_A700 w-[auto]"
-                  as="h5"
-                  variant="h5"
+                  as="h6"
+                  variant="h6"
                   onClick={() => navigate("/notification")}
                 >
                   Check
@@ -58,9 +58,9 @@ const BadResultPagePage = () => {
               <div className="md:h-[64px] h-[73px] relative w-[100%]">
                 <div className="absolute bg-red_301 flex inset-x-[0] items-start justify-end mx-[auto] p-[9px] top-[0] w-[100%]">
                   <Text
-                    className="font-semibold md:ml-[0] ml-[22px] text-indigo_50 text-left tracking-[-0.26px] w-[auto]"
-                    as="h4"
-                    variant="h4"
+                    className="md:ml-[0] ml-[22px] text-indigo_50 text-left tracking-[-0.26px] w-[auto]"
+                    as="h5"
+                    variant="h5"
                   >
                     Unsafe
                   </Text>
@@ -80,7 +80,7 @@ const BadResultPagePage = () => {
               <div className="flex font-hind items-start justify-start w-[260px]">
                 <Text
                   className="not-italic text-deep_purple_900 text-left w-[auto]"
-                  variant="body1"
+                  variant="body2"
                 >
                   The link you enter is not safety.
                 </Text>
@@ -88,10 +88,10 @@ const BadResultPagePage = () => {
             </div>
           </div>
           <Navigationbar
-            className="absolute h-[278px] inset-x-[0] mx-[auto] top-[0] w-[100%]"
+            className="absolute h-[257px] inset-x-[0] mx-[auto] top-[0] w-[100%]"
             home="Home"
-            picwishone="images/img_picwish1.png"
             language="Chinese"
+            picwishone="images/img_picwish2_125x227.png"
           />
         </div>
         <Footer className="flex font-spacegrotesk items-center justify-center md:px-[20px] w-[100%]" />
