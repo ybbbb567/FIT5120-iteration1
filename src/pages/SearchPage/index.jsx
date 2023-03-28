@@ -1,8 +1,11 @@
 import React from "react";
-
+import { Button, Input } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
 import Footer from "components/Footer";
+
+const onSearch = (value) => console.log(value);
 
 const SearchPagePage = () => {
   return (
@@ -17,8 +20,8 @@ const SearchPagePage = () => {
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
           <Text
             className="font-semibold md:ml-[0] ml-[312px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
-            as="h1"
-            variant="h1"
+            as="h2"
+            variant="h2"
           >
             Type the link of the website you want access below
           </Text>
@@ -28,20 +31,25 @@ const SearchPagePage = () => {
               className="absolute h-[500px] inset-y-[0] left-[0] my-[auto] object-cover w-[500px]"
               alt="websitebackgro"
             />
-            <div className="absolute h-[102px] right-[0] top-[31%] md:w-[100%] w-[58%]">
-
-              <Img
-                src="images/img_component4.png"
-                className="absolute h-[102px] inset-[0] justify-center m-[auto] object-cover w-[auto]"
-                alt="componentFour"
+            <div className="absolute h-[102px] right-[0] top-[31%] md:w-[100%] w-[58%]" >
+              <Input
+                placeholder="input search text"
+                onSearch={onSearch}
+                onMouseOver={({ target }) => target.style.borderColor = "white"}
+                onMouseOut={({ target }) => target.style.borderColor = "grey"}
+                style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent" }}
               />
-              <Text
-                className="ml-[124px] my-[auto] not-italic text-left text-white_A700 w-[auto]"
-                as="h6"
-                variant="h6"
-              >
-                Check
-              </Text>
+              <Button shape="circle"
+                size='large'
+                onMouseOver={({ target }) => { target.style.borderColor = "white"; target.style.color = "black" }}
+                onMouseOut={({ target }) => { target.style.borderColor = "grey"; target.style.color = "black" }}
+                icon={<SearchOutlined />}
+              />
+              {/* <Img
+                src="images/img_component4.png"
+                className="absolute h-[102px] inset-[0] justify-center m-[auto] w-[auto]"
+                alt="componentFour"
+              /> */}
             </div>
           </div>
         </div>
