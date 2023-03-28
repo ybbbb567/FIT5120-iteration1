@@ -91,6 +91,7 @@ const BadResultPagePage = () => {
             className="absolute h-[278px] inset-x-[0] mx-[auto] top-[0] w-[100%]"
             home="Home"
             picwishone="images/img_picwish1.png"
+            language="Chinese"
           />
         </div>
         <Footer className="flex font-spacegrotesk items-center justify-center md:px-[20px] w-[100%]" />
