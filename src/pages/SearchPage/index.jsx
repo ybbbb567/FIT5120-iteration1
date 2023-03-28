@@ -29,6 +29,12 @@ const SearchPagePage = () => {
               alt="websitebackgro"
             />
             <div className="absolute h-[102px] right-[0] top-[31%] md:w-[100%] w-[58%]">
+
+              <Img
+                src="images/img_component4.png"
+                className="absolute h-[102px] inset-[0] justify-center m-[auto] object-cover w-[auto]"
+                alt="componentFour"
+              />
               <Text
                 className="ml-[124px] my-[auto] not-italic text-left text-white_A700 w-[auto]"
                 as="h6"
@@ -36,11 +42,6 @@ const SearchPagePage = () => {
               >
                 Check
               </Text>
-              <Img
-                src="images/img_component4.png"
-                className="absolute h-[102px] inset-[0] justify-center m-[auto] object-cover w-[auto]"
-                alt="componentFour"
-              />
             </div>
           </div>
         </div>
