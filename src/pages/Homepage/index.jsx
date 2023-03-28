@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Text, Button, Img, Line, List } from "components";
-import HomepageStack from "components/HomepageStack";
+import HomepageStackone from "components/HomepageStackone";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
 import { useNavigate } from "react-router-dom";
@@ -64,7 +64,7 @@ const HomepagePage = () => {
               orientation="horizontal"
             >
               <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
-                <HomepageStack
+                <HomepageStackone
                   className="h-[267px] relative w-[100%]"
                   thiswebsiteis={
                     <>
@@ -74,8 +74,8 @@ const HomepagePage = () => {
                   }
                 />
               </div>
-              <HomepageStack className="flex flex-1 flex-col items-center justify-start w-[100%]" />
-              <HomepageStack className="flex flex-1 flex-col items-center justify-start w-[100%]" />
+              <HomepageStackone className="flex flex-1 flex-col items-center justify-start w-[100%]" />
+              <HomepageStackone className="flex flex-1 flex-col items-center justify-start w-[100%]" />
             </List>
             <Img
               src="images/img_group9.svg"
@@ -89,6 +89,7 @@ const HomepagePage = () => {
           className="absolute flex inset-x-[0] items-center justify-center mx-[auto] md:px-[20px] top-[0] w-[100%]"
           home="Home"
           picwishone="images/img_picwish1.png"
+          language="Chinese"
         />
       </div>
     </>

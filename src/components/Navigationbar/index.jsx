@@ -1,8 +1,11 @@
 import React from "react";
 
 import { Text, Img } from "components";
+import { useNavigate } from "react-router-dom";
 
 const Navigationbar = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={props.className}>
@@ -10,9 +13,10 @@ const Navigationbar = (props) => {
           <div className="bg-black_900_e5 flex items-start justify-start p-[26px] sm:px-[20px] w-[100%]">
             <div className="flex items-center justify-start mb-[31px] md:ml-[0] ml-[342px] md:w-[100%] w-[auto]">
               <Text
-                className="font-bold font-opensans text-center text-white_A700 tracking-[-0.39px] w-[auto]"
+                className="common-pointer font-bold font-opensans text-center text-white_A700 tracking-[-0.39px] w-[auto]"
                 as="h4"
                 variant="h4"
+                onClick={() => navigate("/")}
               >
                 {props?.home}
               </Text>
