@@ -20,7 +20,7 @@ const HomepagePage = () => {
                   className="font-bold font-opensans text-gray_903 text-left tracking-[-0.36px] w-[auto]"
                   variant="body1"
                 >
-                  Let’s check the security of the website you will browse
+                  Let's check the security of the website you will browse
                 </Text>
                 <Text
                   className="font-normal font-opensans leading-[72.00px] mt-[83px] not-italic text-gray_903 text-left tracking-[-0.36px] w-[100%]"
