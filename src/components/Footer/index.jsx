@@ -35,9 +35,9 @@ const tailFormItemLayout = {
   },
 };
 
-const updateSize = document.querySelector('body').offsetWidth;
+//const updateSize = document.querySelector('body').offsetWidth;
 
-const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
+const CollectionCreateForm = ({ open, onCreate, onCancel}) => {
   const [form] = Form.useForm();
   return (
       <Modal
@@ -57,6 +57,9 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
               console.log('Validate Failed:', info);
             });
         }}
+        // onReset={() => {
+        //   form.resetFields();
+        // }}
         //width={updateSize==720?'70%':'50%'}
         //centered
         //style={{ background: 'white', marginTop: '50px', marginLeft: '100px', marginRight: '100px' }}
@@ -116,7 +119,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
           <Form.Item name="add_fed" label="Additional Feedback">
             <Input.TextArea placeholder="If you have any additional feedback, please type it in here..."/>
           </Form.Item> 
-          
+
         </Form>
       </Modal>
                 
@@ -129,6 +132,7 @@ const Footer = () => {
     console.log('Received values of form: ', values);
     setOpen(false);
   };
+
   return (
     <>
       <footer className="bg-black_900 flex sm:flex-col flex-row sm:gap-[20px] items-center justify-center pr-[1215px] sm:pr-[20px] md:pr-[40px] w-[100%]">
@@ -156,7 +160,7 @@ const Footer = () => {
             }}
           />
       </footer>
-    </>
+    </> 
   );
 };
 export default Footer;
