@@ -2,7 +2,7 @@ import { Button, Form, Input, Modal, Col, Row, Rate } from 'antd';
 import { useState } from 'react';
 import { Img } from "components";
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
-import colors from 'tailwindcss/colors';
+import { addFeedback } from 'api/feedback';
 
 const formItemLayout = {
   labelCol: {
@@ -38,7 +38,7 @@ const tailFormItemLayout = {
 
 //const updateSize = document.querySelector('body').offsetWidth;
 
-const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
+const CollectionCreateForm = ({ open, onCreate, onCancel, getToday }) => {
   const [form] = Form.useForm();
   return (
     <Modal
@@ -52,6 +52,21 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
         form
           .validateFields()
           .then((values) => {
+            const createdTime = getToday()
+            const feedback = {
+              name: values.name,
+              email: values.email,
+              rate: values.rate,
+              content: values.add_fed,
+              createdTime: createdTime
+              // createdTime: today.getUTCDate() + '-' + today.getUTCMonth() + '-' + today.getUTCFullYear()
+            }
+            console.log(getToday())
+            addFeedback(feedback).then(res => {
+              if (res.result) {
+                console.log(res)
+              }
+            })
             form.resetFields();
             onCreate(values);
           })
@@ -65,7 +80,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
         name="form_in_modal"
         {...formItemLayout}
         initialValues={{
-          rate: 3.5
+          rate: 3
         }}
       >
         {/* <Row gutter={[16, 8]}>
@@ -85,54 +100,14 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
 
         </Row> */}
 
-        <Row gutter={[16,8]}>
-          <Row gutter={16}>
-            <Col span={1}></Col>
-            <Col span={22.5}>
-              <label >Name:</label>
-            </Col>
-          </Row>
-          <Row gutter={[24,16]}>
-            <Col span={1}></Col>
-            <Col span={24}>
-              <Form.Item
-                name="name"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter your full name!',
-                  },
-                ]}
-              >
-                <Input suffix={<UserOutlined className="site-form-item-icon-0" />} />
-                {/* // style={{border: "solid lavender"}}
-                          // padding: 5 + "px",
-                          // borderRadius: 25 + "px"} */}
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={[10,4]}>
-            <Col span={1}></Col>
-            <Col span={22.5}>
-              <label >Email:</label>
-            </Col>
-          </Row>
-          <Row gutter={[10,4]}>
-            <Col span={1}></Col>
-            <Col span={20}>
-              <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter correct email address!',
-                  },
-                ]}
-              >
-                <Input type="email" placeholder="Email address" suffix={<MailOutlined className="site-form-item-icon-1" />} />
-              </Form.Item>
-            </Col>
-          </Row>
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={11}>
+            <label >Name:</label>
+          </Col>
+          <Col span={11}>
+            <label >Email:</label>
+          </Col>
         </Row>
         {/* <div>
             <Text>Your service rating</Text>
@@ -140,7 +115,37 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
 
         <Row gutter={[16, 8]}>
           <Col span={1}></Col>
-          <Col span={22.5}>
+          <Col span={11}>
+            <Form.Item
+              name="name"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter your full name!',
+                },
+              ]}
+            >
+              <Input suffix={<UserOutlined className="site-form-item-icon-0" />} />
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter correct email address!',
+                },
+              ]}
+            >
+              <Input type="email" placeholder="Email address" suffix={<MailOutlined className="site-form-item-icon-1" />} />
+            </Form.Item>
+          </Col>
+        </Row>
+
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={23}>
             <label >Your service rating:</label>
           </Col>
         </Row>
@@ -155,7 +160,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
 
         <Row gutter={[16, 8]}>
           <Col span={1}></Col>
-          <Col span={22.5}>
+          <Col span={23}>
             <label >Additional Feedback:</label>
           </Col>
         </Row>
@@ -163,8 +168,8 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
         <Row gutter={[16, 8]}>
           <Col span={1}></Col>
           <Col span={23}>
-            <Form.Item name="add_fed">
-              <Input.TextArea placeholder="If you have any additional feedback, please type it in here..." />
+            <Form.Item name="add_fed" style={{ width: "560px" }}>
+              <Input.TextArea placeholder="If you have any additional feedback, please type it in here..." style={{ height: "250px" }} />
             </Form.Item>
           </Col>
 
@@ -183,6 +188,18 @@ const Footer = () => {
     console.log('Received values of form: ', values);
     setOpen(false);
   };
+
+  const getToday = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+    const day = ("0" + currentDate.getDate()).slice(-2);
+    const hours = ("0" + currentDate.getHours()).slice(-2);
+    const minutes = ("0" + currentDate.getMinutes()).slice(-2);
+    const seconds = ("0" + currentDate.getSeconds()).slice(-2);
+    const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    return formattedDate;
+  }
 
   return (
     <>
@@ -206,6 +223,7 @@ const Footer = () => {
         <CollectionCreateForm
           open={open}
           onCreate={onCreate}
+          getToday={getToday}
           onCancel={() => {
             setOpen(false);
           }}
