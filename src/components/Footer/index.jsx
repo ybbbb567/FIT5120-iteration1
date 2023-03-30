@@ -1,6 +1,6 @@
-import { Button, Form, Input, Modal, Col, Row, Rate} from 'antd';
+import { Button, Form, Input, Modal, Col, Row, Rate } from 'antd';
 import { useState } from 'react';
-import { Img} from "components";
+import { Img } from "components";
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
@@ -37,92 +37,115 @@ const tailFormItemLayout = {
 
 //const updateSize = document.querySelector('body').offsetWidth;
 
-const CollectionCreateForm = ({ open, onCreate, onCancel}) => {
+const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
   const [form] = Form.useForm();
   return (
-      <Modal
-        open={open}
-        title="Hello, we would love to hear your feedback!"
-        okText="Submit Feedback"
-        cancelText="Cancel"
-        onCancel={onCancel}
-        onOk={() => {
-          form
-            .validateFields()
-            .then((values) => {
-              form.resetFields();
-              onCreate(values);
-            })
-            .catch((info) => {
-              console.log('Validate Failed:', info);
-            });
+    <Modal
+      open={open}
+      title="Hello, we would love to hear your feedback!"
+      okText="Submit Feedback"
+      cancelText="Cancel"
+      onCancel={onCancel}
+      onOk={() => {
+        form
+          .validateFields()
+          .then((values) => {
+            form.resetFields();
+            onCreate(values);
+          })
+          .catch((info) => {
+            console.log('Validate Failed:', info);
+          });
+      }}
+    // onReset={() => {
+    //   form.resetFields();
+    // }}
+    //width={updateSize==720?'70%':'50%'}
+    //centered
+    //style={{ background: 'white', marginTop: '50px', marginLeft: '100px', marginRight: '100px' }}
+    >
+      <Form
+        form={form}
+        name="form_in_modal"
+        {...formItemLayout}
+        initialValues={{
+          rate: 3.5
         }}
-        // onReset={() => {
-        //   form.resetFields();
-        // }}
-        //width={updateSize==720?'70%':'50%'}
-        //centered
-        //style={{ background: 'white', marginTop: '50px', marginLeft: '100px', marginRight: '100px' }}
       >
-        <Form
-          form={form}
-          name="form_in_modal"
-          {...formItemLayout}
-          initialValues={{
-            rate: 3.5
-          }}
-        >
-          
-          <Row gutter={[16,8]}>
-            <Col span={12}>
-              <Form.Item
-                name="visitor"
-                label="Name"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter your full name!',
-                  },
-                ]}
-              >
-                <Input suffix={<UserOutlined className="site-form-item-icon-0" />}/>
-                        {/* // style={{border: "solid lavender"}}
+
+        <Row gutter={[16, 8]}>
+          <Col span={11}>
+            <Form.Item
+              name="name"
+              label="Name"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter your full name!',
+                },
+              ]}
+            >
+              <Input suffix={<UserOutlined className="site-form-item-icon-0" />} />
+              {/* // style={{border: "solid lavender"}}
                         // padding: 5 + "px",
                         // borderRadius: 25 + "px"} */}
-              </Form.Item>
-            </Col>
-            <Col span={12}>
-              <Form.Item 
-                name="email" 
-                label="Email"
-                rules={[
-                  {
-                    required: true,
-                    message: 'Please enter correct email address!',
-                  },
-                ]}
-              >
-                <Input type="email" placeholder="Email address" suffix={<MailOutlined  className="site-form-item-icon-1" />}/>
-              </Form.Item>
-            </Col>
-          </Row>
-          {/* <div>
+            </Form.Item>
+          </Col>
+          <Col span={12}>
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter correct email address!',
+                },
+              ]}
+            >
+              <Input type="email" placeholder="Email address" suffix={<MailOutlined className="site-form-item-icon-1" />} />
+            </Form.Item>
+          </Col>
+        </Row>
+        {/* <div>
             <Text>Your service rating</Text>
           </div> */}
-          <Col span={24}>
-            <Form.Item name="rate" label="Your service rating"  >
+
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={22.5}>
+            <label >Your service rating:</label>
+          </Col>
+        </Row>
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={23}>
+            <Form.Item name="rate"  >
               <Rate />
             </Form.Item>
           </Col>
-          
+        </Row>
 
-          <Form.Item name="add_fed" label="Additional Feedback">
-            <Input.TextArea placeholder="If you have any additional feedback, please type it in here..."/>
-          </Form.Item> 
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={22.5}>
+            <label >Additional Feedback:</label>
+          </Col>
+        </Row>
 
-        </Form>
-      </Modal>
-                
+        <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={23}>
+            <Form.Item name="add_fed">
+              <Input.TextArea placeholder="If you have any additional feedback, please type it in here..." />
+            </Form.Item>
+          </Col>
+
+        </Row>
+
+
+      </Form>
+    </Modal>
+
   );
 };
 
@@ -136,31 +159,31 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-black_900 flex sm:flex-col flex-row sm:gap-[20px] items-center justify-center pr-[1215px] sm:pr-[20px] md:pr-[40px] w-[100%]">
-          <Img
-            src="images/img_picwish2_125x227.png"
-            className="md:flex-1 h-[170px] sm:h-[auto] object-cover md:w-[100%] w-[60%]"
-            alt="picwishTwo"
-          />
-          <Button type="text"
-            className="font-spacegrotesk text-left text-white_A700 w-[auto]"
-            style={{fontSize: '40px'}}
-            as="h2"
-            variant="h2"
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            Feedback
-          </Button>
-          <CollectionCreateForm
-            open={open}
-            onCreate={onCreate}
-            onCancel={() => {
-              setOpen(false);
-            }}
-          />
+        <Img
+          src="images/img_picwish2_125x227.png"
+          className="md:flex-1 h-[170px] sm:h-[auto] object-cover md:w-[100%] w-[60%]"
+          alt="picwishTwo"
+        />
+        <Button type="text"
+          className="font-spacegrotesk text-left text-white_A700 w-[auto]"
+          style={{ fontSize: '40px' }}
+          as="h2"
+          variant="h2"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Feedback
+        </Button>
+        <CollectionCreateForm
+          open={open}
+          onCreate={onCreate}
+          onCancel={() => {
+            setOpen(false);
+          }}
+        />
       </footer>
-    </> 
+    </>
   );
 };
 export default Footer;
