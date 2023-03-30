@@ -72,39 +72,71 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
           rate: 3.5
         }}
       >
+        {/* <Row gutter={[16, 8]}>
+          <Col span={1}></Col>
+          <Col span={22.5}>
+            <label >Additional Feedback:</label>
+          </Col>
+        </Row>
 
         <Row gutter={[16, 8]}>
-          <Col span={11}>
-            <Form.Item
-              name="name"
-              label="Name"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please enter your full name!',
-                },
-              ]}
-            >
-              <Input suffix={<UserOutlined className="site-form-item-icon-0" />} />
-              {/* // style={{border: "solid lavender"}}
-                        // padding: 5 + "px",
-                        // borderRadius: 25 + "px"} */}
+          <Col span={1}></Col>
+          <Col span={23}>
+            <Form.Item name="add_fed">
+              <Input.TextArea placeholder="If you have any additional feedback, please type it in here..." />
             </Form.Item>
           </Col>
-          <Col span={12}>
-            <Form.Item
-              name="email"
-              label="Email"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please enter correct email address!',
-                },
-              ]}
-            >
-              <Input type="email" placeholder="Email address" suffix={<MailOutlined className="site-form-item-icon-1" />} />
-            </Form.Item>
-          </Col>
+
+        </Row> */}
+
+        <Row gutter={[16,8]}>
+          <Row gutter={16}>
+            <Col span={1}></Col>
+            <Col span={22.5}>
+              <label >Name:</label>
+            </Col>
+          </Row>
+          <Row gutter={[24,16]}>
+            <Col span={1}></Col>
+            <Col span={24}>
+              <Form.Item
+                name="name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter your full name!',
+                  },
+                ]}
+              >
+                <Input suffix={<UserOutlined className="site-form-item-icon-0" />} />
+                {/* // style={{border: "solid lavender"}}
+                          // padding: 5 + "px",
+                          // borderRadius: 25 + "px"} */}
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={[10,4]}>
+            <Col span={1}></Col>
+            <Col span={22.5}>
+              <label >Email:</label>
+            </Col>
+          </Row>
+          <Row gutter={[10,4]}>
+            <Col span={1}></Col>
+            <Col span={20}>
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please enter correct email address!',
+                  },
+                ]}
+              >
+                <Input type="email" placeholder="Email address" suffix={<MailOutlined className="site-form-item-icon-1" />} />
+              </Form.Item>
+            </Col>
+          </Row>
         </Row>
         {/* <div>
             <Text>Your service rating</Text>
