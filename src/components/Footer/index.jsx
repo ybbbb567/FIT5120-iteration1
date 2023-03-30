@@ -2,6 +2,7 @@ import { Button, Form, Input, Modal, Col, Row, Rate } from 'antd';
 import { useState } from 'react';
 import { Img } from "components";
 import { MailOutlined, UserOutlined } from '@ant-design/icons';
+import colors from 'tailwindcss/colors';
 
 const formItemLayout = {
   labelCol: {
@@ -45,6 +46,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
       title="Hello, we would love to hear your feedback!"
       okText="Submit Feedback"
       cancelText="Cancel"
+      okButtonProps={{ style: { backgroundColor: '#4A3AFF' } }}
       onCancel={onCancel}
       onOk={() => {
         form
@@ -57,12 +59,6 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
             console.log('Validate Failed:', info);
           });
       }}
-    // onReset={() => {
-    //   form.resetFields();
-    // }}
-    //width={updateSize==720?'70%':'50%'}
-    //centered
-    //style={{ background: 'white', marginTop: '50px', marginLeft: '100px', marginRight: '100px' }}
     >
       <Form
         form={form}
