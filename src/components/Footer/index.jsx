@@ -1,6 +1,7 @@
 import { Button, Form, Input, Modal, Col, Row, Rate} from 'antd';
 import { useState } from 'react';
 import { Img} from "components";
+import { MailOutlined, UserOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
   labelCol: {
@@ -81,7 +82,10 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
                   },
                 ]}
               >
-                <Input />
+                <Input suffix={<UserOutlined className="site-form-item-icon-0" />}/>
+                        {/* // style={{border: "solid lavender"}}
+                        // padding: 5 + "px",
+                        // borderRadius: 25 + "px"} */}
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -95,17 +99,22 @@ const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
                   },
                 ]}
               >
-                <Input type="email" />
+                <Input type="email" placeholder="Email address" suffix={<MailOutlined  className="site-form-item-icon-1" />}/>
               </Form.Item>
             </Col>
           </Row>
+          {/* <div>
+            <Text>Your service rating</Text>
+          </div> */}
+          <Col span={24}>
+            <Form.Item name="rate" label="Your service rating"  >
+              <Rate />
+            </Form.Item>
+          </Col>
+          
 
-          <Form.Item name="rate" label="Rate">
-            <Rate />
-          </Form.Item>
-
-          <Form.Item name="add_com" label="Additional Comment">
-            <Input.TextArea />
+          <Form.Item name="add_fed" label="Additional Feedback">
+            <Input.TextArea placeholder="If you have any additional feedback, please type it in here..."/>
           </Form.Item> 
           
         </Form>
