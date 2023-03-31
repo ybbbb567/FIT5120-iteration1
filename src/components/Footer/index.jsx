@@ -133,6 +133,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel, getToday }) => {
               name="email"
               rules={[
                 {
+                  type: "email",
                   required: true,
                   message: 'Please enter correct email address!',
                 },
