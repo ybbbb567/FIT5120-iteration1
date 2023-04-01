@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { getFeedback } from 'api/feedback'
 import { Text, Button, Img, Line, List } from "components";
 import HomepageStackone from "components/HomepageStackone";
 import Footer from "components/Footer";
@@ -8,6 +8,17 @@ import { useNavigate } from "react-router-dom";
 
 const HomepagePage = () => {
   const navigate = useNavigate();
+
+    
+    //initial
+  useEffect (() => {
+    getFeedback().then(res => {
+      if (res.result) {
+        console.log(res)
+      } 
+      })
+  })
+  
 
   return (
     <>
