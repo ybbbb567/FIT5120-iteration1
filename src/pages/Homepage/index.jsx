@@ -92,7 +92,7 @@ const HomepagePage = () => {
               dotPosition="bottom"
               slidesToShow={3}
               slidesToScroll={3}
-              style={{ height: "400px", padding: "0 20px" }}
+              style={{ height: "400px", padding: "50px" }}
             >
               {feedbackList.map((item, index) => (
                 <div key={index} className="padding-[20px]">
