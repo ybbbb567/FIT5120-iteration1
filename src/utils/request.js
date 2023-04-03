@@ -2,8 +2,8 @@ import axios from 'axios'
 import { message } from 'antd'
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://localhost:8080/', // api的base_url
-  // baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api的base_url
+  // baseURL: 'http://localhost:8080/', // api的base_url
+  baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api的base_url
   timeout: 600000 // 请求超时时间
 })
 // request拦截器
