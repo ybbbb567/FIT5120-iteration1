@@ -1,9 +1,9 @@
 import request from '../utils/request'
 
-export function checkLink (urlString) {
+export function checkLink (url) {
   return request({
     url: `/classification/predict`,
-    data: { url: urlString },
+    data: { urlString: url },
     method: 'post',
   })
 }

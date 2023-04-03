@@ -40,7 +40,7 @@ const HomepagePage = () => {
 
   return (
     <>
-      <div className="bg-gray_400 font-opensans h-[2015px] mx-[auto] relative w-[100%]">
+      <div className="bg-gray_400 font-opensans h-[1483px] mx-[auto] relative w-[100%]">
         <div className="absolute bg-gradient2  bottom-[0] flex inset-x-[0] items-center justify-start mx-[auto] w-[100%]">
           <div className="flex flex-col justify-start w-[100%]">
             <div className="flex md:flex-col flex-row gap-[31px] items-start justify-start max-w-[1553px] mx-[auto] md:px-[20px] w-[100%]">
