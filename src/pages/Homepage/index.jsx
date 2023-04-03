@@ -1,30 +1,48 @@
 import React, { useEffect } from "react";
+import { useState } from 'react';
 import { getFeedback } from 'api/feedback'
 import { Text, Button, Img, Line, List } from "components";
 import HomepageStackone from "components/HomepageStackone";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
 import { useNavigate } from "react-router-dom";
+import { Carousel, Card } from 'antd';
 
 const HomepagePage = () => {
   const navigate = useNavigate();
 
-    
-    //initial
-  useEffect (() => {
-    getFeedback().then(res => {
-      if (res.result) {
-        console.log(res)
-      } 
-      })
-  })
-  
+  const contentStyle = {
+    margin: 0,
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
+
+  const [feedbackList, setFeedbackList] = useState([]);
+
+  //initial
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultList = await getFeedback().then(res => res.result)
+      if (resultList) {
+        setFeedbackList(resultList);
+        console.log(resultList);
+      }
+    };
+    fetchData();
+  }, [])
+
+  const onChange = (currentSlide) => {
+    console.log(currentSlide);
+  };
 
   return (
     <>
       <div className="bg-gray_400 font-opensans h-[2015px] mx-[auto] relative w-[100%]">
-        <div className="absolute bg-gradient2  bottom-[0] flex inset-x-[0] items-center justify-start mx-[auto] py-[38px] w-[100%]">
-          <div className="flex flex-col justify-start mb-[6px] w-[100%]">
+        <div className="absolute bg-gradient2  bottom-[0] flex inset-x-[0] items-center justify-start mx-[auto] w-[100%]">
+          <div className="flex flex-col justify-start w-[100%]">
             <div className="flex md:flex-col flex-row gap-[31px] items-start justify-start max-w-[1553px] mx-[auto] md:px-[20px] w-[100%]">
               <div className="flex md:flex-1 flex-col items-start justify-start md:mt-[0] mt-[122px] md:w-[100%] w-[49%]">
                 <Text
@@ -67,51 +85,25 @@ const HomepagePage = () => {
             >
               What our users say about us
             </Text>
-            <Line className="bg-black_900_e5 h-[3px] md:ml-[0] ml-[788px] mr-[812px] mt-[39px] w-[5%]" />
-            <List
-              className="sm:flex-col flex-row font-spacegrotesk md:gap-[40px] gap-[83px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center max-w-[1555px] mt-[149px] mx-[auto] md:px-[20px] w-[100%]"
-              orientation="horizontal"
+            <Line className="h-[3px] md:ml-[0] ml-[788px] mr-[812px] mt-[39px] w-[5%]" />
+
+            <Carousel
+              dots={true}
+              dotPosition="bottom"
+              slidesToShow={3}
+              slidesToScroll={3}
+              style={{ height: "400px", padding: "0 20px" }}
             >
-              <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
-                <HomepageStackone
-                  className="h-[267px] relative w-[100%]"
-                  thiswebsiteis={
-                    <>
-                      This website is useful and real help me <br />
-                      to avoid the scam
-                    </>
-                  }
-                />
-              </div>
-              <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
-                <HomepageStackone
-                  className="h-[267px] relative w-[100%]"
-                  thiswebsiteis={
-                    <>
-                      This website is useful and real help me <br />
-                      to avoid the scam
-                    </>
-                  }
-                />
-              </div>
-              <div className="flex flex-1 items-center justify-start pb-[35px] w-[100%]">
-                <HomepageStackone
-                  className="h-[267px] relative w-[100%]"
-                  thiswebsiteis={
-                    <>
-                      This website is useful and real help me <br />
-                      to avoid the scam
-                    </>
-                  }
-                />
-              </div>
-            </List>
-            <Img
-              src="images/img_group9.svg"
-              className="h-[56px] md:ml-[0] ml-[717px] mt-[123px] w-[auto]"
-              alt="groupNine"
-            />
-            <Footer className="flex flex-col font-spacegrotesk items-center justify-start mt-[264px] w-[100%]" />
+              {feedbackList.map((item, index) => (
+                <div key={index} className="padding-[20px]">
+                  <HomepageStackone
+                    className="h-[250px] relative w-[100%]"
+                    thiswebsiteis={item.content}
+                  />
+                </div>
+              ))}
+            </Carousel>
+            <Footer className="flex flex-col font-spacegrotesk items-center justify-start w-[100%]" />
           </div>
         </div>
         <Navigationbar
@@ -120,7 +112,7 @@ const HomepagePage = () => {
           language="Chinese"
           picwishone="images/img_picwish2_125x227.png"
         />
-      </div>
+      </div >
     </>
   );
 };
