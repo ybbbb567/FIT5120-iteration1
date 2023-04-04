@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'onlinesafe'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_261DE7F4589E42A09710DF9AEC3DAADF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6CD074E98C6542278489778319C430B1 }}
           package: .
