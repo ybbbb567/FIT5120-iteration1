@@ -23,4 +23,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .git.zip
+<<<<<<< HEAD
 .git
+=======
+.git
+>>>>>>> 6c22d51657fa9737136927dfa90bd2c300ee7ebe
