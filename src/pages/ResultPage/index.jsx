@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Text, Img } from "components";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
