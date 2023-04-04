@@ -10,4 +10,11 @@ export default defineConfig({
     outDir: "build",
   },
   plugins: [tsconfigPaths(), react()],
+  css: {
+    postcss: {
+      config: {
+        path: __dirname,
+      },
+    },
+  },
 });
