@@ -1,5 +1,8 @@
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import postcssImport from "postcss-import";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 export default {
   build: {
@@ -9,10 +12,10 @@ export default {
   css: {
     postcss: {
       plugins: [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
+        postcssImport(),
+        tailwindcss(),
+        autoprefixer(),
       ],
     },
   },
-}
+};
