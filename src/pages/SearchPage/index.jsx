@@ -91,11 +91,6 @@ const SearchPagePage = () => {
                 }}>
                 <p>The type of this website is {result ? result.category : ''}</p>
               </Modal>
-              {/* <Img
-                src="images/img_component4.png"
-                className="absolute h-[102px] inset-[0] justify-center m-[auto] w-[auto]"
-                alt="componentFour"
-              /> */}
             </div>
           </div>
         </div>
