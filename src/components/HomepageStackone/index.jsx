@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Rate } from 'antd';
 import { Img, Text } from "components";
 
 const HomepageStackone = (props) => {
@@ -24,11 +24,7 @@ const HomepageStackone = (props) => {
             >
               {props?.thiswebsiteis}
             </Text>
-            <Img
-              src="images/img_star.svg"
-              className="h-[30px] w-[auto]"
-              alt="star"
-            />
+            <Rate disabled defaultValue={props?.rates} />
           </div>
         </div>
       </div>

@@ -99,6 +99,7 @@ const HomepagePage = () => {
                   <HomepageStackone
                     className="h-[250px] relative w-[100%]"
                     thiswebsiteis={item.content}
+                    rates={item.rate}
                   />
                 </div>
               ))}
