@@ -10,7 +10,7 @@ import { checkLink } from "api/check"
 const SearchPagePage = () => {
 
 
-  const urlRegex = /^https?:\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+  const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
 
   const [loading, setLoading] = useState(false);
 
