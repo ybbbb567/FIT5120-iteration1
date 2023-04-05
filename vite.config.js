@@ -6,7 +6,9 @@ import autoprefixer from "autoprefixer";
 
 export default {
   build: {
-    outDir: "dist",
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    }
   },
   plugins: [tsconfigPaths(), react()],
   css: {
