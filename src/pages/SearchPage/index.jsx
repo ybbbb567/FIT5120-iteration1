@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Input, Modal } from 'antd';
+import { Button, Input, Card, Table, message } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
@@ -9,34 +9,42 @@ import { checkLink } from "api/check"
 
 const SearchPagePage = () => {
 
+
+  const urlRegex = /^https?:\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
+
+  const [loading, setLoading] = useState(false);
+
+  const [showCard, setShowCard] = useState(false);
+
   const [result, setResult] = useState(null);
 
   const [searchValue, setSearchValue] = useState('');
 
   const onSearch = () => {
-    checkLink(searchValue).then(res => {
-      if (res.result) {
-        console.log(res.result);
-        setResult(res.result)
-        setIsModalOpen(true)
-      }
-    })
+    if (urlRegex.test(searchValue)) {
+      setLoading(true)
+      setShowCard(true)
+      checkLink(searchValue).then(res => {
+        if (res.result) {
+          console.log(res.result);
+          setResult(res.result)
+          setLoading(false)
+        }
+      })
+    } else {
+      message.error("Input a valid url string!")
+    }
+
   }
 
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   }
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOk = () => {
-    setIsModalOpen(false);
+  const gridStyle = {
+    width: '20%',
+    textAlign: 'center',
   };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
 
   return (
     <>
@@ -62,40 +70,60 @@ const SearchPagePage = () => {
               alt="websitebackgro"
             />
             <div className="absolute h-[102px] right-[0] top-[31%] md:w-[100%] w-[58%]" >
-              <Input
-                placeholder="input search text"
-                value={searchValue}
-                onChange={handleInputChange}
-                onMouseOver={({ target }) => target.style.borderColor = "white"}
-                onMouseOut={({ target }) => target.style.borderColor = "grey"}
-                style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent" }}
-              />
-              <Button shape="circle"
-                size='large'
-                onClick={onSearch}
-                onMouseOver={({ target }) => { target.style.borderColor = "white"; target.style.color = "black" }}
-                onMouseOut={({ target }) => { target.style.borderColor = "grey"; target.style.color = "black" }}
-                icon={<SearchOutlined />}
-              />
-              <Modal
-                title="Classification Result"
-                open={isModalOpen}
-                onOk={handleOk}
-                onCancel={handleCancel}
-                centered={true}
-                cancelButtonProps={{ style: { display: 'none' } }}
-                okButtonProps={{
-                  style: {
-                    backgroundColor: '#4A3AFF'
-                  }
-                }}>
-                <p>The type of this website is {result ? result.category : ''}</p>
-              </Modal>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Input
+                  placeholder="input search text"
+                  value={searchValue}
+                  onChange={handleInputChange}
+                  onMouseOver={({ target }) => target.style.borderColor = "white"}
+                  onMouseOut={({ target }) => target.style.borderColor = "grey"}
+                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent" }}
+                />
+                <Button shape="circle"
+                  size='large'
+                  onClick={onSearch}
+                  onMouseOver={({ target }) => { target.style.borderColor = "white"; target.style.color = "black" }}
+                  onMouseOut={({ target }) => { target.style.borderColor = "grey"; target.style.color = "black" }}
+                  icon={<SearchOutlined />}
+                />
+              </div>
+              <div style={{ height: 30 }}></div>
+              {showCard ? (
+                <Card
+                  loading={loading}
+                  centered={true}
+                  title="Classification Result"
+                  headStyle={{ backgroundColor: " #C84E89" }}
+                  bodyStyle={{ padding: 0 }}
+                  style={{ width: 599, backgroundColor: "transparent" }}>
+                  {/* extra={<a href="#">More</a>} */}
+                  <div style={{ height: 30 }}></div>
+                  <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{searchValue ? searchValue : ''}</div>
+                  <div style={{ height: 30 }}></div>
+                  {/* <div style={{ backgroundColor: 'orange' }}> */}
+                  <Card bordered={false} style={{ borderRadius: 0, width: 598, backgroundColor: ' #FC945F' }}>
+                    <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob0 * 100) + '%' : ''}</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob1 * 100) + '%' : ''}</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob2 * 100) + '%' : ''}</Card.Grid>
+                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob3 * 100) + '%' : ''}</Card.Grid>
+                  </Card>
+                  {/* </div> */}
+                  <div style={{ height: 30 }}></div>
+                  <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.category : ''}</div>
+                  <div style={{ height: 30 }}></div>
+                </Card>
+              ) : null}
             </div>
           </div>
         </div>
         <Footer className="flex font-spacegrotesk items-center justify-center mt-[374px] md:px-[20px] w-[100%]" />
-      </div>
+      </div >
     </>
   );
 };

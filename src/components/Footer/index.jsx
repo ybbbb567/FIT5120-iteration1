@@ -170,7 +170,7 @@ const CollectionCreateForm = ({ open, onCreate, onCancel, getToday }) => {
           <Col span={1}></Col>
           <Col span={23}>
             <Form.Item name="add_fed" style={{ width: "560px" }}>
-              <Input.TextArea placeholder="If you have any additional feedback, please type it in here..." style={{ height: "250px" }} />
+              <Input.TextArea showCount maxLength={100} placeholder="If you have any additional feedback, please type it in here..." style={{ height: "250px" }} />
             </Form.Item>
           </Col>
 
@@ -199,7 +199,7 @@ const Footer = () => {
 
   return (
     <>
-          <footer className="bg-black_900 flex flex-row gap-[400px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
+      <footer className="bg-black_900 flex flex-row gap-[400px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
         <Img
           src="images/img_picwish2_125x227.png"
           className="md:flex-1 h-[145px] sm:h-[auto] object-cover md:w-[100%] "

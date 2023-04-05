@@ -19,9 +19,7 @@ service.interceptors.request.use(config => {
 // response拦截器
 service.interceptors.response.use(
   response => {
-    if (response.data.code === '200') {
-      message.success(response.data.message);
-    } else {
+    if (response.data.code !== '200') {
       message.error(response.data.message);
     }
     return response.data
