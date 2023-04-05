@@ -17,15 +17,15 @@ const HomepageStackone = (props) => {
           style={{ backgroundImage: "url('images/img_group157.svg')" }}
         >
           <div className="gallery  flex-col  md:gap-[40px] gap-[62px] justify-start md:ml-[0] ml-[2px] mt-[71px] md:w-[100%] w-[71%]">
-            <Text 
+            <Text
               className="font-normal font-rubik  max-w-[426px] md:max-w-full not-italic text-gray_500 text-left tracking-[-0.50px]"
               as="h6"
               variant="h6"
-              style= {{wordWrap: 'break-word'}}
+              style={{ wordWrap: 'break-word', fontSize: 18 }}
             >
               {props?.thiswebsiteis}
             </Text>
-            
+
             <Rate disabled defaultValue={props?.rates} />
           </div>
         </div>
