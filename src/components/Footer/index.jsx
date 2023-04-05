@@ -199,17 +199,17 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-black_900 flex sm:flex-col flex-row sm:gap-[20px] items-center justify-center pr-[1215px] sm:pr-[20px] md:pr-[40px] w-[100%]">
+          <footer className="bg-black_900 flex flex-row gap-[400px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
         <Img
           src="images/img_picwish2_125x227.png"
-          className="md:flex-1 h-[170px] sm:h-[auto] object-cover md:w-[100%] w-[60%]"
+          className="md:flex-1 h-[145px] sm:h-[auto] object-cover md:w-[100%] "
           alt="picwishTwo"
         />
         <Button type="text"
           className="font-spacegrotesk text-left text-white_A700 w-[auto]"
-          style={{ fontSize: '40px' }}
+          style={{ fontSize: '30px' }}
           as="h2"
-          variant="h2"
+          variant="h4"
           onClick={() => {
             setOpen(true);
           }}
