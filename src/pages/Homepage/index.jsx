@@ -79,7 +79,7 @@ const HomepagePage = () => {
               </div>
             </div>
             <Text
-              className="md:ml-[0] ml-[597px] mt-[80px] text-center text-gray_903 w-[auto]"
+              className="md:ml-[0]  mt-[80px] text-center text-gray_903 w-[auto]"
               as="h3"
               variant="h3"
             >

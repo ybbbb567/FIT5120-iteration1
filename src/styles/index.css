@@ -160,4 +160,10 @@ ul li a{
   display: flex;
   flex-direction: column;
   list-style-type: none;
+
+  
+}
+.gallery {
+  display: flex;
+  flex-direction: column-reverse;
 }
