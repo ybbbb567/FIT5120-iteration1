@@ -2,8 +2,8 @@ import axios from 'axios'
 import { message } from 'antd'
 // axios
 const service = axios.create({
-  baseURL: 'http://localhost:8080/', // api base_url
-  // baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api base_url
+  // baseURL: 'http://localhost:8080/', // api base_url
+  baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api base_url
   timeout: 600000 // Request timeout
 })
 // request interceptor
