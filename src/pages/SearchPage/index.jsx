@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Input, Card, message, Modal } from 'antd';
+import { Button, Input, Card, message, Modal, Carousel, Col, Row, notification } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
 import Footer from "components/Footer";
-import { checkLink } from "api/check"
+import { checkLink, vote } from "api/check";
+import { CheckOutlined, CloseOutlined, SmileOutlined } from '@ant-design/icons';
 
 const SearchPagePage = () => {
 
@@ -22,9 +23,13 @@ const SearchPagePage = () => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const [likeClicked, setLikeClicked] = useState(false);
+
+  const [dislikeClicked, setDislikeClicked] = useState(false);
+
   function handleLinkClick (event) {
     event.preventDefault();
-    if (result.category != 'benign') {
+    if (result.predict.category != 'benign') {
       setShowModal(true);
     } else {
       window.location.href = event.target.href;
@@ -55,6 +60,44 @@ const SearchPagePage = () => {
       message.error("Input a valid url string!")
     }
 
+  }
+
+  const updateResult = async (field) => {
+    const newResult = { ...result }
+    newResult[field]++
+    const website = {
+      id: newResult.id,
+      link: newResult.link,
+      likeNum: newResult.likeNum,
+      dislikeNum: newResult.dislikeNum,
+    }
+    const res = await vote(website)
+    if (res) {
+      notification.open({
+        message: 'Vote Success',
+        placement: 'topLeft',
+        description: 'Your vote has been recorded.',
+        icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+        duration: 3,
+      })
+    }
+    setResult(newResult)
+  }
+
+  const onClickLike = () => {
+    if (!likeClicked) {
+      setLikeClicked(true);
+      setDislikeClicked(true);
+      updateResult('likeNum')
+    }
+  }
+
+  const onClickDislike = () => {
+    if (!dislikeClicked) {
+      setLikeClicked(true);
+      setDislikeClicked(true);
+      updateResult('dislikeNum')
+    }
   }
 
   const handleInputChange = (event) => {
@@ -109,35 +152,80 @@ const SearchPagePage = () => {
               </div>
               <div style={{ height: 30 }}></div>
               {showCard ? (
-                <Card
-                  loading={loading}
-                  centered="true"
-                  title="Classification Result"
-                  headStyle={{ backgroundColor: " #C84E89" }}
-                  bodyStyle={{ padding: 0 }}
-                  style={{ width: 599, backgroundColor: "transparent" }}>
-                  {/* extra={<a href="#">More</a>} */}
-                  <div style={{ height: 30 }}></div>
-                  <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;<a href={searchValue.startsWith('http://') || searchValue.startsWith('https://') ? searchValue : `http://${searchValue}`} onClick={handleLinkClick}>{searchValue ? searchValue : ''}</a></div>
-                  <div style={{ height: 30 }}></div>
-                  {/* <div style={{ backgroundColor: 'orange' }}> */}
-                  <Card bordered={false} style={{ borderRadius: 0, width: 598, backgroundColor: ' #FC945F' }}>
-                    <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob0 * 100) + '%' : ''}</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob1 * 100) + '%' : ''}</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob2 * 100) + '%' : ''}</Card.Grid>
-                    <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.prob3 * 100) + '%' : ''}</Card.Grid>
-                  </Card>
-                  {/* </div> */}
-                  <div style={{ height: 30 }}></div>
-                  <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.category : ''}</div>
-                  <div style={{ height: 30 }}></div>
-                </Card>
+                <Carousel>
+                  <div>
+                    <Card
+                      loading={loading}
+                      centered="true"
+                      title="Classification Result"
+                      headStyle={{ backgroundColor: " #C84E89" }}
+                      bodyStyle={{ padding: 0 }}
+                      style={{ width: 599, backgroundColor: "transparent" }}>
+                      {/* extra={<a href="#">More</a>} */}
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
+                        <a href={result.link.startsWith('http://') || result.link.startsWith('https://') ? result.link : `http://${searchValue}`} onClick={handleLinkClick}>
+                          {result.link}
+                        </a>
+                      )}
+                      </div>
+                      <div style={{ height: 30 }}></div>
+                      {/* <div style={{ backgroundColor: 'orange' }}> */}
+                      {result && (
+                        <Card bordered={false} style={{ borderRadius: 0, width: 598, backgroundColor: ' #FC945F' }}>
+                          <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob0 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob1 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob2 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob3 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                        </Card>
+                      )}
+
+                      {/* </div> */}
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
+                      <div style={{ height: 30 }}></div>
+                    </Card>
+                  </div>
+                  <div>
+                    <Card
+                      centered="true"
+                      title="Feedback"
+                      style={{ width: 599, backgroundColor: "transparent" }}
+                    >
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ marginLeft: 30 }}>Do you think the classification is accurate?</div>
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ height: 30 }}></div>
+                      <div>
+                        <Row gutter={[16, 8]}>
+                          <Col span={14}>
+                          </Col>
+                          <Col span={2}>
+                            <CheckOutlined onClick={onClickLike} style={{ cursor: likeClicked ? 'not-allowed' : 'pointer' }} />
+                          </Col>
+                          <Col span={3} >
+                            {result ? result.likeNum : ''}
+                          </Col>
+                          <Col span={2}>
+                            <CloseOutlined onClick={onClickDislike} style={{ cursor: dislikeClicked ? 'not-allowed' : 'pointer' }} />
+                          </Col>
+                          <Col span={3}>
+                            {result ? result.dislikeNum : ''}
+                          </Col>
+                        </Row>
+                      </div>
+                      <div style={{ height: 30 }}></div>
+                    </Card>
+                  </div>
+
+                </Carousel>
+
               ) : null}
 
               <Modal title="Notification" open={showModal} onOk={handleOk} onCancel={handleCancel}>

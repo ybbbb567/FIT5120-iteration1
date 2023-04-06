@@ -1,22 +1,21 @@
 import axios from 'axios'
 import { message } from 'antd'
-// 创建axios实例
+// axios
 const service = axios.create({
-  // baseURL: 'http://localhost:8080/', // api的base_url
-  baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api的base_url
-  timeout: 600000 // 请求超时时间
+  baseURL: 'http://localhost:8080/', // api base_url
+  // baseURL: 'https://smartrecyclebackend.azurewebsites.net/', // api base_url
+  timeout: 600000 // Request timeout
 })
-// request拦截器
+// request interceptor
 service.interceptors.request.use(config => {
-  //获取登录成功后store中的token
-  config.headers['x-access-token'] = "123"// 让每个请求携带自定义token 请根据实际情况自行修改
+  config.headers['x-access-token'] = "123" //default token
   return config
 }, error => {
   // Do something with request error
   return Promise.reject(error)
 })
 
-// response拦截器
+// response interceptor
 service.interceptors.response.use(
   response => {
     if (response.data.code !== '200') {
