@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Input, Card, Table, message } from 'antd';
+import { Button, Input, Card, message, Modal } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
@@ -10,7 +10,7 @@ import { checkLink } from "api/check"
 const SearchPagePage = () => {
 
 
-  const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+  const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?$/;
 
   const [loading, setLoading] = useState(false);
 
@@ -19,6 +19,26 @@ const SearchPagePage = () => {
   const [result, setResult] = useState(null);
 
   const [searchValue, setSearchValue] = useState('');
+
+  const [showModal, setShowModal] = useState(false);
+
+  function handleLinkClick (event) {
+    event.preventDefault();
+    if (result.category != 'benign') {
+      setShowModal(true);
+    } else {
+      window.location.href = event.target.href;
+    }
+  }
+
+  const handleOk = () => {
+    window.location.href = searchValue.startsWith('http://') || searchValue.startsWith('https://') ? searchValue : `http://${searchValue}`;
+    setShowModal(false);
+  };
+
+  const handleCancel = () => {
+    setShowModal(false);
+  };
 
   const onSearch = () => {
     if (urlRegex.test(searchValue)) {
@@ -91,14 +111,14 @@ const SearchPagePage = () => {
               {showCard ? (
                 <Card
                   loading={loading}
-                  centered={true}
+                  centered="true"
                   title="Classification Result"
                   headStyle={{ backgroundColor: " #C84E89" }}
                   bodyStyle={{ padding: 0 }}
                   style={{ width: 599, backgroundColor: "transparent" }}>
                   {/* extra={<a href="#">More</a>} */}
                   <div style={{ height: 30 }}></div>
-                  <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{searchValue ? searchValue : ''}</div>
+                  <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;<a href={searchValue.startsWith('http://') || searchValue.startsWith('https://') ? searchValue : `http://${searchValue}`} onClick={handleLinkClick}>{searchValue ? searchValue : ''}</a></div>
                   <div style={{ height: 30 }}></div>
                   {/* <div style={{ backgroundColor: 'orange' }}> */}
                   <Card bordered={false} style={{ borderRadius: 0, width: 598, backgroundColor: ' #FC945F' }}>
@@ -119,6 +139,11 @@ const SearchPagePage = () => {
                   <div style={{ height: 30 }}></div>
                 </Card>
               ) : null}
+
+              <Modal title="Notification" open={showModal} onOk={handleOk} onCancel={handleCancel}>
+                <p>Are you sure you want to vist this page?</p>
+              </Modal>
+
             </div>
           </div>
         </div>
