@@ -18,16 +18,16 @@ const QuizPage = () => {
             <div className="h-[212px] mr-[933px] relative w-[29%]">
               <Img
                 src="images/img_ellipse1.png"
-                className="h-[212px] m-auto object-cover w-full"
+                className="h-[210px] m-auto  w-full"
                 alt="ellipseOne"
               />
               <Text
-                className="absolute font-normal leading-[54.00px] left-[3%] not-italic text-center text-gray_900 top-[20%]"
-                as="h1"
-                variant="h1"
+                className="absolute font-normal leading-[54.00px]  not-italic text-center text-gray_900 top-[20%]"
+                as="h2"
+                variant="h2"
               >
                 <>
-                  Website Security
+                 Online Trusty
                   <br />
                   Quiz
                 </>
