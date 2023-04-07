@@ -7,6 +7,8 @@ const BadResultPage = React.lazy(() => import("pages/BadResultPage"));
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const SearchPage = React.lazy(() => import("pages/SearchPage"));
 const ResultPage = React.lazy(() => import("pages/ResultPage"));
+const QuizPage = React.lazy(() => import("pages/QuizPage"));
+
 const ProjectRoutes = () => {
   return (
     <React.Suspense fallback={<>Loading...</>}>
@@ -19,6 +21,8 @@ const ProjectRoutes = () => {
           <Route path="/badresultpage" element={<BadResultPage />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/dhiwise-dashboard" element={<Home />} />
+          <Route path="/quiz" element={<QuizPage />} />
+
         </Routes>
       </Router>
     </React.Suspense>
