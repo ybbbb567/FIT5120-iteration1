@@ -2,9 +2,13 @@ import React from "react";
 
 import { Img, Text } from "components";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 const Navigationbar = (props) => {
   const navigate = useNavigate();
+  const homeStyle = { color: 'white' };
+  const activeStyle = { color: 'white' };
 
   return (
     <>
@@ -18,15 +22,23 @@ const Navigationbar = (props) => {
               alt="picwishOne"
             />
             <div className="flex items-center justify-start w-[auto]">
-              <Text
-                className="common-pointer font-opensans text-center text-white_A700  w-[auto]"
-                as="h4"
-                variant="h4"
-                onClick={() => navigate("/")}
-              >
-                {props?.home}
-              </Text>
+            <NavLink to="/"  style={isActive => ({
+         color: isActive ? "blue" : "white"})} end >Home</NavLink>
+
             </div>
+            <div className="flex items-center justify-start w-[auto]">
+            <NavLink to="/searchpage" style={({isActive}) => ({color: isActive ? 'blue' : 'white'})} 
+  className={({isActive}) => `ln-${isActive ? ' active' : ''}`}  >Website Checker</NavLink>
+
+
+
+
+            </div>
+            <div className="flex items-center justify-start w-[auto]">
+            <NavLink to="/quiz" style={({isActive}) => ({color: isActive ? 'blue' : 'white'})} 
+  className={({isActive}) => `ln-${isActive ? ' active' : ''}`}  >Quiz</NavLink>
+  </div>
+
           </div>
         </div>
       </div>
