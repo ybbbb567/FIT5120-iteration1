@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 
+
+
 const Navigationbar = (props) => {
   const navigate = useNavigate();
-  const homeStyle = { color: 'white' };
-  const activeStyle = { color: 'white' };
 
   return (
     <>
@@ -22,21 +22,21 @@ const Navigationbar = (props) => {
               alt="picwishOne"
             />
             <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/"  style={isActive => ({
-         color: isActive ? "blue" : "white"})} end >Home</NavLink>
+            <NavLink to="/" style={({ isActive }) => ({ 
+                            color: isActive ? '#fc945f' : 'white' , borderBottom: isActive ? '3px solid white':'',fontSize: 20, fontWeight: 'bold'})} >Home</NavLink>
+      
+            </div>
+            <div className="flex items-center justify-start w-[auto]">
+            <NavLink to="/searchpage" style={({ isActive }) => ({ 
+                            color: isActive ? '#fc945f' : 'white' , borderBottom: isActive ? '3px solid white':'',fontSize: 20, fontWeight: 'bold'})} ><nobr>URL Checker</nobr></NavLink>
+
+
+
 
             </div>
             <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/searchpage" style={({isActive}) => ({color: isActive ? 'blue' : 'white'})} 
-  className={({isActive}) => `ln-${isActive ? ' active' : ''}`}  >Website Checker</NavLink>
-
-
-
-
-            </div>
-            <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/quiz" style={({isActive}) => ({color: isActive ? 'blue' : 'white'})} 
-  className={({isActive}) => `ln-${isActive ? ' active' : ''}`}  >Quiz</NavLink>
+            <NavLink to="/quiz" style={({ isActive }) => ({ 
+                            color: isActive ? '#fc945f' : 'white' , borderBottom: isActive ? '3px solid white':'',fontSize: 20, fontWeight: 'bold'})} >Quiz</NavLink>
   </div>
 
           </div>

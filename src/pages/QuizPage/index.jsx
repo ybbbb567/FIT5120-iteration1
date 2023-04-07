@@ -7,10 +7,11 @@ import Navigationbar from "components/Navigationbar";
 const QuizPage = () => {
   return (
     <>
-      <div className="bg-gradient  flex flex-col font-opensans items-center justify-start mx-auto w-full">
+      <div className="bg-gradient  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
         <Navigationbar
-          className="flex flex-col items-center justify-start w-auto md:w-full"
+          className="flex items-center justify-center md:px-[20px] w-[100%]"
           home="Home"
+          picwishone="images/img_picwish2_125x227.png"
         />
         <div className="font-pacifico md:h-[1125px] h-[1379px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
       

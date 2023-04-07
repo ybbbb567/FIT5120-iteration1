@@ -59,7 +59,7 @@ const HomepagePage = () => {
                   giving away their money and personal information
                 </Text>
                 <Button
-                  className="common-pointer bg-bluegray_700 border-[1px] border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal] sm:min-w-[100%] min-w-[548px] md:ml-[0] ml-[32px] mt-[80px] py-[28px] rounded-[6px] text-[20px] text-center text-white_A700 tracking-[-0.30px] w-[auto]"
+                  className="common-pointer bg-bluegray_700 border-[1px] bg-gradient1 border-solid cursor-pointer font-bold font-montserrat leading-[normal] sm:min-w-[100%] min-w-[548px] md:ml-[0] ml-[32px] mt-[80px] py-[28px] rounded-[6px] text-[20px] text-center text-white_A700 tracking-[-0.30px] w-[auto]"
                   onClick={() => navigate("/searchpage")}
                 >
                   Start Check Website
