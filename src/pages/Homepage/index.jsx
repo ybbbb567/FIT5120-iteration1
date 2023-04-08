@@ -10,8 +10,7 @@ import { Carousel } from "antd";
 
 
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
 />;
 
 const HomepagePage = () => {
@@ -60,8 +59,8 @@ const HomepagePage = () => {
                   className="h-[750px] m-auto object-cover w-full"
                   alt="asdadwadzscmod"
                 />
-             
-             <div className="absolute flex flex-col items-start justify-start left-[5%] top-[9%] w-[45%]">
+            
+            <div className="absolute flex flex-col items-start justify-start left-[5%] top-[9%] w-[45%]">
                   <Text
                     className="font-bold font-opensans text-left text-white_A700 tracking-[-0.36px] w-auto"
                     as="h3"
@@ -84,8 +83,8 @@ const HomepagePage = () => {
                   Start Check Website
                 </Button>
               </div>
-             
-         
+            
+        
             </div>
             </div>
 
@@ -118,7 +117,11 @@ const HomepagePage = () => {
                         out how to protect yourself from internet fraud.
                       </>
                     </Text>
-                    <Button className="bg-gradient1 border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal] min-w-[548px] sm:min-w-full py-7 rounded-md text-center text-white_A700 text-xl tracking-[-0.30px] w-auto">
+                    <Button
+                  className="common-pointer bg-bluegray_700 border-[1px] bg-gradient1 border-solid cursor-pointer font-bold font-montserrat leading-[normal] sm:min-w-[100%] min-w-[548px] md:ml-[0] ml-[32px] mt-[80px] py-[28px] rounded-[6px] text-[20px] text-center text-white_A700 tracking-[-0.30px] w-[auto]"
+                  onClick={() => navigate("/quiz")}
+                >
+
                       Start the Quiz
                     </Button>
                   </div>
@@ -140,7 +143,6 @@ const HomepagePage = () => {
         <Navigationbar
           className="absolute flex inset-x-[0] items-center justify-center mx-[auto] md:px-[20px] top-[0] w-[100%]"
           home="Home"
-          language="Chinese"
           picwishone="images/img_picwish2_125x227.png"
         />
       </div>

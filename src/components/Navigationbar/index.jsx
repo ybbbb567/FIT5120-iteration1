@@ -12,33 +12,53 @@ const Navigationbar = (props) => {
 
   return (
     <>
-    
       <div className={props.className}>
-        <div className="flex items-center justify-start mx-[auto] w-[100%]">
-          <div className="navbar_color flex flex-row gap-[400px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
+        <div className="flex items-center justify-start mx-auto w-full max-w-7xl">
+          <div className="navbar_color flex flex-row gap-8 items-center justify-start pr-12 sm:pr-20 md:pr-24 w-full">
             <Img
               src={props?.picwishone}
-              className="h-[145px] md:h-[auto] object-cover "
+              className="h-16 md:h-20 object-contain"
               alt="picwishOne"
             />
-            <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/" style={({ isActive }) => ({ 
-                            color: isActive ? '#f15f79' : 'white' , borderBottom: isActive ? '3px solid #f15f79':'',fontSize: 20, fontWeight: 'bold'})} >Home</NavLink>
-      
+            <div className="flex items-center justify-start flex-1">
+              <NavLink
+                to="/"
+                style={({ isActive }) => ({
+                  color: isActive ? "#f15f79" : "white",
+                  borderBottom: isActive ? "3px solid #f15f79" : "",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                })}
+              >
+                Home
+              </NavLink>
             </div>
-            <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/searchpage" style={({ isActive }) => ({ 
-                            color: isActive ? '#f15f79' : 'white' , borderBottom: isActive ? '3px solid #f15f79':'',fontSize: 20, fontWeight: 'bold'})} ><nobr>URL Checker</nobr></NavLink>
-
-
-
-
+            <div className="flex items-center justify-start flex-1">
+              <NavLink
+                to="/searchpage"
+                style={({ isActive }) => ({
+                  color: isActive ? "#f15f79" : "white",
+                  borderBottom: isActive ? "3px solid #f15f79" : "",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                })}
+              >
+                <nobr>URL Checker</nobr>
+              </NavLink>
             </div>
-            <div className="flex items-center justify-start w-[auto]">
-            <NavLink to="/quiz" style={({ isActive }) => ({ 
-                            color: isActive ? '#f15f79' : 'white' , borderBottom: isActive ? '3px solid #f15f79':'',fontSize: 20, fontWeight: 'bold'})} >Quiz</NavLink>
-  </div>
-
+            <div className="flex items-center justify-start flex-1">
+              <NavLink
+                to="/quiz"
+                style={({ isActive }) => ({
+                  color: isActive ? "#f15f79" : "white",
+                  borderBottom: isActive ? "3px solid #f15f79" : "",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                })}
+              >
+                Quiz
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>
