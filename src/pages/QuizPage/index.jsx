@@ -7,7 +7,7 @@ import Navigationbar from "components/Navigationbar";
 const QuizPage = () => {
   return (
     <>
-      <div className="bg-gradient  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
         <Navigationbar
           className="flex items-center justify-center md:px-[20px] w-[100%]"
           home="Home"
