@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from 'react';
-import { Button, Input, Card, message, Modal, Carousel, Col, Row, notification } from 'antd';
+import { Tabs, Button, Input, Card, message, Modal, Carousel, Col, Row, notification } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
 import Footer from "components/Footer";
 import { checkLink, vote } from "api/check";
 import { CheckOutlined, CloseOutlined, SmileOutlined } from '@ant-design/icons';
+
+const { TabPane } = Tabs;
+
 
 const SearchPagePage = () => {
 
@@ -62,6 +65,9 @@ const SearchPagePage = () => {
 
   }
 
+
+
+ 
   const updateResult = async (field) => {
     const newResult = { ...result }
     newResult[field]++
@@ -75,7 +81,7 @@ const SearchPagePage = () => {
     if (res) {
       notification.open({
         message: 'Vote Success',
-        placement: 'topLeft',
+        placement: 'top',
         description: 'Your vote has been recorded.',
         icon: <SmileOutlined style={{ color: '#108ee9' }} />,
         duration: 3,
@@ -111,7 +117,7 @@ const SearchPagePage = () => {
 
   return (
     <>
-      <div className="bg-gradient  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
         <Navigationbar
           className="flex items-center justify-center md:px-[20px] w-[100%]"
           home="Home"
@@ -140,7 +146,7 @@ const SearchPagePage = () => {
                   onChange={handleInputChange}
                   onMouseOver={({ target }) => target.style.borderColor = "white"}
                   onMouseOut={({ target }) => target.style.borderColor = "grey"}
-                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent" }}
+                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent",fontSize:"20px"}}
                 />
                 <Button shape="circle"
                   size='large'
@@ -151,16 +157,26 @@ const SearchPagePage = () => {
                 />
               </div>
               <div style={{ height: 30 }}></div>
+
+
+              
               {showCard ? (
-                <Carousel>
-                  <div>
+
+<div style={{
+      display: 'block', width: 700, padding: 30
+    }}>
+    <Tabs tabBarStyle={{ color:"purple"}}>
+                <TabPane tab="Result" key="1">
+
                     <Card
                       loading={loading}
                       centered="true"
                       title="Classification Result"
-                      headStyle={{ backgroundColor: " #C84E89" }}
-                      bodyStyle={{ padding: 0 }}
+                      headStyle={{ backgroundColor: " #C84E89" ,fontSize:"24px"}}
+                      bodyStyle={{ padding: 0, fontSize:"20px"}}
                       style={{ width: 599, backgroundColor: "transparent" }}>
+
+                      
                       {/* extra={<a href="#">More</a>} */}
                       <div style={{ height: 30 }}></div>
                       <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
@@ -172,7 +188,7 @@ const SearchPagePage = () => {
                       <div style={{ height: 30 }}></div>
                       {/* <div style={{ backgroundColor: 'orange' }}> */}
                       {result && (
-                        <Card bordered={false} style={{ borderRadius: 0, width: 598, backgroundColor: ' #FC945F' }}>
+                        <Card bordered={true} style={{ borderRadius: 0, width: 598, backgroundColor: ' rgb(200, 78, 137)' }}>
                           <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
                           <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
                           <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
@@ -191,11 +207,17 @@ const SearchPagePage = () => {
                       <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
                       <div style={{ height: 30 }}></div>
                     </Card>
-                  </div>
+
+                    </TabPane>
+                    
+                    <TabPane tab="Vote" key="2">
+
                   <div>
                     <Card
                       centered="true"
-                      title="Feedback"
+                      title="Vote"
+                      headStyle={{ backgroundColor: " #C84E89" ,fontSize:"24px"}}
+                      bodyStyle={{ padding: 0, fontSize:"20px"}}
                       style={{ width: 599, backgroundColor: "transparent" }}
                     >
                       <div style={{ height: 30 }}></div>
@@ -223,8 +245,11 @@ const SearchPagePage = () => {
                       <div style={{ height: 30 }}></div>
                     </Card>
                   </div>
+                  </TabPane>
 
-                </Carousel>
+      </Tabs>
+      </div>
+
 
               ) : null}
 
