@@ -51,7 +51,7 @@ const HomepagePage = () => {
     
     <>
       <div className="bg-gray_400 font-opensans h-[2000px] mx-[auto] relative w-[100%]">
-      <div className="absolute bg-gradient2  bottom-[0] flex inset-x-[0] items-center justify-end mx-auto pt-[92px] w-full">
+      <div className="absolute navbar_color  bottom-[0] flex inset-x-[0] items-center justify-end mx-auto pt-[92px] w-full">
           <div className="flex flex-col md:gap-10 gap-[61px] items-center justify-start w-full">
             <div className="flex flex-col md:gap-10 gap-[81px] justify-start w-full">
               <div className="h-[750px] md:px-5 relative w-full">

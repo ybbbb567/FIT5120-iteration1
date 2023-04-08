@@ -10,7 +10,7 @@ const BadResultPagePage = () => {
 
   return (
     <>
-      <div className="bg-gradient  flex flex-col font-opensans gap-[171px] sm:gap-[40px] md:gap-[40px] items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color  flex flex-col font-opensans gap-[171px] sm:gap-[40px] md:gap-[40px] items-center justify-start mx-[auto] w-[100%]">
         <div className="md:h-[1368px] h-[1590px] md:px-[20px] relative w-[100%]">
           <div className="absolute bottom-[0] flex flex-col inset-x-[0] justify-start mx-[auto] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
             <Text
