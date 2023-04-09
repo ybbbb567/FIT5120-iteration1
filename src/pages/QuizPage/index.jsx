@@ -43,6 +43,9 @@ const QuizPage = () => {
     const answer = e.target.value;
     setUserAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
+      if (newAnswers.length <= currentQuestion) {
+        newAnswers.length = currentQuestion + 1;
+      }
       newAnswers[currentQuestion] = answer;
       return newAnswers;
     });
@@ -59,11 +62,11 @@ const QuizPage = () => {
     } else {
       setShowResult(true);
     }
-    setUserAnswers((prevAnswers) => {
-      const newAnswers = [...prevAnswers];
-      newAnswers[currentQuestion] = null;
-      return newAnswers;
-    });
+    // setUserAnswers((prevAnswers) => {
+    //   const newAnswers = [...prevAnswers];
+    //   newAnswers[currentQuestion] = null;
+    //   return newAnswers;
+    // });
     setAnswered(false);
     setShowExplanation(false);
     setIsCorrect(null);
@@ -146,7 +149,9 @@ const QuizPage = () => {
               <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
                 <Space direction="vertical">
                   {options?.[currentQuestion]?.map((option) => (
-                    <Radio key={option.value} value={option.value} disabled={answered}>{option.label}</Radio>
+                    <Radio key={option.value} value={option.value} disabled={answered}>
+                      {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : option.label}
+                    </Radio>
                   ))}
                 </Space>
               </Radio.Group>
@@ -159,7 +164,7 @@ const QuizPage = () => {
               )}
             </Card>
             <div
-              className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1193px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
+              className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
               style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none' }}>
               <Img onClick={handleNextQuestion}
                 src="images/img_arrowright.svg"
