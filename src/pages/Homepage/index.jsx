@@ -118,8 +118,11 @@ const HomepagePage = () => {
                         out how to protect yourself from internet fraud.
                       </>
                     </Text>
-                    <Button className="bg-gradient1 border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal] min-w-[548px] sm:min-w-full py-7 rounded-md text-center text-white_A700 text-xl tracking-[-0.30px] w-auto">
+                    <Button className="bg-gradient1 border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal] min-w-[548px] sm:min-w-full py-7 rounded-md text-center text-white_A700 text-xl tracking-[-0.30px] w-auto"
+                     onClick={() => navigate("/quiz")}>
                       Start the Quiz
+                     
+
                     </Button>
                   </div>
                 </div>
