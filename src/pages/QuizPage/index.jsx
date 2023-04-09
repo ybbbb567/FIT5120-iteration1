@@ -156,7 +156,6 @@ const QuizPage = () => {
   <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
     <div className="text-white text-center">
       <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
-
       <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
         <div className="grid grid-cols-2 gap-4 justify-items-start">
           {options?.[currentQuestion]?.map((option, index) => (
@@ -167,7 +166,6 @@ const QuizPage = () => {
           ))}
         </div>
       </Radio.Group>
-
     </div>
   </div>
 
@@ -180,7 +178,7 @@ const QuizPage = () => {
               )}
             <div
               className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
-              style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none' }}>
+              style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none' , bottom: '1rem', right: '7rem',position: 'relative'}}>
               <Img onClick={handleNextQuestion}
                 src="images/img_arrowright.svg"
                 className="h-24 w-auto"
