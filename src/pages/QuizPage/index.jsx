@@ -1,17 +1,17 @@
-import { Button,Img, Text } from "components";
+import { Button, Img } from "components";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
 import React, { useState } from 'react';
-import { Card, Radio, Result, Space } from 'antd';
+import { Radio, Result } from 'antd';
 import { getAllQuiz } from "api/quiz";
 import { useEffect } from "react";
-import { FacebookShareButton, FacebookIcon ,TwitterShareButton, TwitterIcon} from 'react-share';
+import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from 'react-share';
 
 
-  const handleReload = () => {
-    window.location.reload();
-  };
-  
+const handleReload = () => {
+  window.location.reload();
+};
+
 
 const QuizPage = () => {
   const [showExplanation, setShowExplanation] = useState(false);
@@ -113,27 +113,27 @@ const QuizPage = () => {
               </div>
             )}
             <div className="  mx-auto cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6">
-  <TwitterShareButton
-    url={'https://www.trustify.one/quiz'}
-    hashtag="#web security"
-    style={{ marginRight: '10px' }}
-  >
-    <TwitterIcon size={32} round />
-  </TwitterShareButton>
-  <FacebookShareButton
-    url={'https://www.trustify.one/quiz'}
-    hashtag="#web security"
-  >
-    <FacebookIcon size={32} round />
-  </FacebookShareButton>
-</div>
-              <Button className=" bg-white rounded-full mx-auto border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6"
-               onClick={handleReload}>
-                  Try again
-                    </Button>
+              <TwitterShareButton
+                url={'https://www.trustify.one/quiz'}
+                hashtag="#web security"
+                style={{ marginRight: '10px' }}
+              >
+                <TwitterIcon size={32} round />
+              </TwitterShareButton>
+              <FacebookShareButton
+                url={'https://www.trustify.one/quiz'}
+                hashtag="#web security"
+              >
+                <FacebookIcon size={32} round />
+              </FacebookShareButton>
+            </div>
+            <Button className=" bg-white rounded-full mx-auto border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6"
+              onClick={handleReload}>
+              Try again
+            </Button>
 
-                
-                    
+
+
           </div>
         </div>
         <Footer
@@ -154,36 +154,36 @@ const QuizPage = () => {
         />
         <div className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
 
-        <div className="bg-gradient1 relative">
- 
-        <div className="h-[212px] w-full md:w-[29%] mx-auto relative ">
-  <Img
-    src="images/img_ellipse1.png"
-    className="h-[210px] w-1/3 md:h-auto md:w-full mx-auto md:mx-0 absolute left-0 top-0"
-    alt="ellipseOne"
-  />
-  <div className="absolute top-0 left-0 text-center w-full h-full flex items-center justify-center">
-    <h2 className="font-normal text-gray_900 text-3xl md:text-4xl absolute left-8 top-15">
-      Online Trusty Quiz
-    </h2>
-  </div>
-</div>
-<div className="container w-full h-auto max-w-full">
-  <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
-    <div className="text-white text-center">
-      <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
-      <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
-        <div className="grid grid-cols-2 gap-4 justify-items-start">
-          {options?.[currentQuestion]?.map((option, index) => (
-            <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
-              <span className="mr-2" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
-              {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : <span style={{ fontSize: '18px' }}>{option.label}</span>}
-            </Radio>
-          ))}
-        </div>
-      </Radio.Group>
-    </div>
-  </div>
+          <div className="bg-gradient1 relative">
+
+            <div className="h-[212px] w-full md:w-[29%] mx-auto relative ">
+              <Img
+                src="images/img_ellipse1.png"
+                className="h-[210px] w-1/3 md:h-auto md:w-full mx-auto md:mx-0 absolute left-0 top-0"
+                alt="ellipseOne"
+              />
+              <div className="absolute top-0 left-0 text-center w-full h-full flex items-center justify-center">
+                <h2 className="font-normal text-gray_900 text-3xl md:text-4xl absolute left-8 top-15">
+                  Online Trusty Quiz
+                </h2>
+              </div>
+            </div>
+            <div className="container w-full h-auto max-w-full">
+              <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
+                <div className="text-white text-center">
+                  <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
+                  <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
+                    <div className="grid grid-cols-2 gap-4 justify-items-start">
+                      {options?.[currentQuestion]?.map((option, index) => (
+                        <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
+                          <span className="mr-2" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
+                          {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : <span style={{ fontSize: '18px' }}>{option.label}</span>}
+                        </Radio>
+                      ))}
+                    </div>
+                  </Radio.Group>
+                </div>
+              </div>
 
               {showExplanation && (
                 <div>
@@ -192,24 +192,24 @@ const QuizPage = () => {
                   <p>Explanation: {questions[currentQuestion].explanation}</p>
                 </div>
               )}
-            <div
-              className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
-              style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none' , bottom: '1rem', right: '7rem',position: 'relative'}}>
-              <Img onClick={handleNextQuestion}
-                src="images/img_arrowright.svg"
-                className="h-24 w-auto"
-                alt="arrowright"
+              <div
+                className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
+                style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none', bottom: '1rem', right: '7rem', position: 'relative' }}>
+                <Img onClick={handleNextQuestion}
+                  src="images/img_arrowright.svg"
+                  className="h-24 w-auto"
+                  alt="arrowright"
 
-              />
+                />
+              </div>
             </div>
           </div>
         </div>
-        </div>
-</div>
-        <Footer
-          className="flex flex-col font-spacegrotesk items-center justify-start mt-[171px] w-full"
-          feedback="Feedback"
-        />
+      </div>
+      <Footer
+        className="flex flex-col font-spacegrotesk items-center justify-start mt-[171px] w-full"
+        feedback="Feedback"
+      />
     </>
   );
 };
