@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from 'react';
-import { Tabs, Button, Input, Card, message, Modal, Carousel, Col, Row, notification } from 'antd';
+import { Tabs, Button, Input, Card, message, Modal, Col, Row, notification } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";
@@ -9,7 +9,6 @@ import { checkLink, vote } from "api/check";
 import { CheckOutlined, CloseOutlined, SmileOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
-
 
 const SearchPagePage = () => {
 
@@ -29,6 +28,53 @@ const SearchPagePage = () => {
   const [likeClicked, setLikeClicked] = useState(false);
 
   const [dislikeClicked, setDislikeClicked] = useState(false);
+
+  const [searchHistory, setSearchHistory] = useState([]);
+
+  const [showSearchHistory, setShowSearchHistory] = useState(false);
+
+  useEffect(() => {
+    initSearchHistory();
+  }, []);
+
+  // 从 localStorage 中获取搜索历史记录
+  const getSearchHistoryFromLocalStorage = () => {
+    const searchHistoryString = localStorage.getItem('searchHistory');
+    if (searchHistoryString) {
+      return JSON.parse(searchHistoryString);
+    } else {
+      return [];
+    }
+  };
+
+  // store history in localStorage
+  const saveSearchHistoryToLocalStorage = (history) => {
+    const truncatedHistory = history.slice(-10); // 截取数组，保留最新的十条记录
+    localStorage.setItem('searchHistory', JSON.stringify(history));
+  };
+
+  // save to localStorage
+  const addSearchHistory = (value) => {
+    const updatedSearchHistory = [value, ...searchHistory];
+    setSearchHistory(updatedSearchHistory);
+    saveSearchHistoryToLocalStorage(updatedSearchHistory);
+  };
+
+  // init
+  const initSearchHistory = () => {
+    const searchHistoryFromLocalStorage = getSearchHistoryFromLocalStorage();
+    setSearchHistory(searchHistoryFromLocalStorage);
+  };
+
+  const clearSearchHistory = () => {
+    setSearchHistory([]);
+    localStorage.removeItem('searchHistory');
+  };
+
+  const handleSearchHistoryItemClick = (item) => {
+    setSearchValue(item);
+    setShowSearchHistory(false);
+  };
 
   function handleLinkClick (event) {
     event.preventDefault();
@@ -52,6 +98,7 @@ const SearchPagePage = () => {
     if (urlRegex.test(searchValue)) {
       setLoading(true)
       setShowCard(true)
+      addSearchHistory(searchValue);
       checkLink(searchValue).then(res => {
         if (res.result) {
           console.log(res.result);
@@ -65,9 +112,6 @@ const SearchPagePage = () => {
 
   }
 
-
-
- 
   const updateResult = async (field) => {
     const newResult = { ...result }
     newResult[field]++
@@ -146,7 +190,9 @@ const SearchPagePage = () => {
                   onChange={handleInputChange}
                   onMouseOver={({ target }) => target.style.borderColor = "white"}
                   onMouseOut={({ target }) => target.style.borderColor = "grey"}
-                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent",fontSize:"20px"}}
+                  onFocus={() => setShowSearchHistory(true)}
+                  onBlur={() => setShowSearchHistory(false)}
+                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent", fontSize: "20px" }}
                 />
                 <Button shape="circle"
                   size='large'
@@ -155,100 +201,131 @@ const SearchPagePage = () => {
                   onMouseOut={({ target }) => { target.style.borderColor = "grey"; target.style.color = "black" }}
                   icon={<SearchOutlined />}
                 />
+                <button onClick={clearSearchHistory} style={{ marginLeft: '10px' }}>
+                  Clean History
+                </button>
+                {showSearchHistory && searchHistory.length > 0 && (
+                  <ul
+                    className="navbar_color"
+                    style={{
+                      listStyle: 'none',
+                      backgroundColor: 'white',
+                      borderRadius: '5px',
+                      position: 'absolute',
+                      top: '45%',
+                      width: 590,
+                      left: 5,
+                      right: 0,
+                      padding: '10px',
+                      margin: 0,
+                      zIndex: 9999, // make it cover card
+                    }}
+                  >
+                    {searchHistory.map((item) => (
+                      <li
+                        key={item}
+                        onClick={() => handleSearchHistoryItemClick(item)}
+                        style={{ cursor: 'pointer', padding: '5px 10px' }}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div style={{ height: 30 }}></div>
 
 
-              
+
               {showCard ? (
 
-<div style={{
-      display: 'block', width: 700, padding: 30
-    }}>
-    <Tabs tabBarStyle={{ color:"purple"}}>
-                <TabPane tab="Result" key="1">
+                <div style={{
+                  display: 'block', width: 700
+                }}>
+                  <Tabs tabBarStyle={{ color: "purple" }}>
+                    <TabPane tab={<span>Result</span>} key="1">
 
-                    <Card
-                      loading={loading}
-                      centered="true"
-                      title="Classification Result"
-                      headStyle={{ backgroundColor: " #C84E89" ,fontSize:"24px"}}
-                      bodyStyle={{ padding: 0, fontSize:"20px"}}
-                      style={{ width: 599, backgroundColor: "transparent" }}>
+                      <Card
+                        loading={loading}
+                        centered="true"
+                        title="Classification Result"
+                        headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
+                        bodyStyle={{ padding: 0, fontSize: "20px" }}
+                        style={{ width: 599, backgroundColor: "transparent" }}>
 
-                      
-                      {/* extra={<a href="#">More</a>} */}
-                      <div style={{ height: 30 }}></div>
-                      <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
-                        <a href={result.link.startsWith('http://') || result.link.startsWith('https://') ? result.link : `http://${searchValue}`} onClick={handleLinkClick}>
-                          {result.link}
-                        </a>
-                      )}
-                      </div>
-                      <div style={{ height: 30 }}></div>
-                      {/* <div style={{ backgroundColor: 'orange' }}> */}
-                      {result && (
-                        <Card bordered={true} style={{ borderRadius: 0, width: 598, backgroundColor: ' rgb(200, 78, 137)' }}>
-                          <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob0 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob1 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob2 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                          <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob3 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                        </Card>
-                      )}
 
-                      {/* </div> */}
-                      <div style={{ height: 30 }}></div>
-                      <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
-                      <div style={{ height: 30 }}></div>
-                    </Card>
+                        {/* extra={<a href="#">More</a>} */}
+                        <div style={{ height: 30 }}></div>
+                        <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
+                          <a href={result.link.startsWith('http://') || result.link.startsWith('https://') ? result.link : `http://${searchValue}`} onClick={handleLinkClick}>
+                            {result.link}
+                          </a>
+                        )}
+                        </div>
+                        <div style={{ height: 30 }}></div>
+                        {/* <div style={{ backgroundColor: 'orange' }}> */}
+                        {result && (
+                          <Card bordered={true} style={{ borderRadius: 0, width: 598, backgroundColor: ' rgb(200, 78, 137)' }}>
+                            <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob0 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob1 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob2 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob3 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                          </Card>
+                        )}
+
+                        {/* </div> */}
+                        <div style={{ height: 30 }}></div>
+                        <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
+                        <div style={{ height: 30 }}></div>
+                      </Card>
 
                     </TabPane>
-                    
-                    <TabPane tab="Vote" key="2">
 
-                  <div>
-                    <Card
-                      centered="true"
-                      title="Vote"
-                      headStyle={{ backgroundColor: " #C84E89" ,fontSize:"24px"}}
-                      bodyStyle={{ padding: 0, fontSize:"20px"}}
-                      style={{ width: 599, backgroundColor: "transparent" }}
-                    >
-                      <div style={{ height: 30 }}></div>
-                      <div style={{ marginLeft: 30 }}>Do you think the classification is accurate?</div>
-                      <div style={{ height: 30 }}></div>
-                      <div style={{ height: 30 }}></div>
+                    <TabPane tab={<span>Vote</span>} key="2">
+
                       <div>
-                        <Row gutter={[16, 8]}>
-                          <Col span={14}>
-                          </Col>
-                          <Col span={2}>
-                            <CheckOutlined onClick={onClickLike} style={{ cursor: likeClicked ? 'not-allowed' : 'pointer' }} />
-                          </Col>
-                          <Col span={3} >
-                            {result ? result.likeNum : ''}
-                          </Col>
-                          <Col span={2}>
-                            <CloseOutlined onClick={onClickDislike} style={{ cursor: dislikeClicked ? 'not-allowed' : 'pointer' }} />
-                          </Col>
-                          <Col span={3}>
-                            {result ? result.dislikeNum : ''}
-                          </Col>
-                        </Row>
+                        <Card
+                          centered="true"
+                          title="Vote"
+                          headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
+                          bodyStyle={{ padding: 0, fontSize: "20px" }}
+                          style={{ width: 599, backgroundColor: "transparent" }}
+                        >
+                          <div style={{ height: 30 }}></div>
+                          <div style={{ marginLeft: 30 }}>Do you think the classification is accurate?</div>
+                          <div style={{ height: 30 }}></div>
+                          <div style={{ height: 30 }}></div>
+                          <div>
+                            <Row gutter={[16, 8]}>
+                              <Col span={14}>
+                              </Col>
+                              <Col span={2}>
+                                <CheckOutlined onClick={onClickLike} style={{ cursor: likeClicked ? 'not-allowed' : 'pointer' }} />
+                              </Col>
+                              <Col span={3} >
+                                {result ? result.likeNum : ''}
+                              </Col>
+                              <Col span={2}>
+                                <CloseOutlined onClick={onClickDislike} style={{ cursor: dislikeClicked ? 'not-allowed' : 'pointer' }} />
+                              </Col>
+                              <Col span={3}>
+                                {result ? result.dislikeNum : ''}
+                              </Col>
+                            </Row>
+                          </div>
+                          <div style={{ height: 30 }}></div>
+                        </Card>
                       </div>
-                      <div style={{ height: 30 }}></div>
-                    </Card>
-                  </div>
-                  </TabPane>
+                    </TabPane>
 
-      </Tabs>
-      </div>
+                  </Tabs>
+                </div>
 
 
               ) : null}
