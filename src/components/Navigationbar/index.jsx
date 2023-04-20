@@ -15,7 +15,7 @@ const Navigationbar = (props) => {
 
       <div className={props.className}>
         <div className="flex items-center justify-start mx-[auto] w-[100%]">
-          <div className="navbar_color flex flex-row gap-[300px] items-center justify-start pr-[1318px] sm:pr-[20px] md:pr-[40px] w-[100%]">
+        <div className="navbar_color flex flex-row gap-40 items-center justify-start pr-10 sm:pr-20 md:pr-40 w-full max-w-screen-xl">
             <Img
               src={props?.picwishone}
               className="h-[145px] md:h-[auto] object-cover "
