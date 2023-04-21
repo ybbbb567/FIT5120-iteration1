@@ -69,11 +69,6 @@ const QuizPage = () => {
     } else {
       setShowResult(true);
     }
-    // setUserAnswers((prevAnswers) => {
-    //   const newAnswers = [...prevAnswers];
-    //   newAnswers[currentQuestion] = null;
-    //   return newAnswers;
-    // });
     setAnswered(false);
     setShowExplanation(false);
     setIsCorrect(null);
@@ -131,9 +126,6 @@ const QuizPage = () => {
               onClick={handleReload}>
               Try again
             </Button>
-
-
-
           </div>
         </div>
         <Footer
