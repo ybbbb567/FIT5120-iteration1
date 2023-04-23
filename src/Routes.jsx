@@ -6,7 +6,7 @@ const Notification = React.lazy(() => import("pages/Notification"));
 const BadResultPage = React.lazy(() => import("pages/BadResultPage"));
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const SearchPage = React.lazy(() => import("pages/SearchPage"));
-const ResultPage = React.lazy(() => import("pages/ResultPage"));
+const MapPage = React.lazy(() => import("pages/MapPage"));
 const QuizPage = React.lazy(() => import("pages/QuizPage"));
 
 const ProjectRoutes = () => {
@@ -16,7 +16,7 @@ const ProjectRoutes = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/resultpage" element={<ResultPage />} />
+          <Route path="/map" element={<MapPage />} />
           <Route path="/searchpage" element={<SearchPage />} />
           <Route path="/badresultpage" element={<BadResultPage />} />
           <Route path="/notification" element={<Notification />} />

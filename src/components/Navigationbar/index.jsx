@@ -15,7 +15,7 @@ const Navigationbar = (props) => {
 
       <div className={props.className}>
         <div className="flex items-center justify-start mx-[auto] w-[100%]">
-        <div className="navbar_color flex flex-row gap-40 items-center justify-start pr-10 sm:pr-20 md:pr-40 w-full max-w-screen-xl">
+          <div className="navbar_color flex flex-row gap-40 items-center justify-start pr-10 sm:pr-20 md:pr-40 w-full max-w-screen-xl">
             <Img
               src={props?.picwishone}
               className="h-[145px] md:h-[auto] object-cover "
@@ -25,23 +25,22 @@ const Navigationbar = (props) => {
               <NavLink to="/" style={({ isActive }) => ({
                 color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
               })} >Home</NavLink>
-
             </div>
             <div className="flex items-center justify-start w-[auto]">
               <NavLink to="/searchpage" style={({ isActive }) => ({
                 color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
               })} ><nobr>URL Checker</nobr></NavLink>
-
-
-
-
             </div>
             <div className="flex items-center justify-start w-[auto]">
               <NavLink to="/quiz" style={({ isActive }) => ({
                 color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
               })} >Quiz</NavLink>
             </div>
-
+            <div className="flex items-center justify-start w-[auto]">
+              <NavLink to="/map" style={({ isActive }) => ({
+                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+              })} >Map</NavLink>
+            </div>
           </div>
         </div>
       </div>

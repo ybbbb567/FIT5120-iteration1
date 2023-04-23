@@ -37,7 +37,7 @@ const SearchPagePage = () => {
     initSearchHistory();
   }, []);
 
-  // 从 localStorage 中获取搜索历史记录
+  // get history from localStorage
   const getSearchHistoryFromLocalStorage = () => {
     const searchHistoryString = localStorage.getItem('searchHistory');
     if (searchHistoryString) {
@@ -55,9 +55,11 @@ const SearchPagePage = () => {
 
   // save to localStorage
   const addSearchHistory = (value) => {
-    const updatedSearchHistory = [value, ...searchHistory];
-    setSearchHistory(updatedSearchHistory);
-    saveSearchHistoryToLocalStorage(updatedSearchHistory);
+    if (!searchHistory.includes(value)) {
+      const updatedSearchHistory = [value, ...searchHistory];
+      setSearchHistory(updatedSearchHistory);
+      saveSearchHistoryToLocalStorage(updatedSearchHistory);
+    }
   };
 
   // init
