@@ -75,7 +75,7 @@ const SearchPagePage = () => {
 
   const handleSearchHistoryItemClick = (item) => {
     setSearchValue(item);
-    setShowSearchHistory(false);
+    setShowSearchHistory(true);
   };
 
   function handleLinkClick (event) {
@@ -194,7 +194,7 @@ const SearchPagePage = () => {
                   onMouseOut={({ target }) => target.style.borderColor = "grey"}
                   onFocus={() => setShowSearchHistory(true)}
                   onBlur={() => setShowSearchHistory(false)}
-                  style={{ borderRadius: '30px', width: 600, backgroundColor: "transparent", fontSize: "20px" }}
+                  style={{ borderRadius: '30px', height: 40, width: 600, backgroundColor: "transparent", fontSize: "20px" }}
                 />
                 <Button shape="circle"
                   size='large'
@@ -226,8 +226,8 @@ const SearchPagePage = () => {
                     {searchHistory.map((item) => (
                       <li
                         key={item}
-                        onClick={() => handleSearchHistoryItemClick(item)}
                         style={{ cursor: 'pointer', padding: '5px 10px' }}
+                        onMouseDown={() => handleSearchHistoryItemClick(item)}
                       >
                         {item}
                       </li>
