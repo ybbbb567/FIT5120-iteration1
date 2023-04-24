@@ -109,14 +109,14 @@ const QuizPage = () => {
             )}
             <div className="  mx-auto cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6">
               <TwitterShareButton
-                url={'https://www.trustify.one/quiz'}
+                url={'https://www.trustify.one/#/quiz'}
                 hashtag="#web security"
                 style={{ marginRight: '10px' }}
               >
                 <TwitterIcon size={32} round />
               </TwitterShareButton>
               <FacebookShareButton
-                url={'https://www.trustify.one/quiz'}
+                url={'https://www.trustify.one/#/quiz'}
                 hashtag="#web security"
               >
                 <FacebookIcon size={32} round />
