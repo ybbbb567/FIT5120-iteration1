@@ -78,7 +78,7 @@ const ResultPagePage = () => {
         <div
           className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
           <div style={{ height: '500px', width: '100%' }}>
-            <MapContainer center={[-25.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+            <MapContainer center={[-25.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '50%' }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {state_data.map(state => (
                 <Marker key={state.state} position={[state.lat, state.lng]} icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}>
