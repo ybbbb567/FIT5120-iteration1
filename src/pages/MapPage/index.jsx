@@ -3,7 +3,8 @@ import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
-import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import { Icon } from 'leaflet'
 
 const ResultPagePage = () => {
 
@@ -80,7 +81,7 @@ const ResultPagePage = () => {
             <MapContainer center={[-25.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {state_data.map(state => (
-                <Marker key={state.state} position={[state.lat, state.lng]}>
+                <Marker key={state.state} position={[state.lat, state.lng]} icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}>
                   {popup_text.find(popup => popup.key === state.state)}
                 </Marker>
               ))}
