@@ -27,6 +27,16 @@ const Navigationbar = (props) => {
               })} >Home</NavLink>
             </div>
             <div className="flex items-center justify-start w-[auto]">
+              <NavLink to="/map" style={({ isActive }) => ({
+                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+              })} >Map</NavLink>
+            </div>
+            <div className="flex items-center justify-start w-[auto]">
+              <NavLink to="/smsdetector" style={({ isActive }) => ({
+                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+              })} >SMS Detector</NavLink>
+            </div>
+            <div className="flex items-center justify-start w-[auto]">
               <NavLink to="/searchpage" style={({ isActive }) => ({
                 color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
               })} ><nobr>URL Checker</nobr></NavLink>
@@ -36,11 +46,7 @@ const Navigationbar = (props) => {
                 color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
               })} >Quiz</NavLink>
             </div>
-            <div className="flex items-center justify-start w-[auto]">
-              <NavLink to="/map" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
-              })} >Map</NavLink>
-            </div>
+
           </div>
         </div>
       </div>
