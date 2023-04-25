@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
+import { getNews } from "api/map";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
@@ -8,62 +10,33 @@ import { Icon } from 'leaflet'
 
 const ResultPagePage = () => {
 
-  const state_data = [
-    {
-      state: "New South Wales",
-      fraud_value: 480100,
-      lat: -31.2532,
-      lng: 146.9211
-    },
-    {
-      state: "Victoria",
-      fraud_value: 450000,
-      lat: -36.9848,
-      lng: 143.3906
-    },
-    {
-      state: "Queensland",
-      fraud_value: 363100,
-      lat: -22.5752,
-      lng: 144.0848
-    },
-    {
-      state: "South Australia",
-      fraud_value: 108800,
-      lat: -30.0002,
-      lng: 136.2092
-    },
-    {
-      state: "Western Australia",
-      fraud_value: 172800,
-      lat: -27.6728,
-      lng: 121.6283
-    },
-    {
-      state: "Tasmania",
-      fraud_value: 32400,
-      lat: -42.0409,
-      lng: 146.8087
-    },
-    {
-      state: "Northern Territory",
-      fraud_value: 10300,
-      lat: -19.4914,
-      lng: 132.5510
-    },
-    {
-      state: "Australian Capital Territory",
-      fraud_value: 30600,
-      lat: -35.4735,
-      lng: 149.0124
-    }
-  ];
+  const [mapList, setMapList] = useState([]);
 
-  const popup_text = state_data.map(state => (
-    <Popup key={state.state}>
-      <b>{state.state}</b>
+  //initial
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultList = await getNews().then((res) => res.result);
+      if (resultList) {
+        setMapList(resultList);
+        console.log(resultList);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const popup_text = mapList.map(state => (
+    <Popup key={state.stateName}>
+      <b>{state.stateName}</b>
       <br />
-      Number of Fruad experieced:{state.fraud_value}
+      Number of Fruad experieced:{state.fraudValue}
+      <br />
+      <br />
+      {state.urls.map((link, index) => (
+        <React.Fragment key={link.link}>
+          {index > 0 && <br />}
+          <a href={link.link} target="_blank" rel="noopener noreferrer" onClick={() => window.location.href = link.link}>{link.title}</a><br />
+        </React.Fragment>
+      ))}
     </Popup>
   ));
 

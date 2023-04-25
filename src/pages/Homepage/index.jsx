@@ -28,24 +28,6 @@ const HomepagePage = () => {
 
   };
 
-  const [feedbackList, setFeedbackList] = useState([]);
-
-  // //initial
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const resultList = await getFeedback().then((res) => res.result);
-  //     if (resultList) {
-  //       setFeedbackList(resultList);
-  //       console.log(resultList);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const onChange = (currentSlide) => {
-  //   console.log(currentSlide);
-  // };
-
   return (
 
 
