@@ -8,7 +8,9 @@ import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import { Icon } from 'leaflet'
 
-const ResultPagePage = () => {
+const MapPage = () => {
+
+
 
   const [mapList, setMapList] = useState([]);
 
@@ -53,9 +55,9 @@ const ResultPagePage = () => {
           <div style={{ height: '500px', width: '100%' }}>
             <MapContainer center={[-28.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '50%' }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-              {state_data.map(state => (
-                <Marker key={state.state} position={[state.lat, state.lng]} icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}>
-                  {popup_text.find(popup => popup.key === state.state)}
+              {mapList.map(state => (
+                <Marker key={state.stateName} position={[state.latitude, state.longitude]} icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}>
+                  {popup_text.find(popup => popup.key === state.stateName)}
                 </Marker>
               ))}
             </MapContainer>
@@ -70,4 +72,4 @@ const ResultPagePage = () => {
   );
 };
 
-export default ResultPagePage;
+export default MapPage;
