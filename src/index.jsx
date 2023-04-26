@@ -5,7 +5,9 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./styles/index.css";
 import "./styles/tailwind.css";
-import { ThemeProvider } from "@material-tailwind/react";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+
 
 ReactDOM.render(
   <React.StrictMode>
