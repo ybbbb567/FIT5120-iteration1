@@ -39,7 +39,7 @@ const SearchPagePage = () => {
 
   useEffect(() => {
     document.title = "URL Checker - Trustify Online"
- }, []);
+  }, []);
 
 
   // get history from localStorage
@@ -102,11 +102,19 @@ const SearchPagePage = () => {
   };
 
   const onSearch = () => {
-    if (urlRegex.test(searchValue)) {
+    let targetValue = searchValue.trim(); // 去掉两端空格
+    if (targetValue.startsWith("ww.") || targetValue.startsWith("w.")) {
+      message.error("Please enter a valid URL that follows naming conventions!");
+      return;
+    }
+    if (!targetValue.startsWith("www.")) {
+      targetValue = "www." + targetValue;
+    }
+    if (urlRegex.test(targetValue)) {
       setLoading(true)
       setShowCard(true)
       addSearchHistory(searchValue);
-      checkLink(searchValue).then(res => {
+      checkLink(targetValue).then(res => {
         if (res.result) {
           console.log(res.result);
           setResult(res.result)
@@ -116,7 +124,6 @@ const SearchPagePage = () => {
     } else {
       message.error("Input a valid url string!")
     }
-
   }
 
   const updateResult = async (field) => {
@@ -176,7 +183,7 @@ const SearchPagePage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
-          <div className="font-dmsans h-[500px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
+          <div className="font-dmsans h-[700px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
             <Text
               className="font-semibold text-black_900 text-center ml-[350px] tracking-[-0.72px]"
               as="h2"
@@ -249,89 +256,84 @@ const SearchPagePage = () => {
                 <div style={{
                   display: 'block', width: 700
                 }}>
-                  <Tabs tabBarStyle={{ color: "purple" }}>
-                    <TabPane tab={<span>Result</span>} key="1">
-
-                      <Card
-                        loading={loading}
-                        centered="true"
-                        title="Classification Result"
-                        headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
-                        bodyStyle={{ padding: 0, fontSize: "20px" }}
-                        style={{ width: 599, backgroundColor: "transparent" }}>
 
 
-                        {/* extra={<a href="#">More</a>} */}
-                        <div style={{ height: 30 }}></div>
-                        <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
-                          <a href={result.link.startsWith('http://') || result.link.startsWith('https://') ? result.link : `http://${searchValue}`} onClick={handleLinkClick}>
-                            {result.link}
-                          </a>
-                        )}
-                        </div>
-                        <div style={{ height: 30 }}></div>
-                        {/* <div style={{ backgroundColor: 'orange' }}> */}
-                        {result && (
-                          <Card bordered={true} style={{ borderRadius: 0, width: 598, backgroundColor: ' rgb(200, 78, 137)' }}>
-                            <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob0 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob1 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob2 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                            <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob3 * 100).toFixed(2) + '%' : ''}</Card.Grid>
-                          </Card>
-                        )}
+                  <Card
+                    loading={loading}
+                    centered="true"
+                    title="Classification Result"
+                    headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
+                    bodyStyle={{ padding: 0, fontSize: "20px" }}
+                    style={{ width: 599, backgroundColor: "transparent" }}>
 
-                        {/* </div> */}
-                        <div style={{ height: 30 }}></div>
-                        <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
-                        <div style={{ height: 30 }}></div>
+
+                    {/* extra={<a href="#">More</a>} */}
+                    <div style={{ height: 30 }}></div>
+                    <div style={{ marginLeft: 30 }}>Website Address: &ensp;&ensp;&ensp;{result && (
+                      <a href={result.link.startsWith('http://') || result.link.startsWith('https://') ? result.link : `http://${searchValue}`} onClick={handleLinkClick}>
+                        {result.link}
+                      </a>
+                    )}
+                    </div>
+                    <div style={{ height: 30 }}></div>
+                    {/* <div style={{ backgroundColor: 'orange' }}> */}
+                    {result && (
+                      <Card bordered={true} style={{ borderRadius: 0, width: 598, backgroundColor: ' rgb(200, 78, 137)' }}>
+                        <Card.Grid hoverable={false} style={gridStyle}>Category:</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>Benign</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>Defacement</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>Phishing</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>Malware</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>Posibility:</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob0 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob1 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob2 * 100).toFixed(2) + '%' : ''}</Card.Grid>
+                        <Card.Grid hoverable={false} style={gridStyle}>{result ? (result.predict.prob3 * 100).toFixed(2) + '%' : ''}</Card.Grid>
                       </Card>
+                    )}
 
-                    </TabPane>
+                    {/* </div> */}
+                    <div style={{ height: 30 }}></div>
+                    <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
+                    <div style={{ height: 30 }}></div>
+                  </Card>
 
-                    <TabPane tab={<span>Vote</span>} key="2">
+                  <br />
 
+                  <div>
+                    <Card
+                      centered="true"
+                      title="Vote"
+                      headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
+                      bodyStyle={{ padding: 0, fontSize: "20px" }}
+                      style={{ width: 599, backgroundColor: "transparent" }}
+                    >
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ marginLeft: 30 }}>Do you think the classification is accurate?</div>
+                      <div style={{ height: 30 }}></div>
+                      <div style={{ height: 30 }}></div>
                       <div>
-                        <Card
-                          centered="true"
-                          title="Vote"
-                          headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
-                          bodyStyle={{ padding: 0, fontSize: "20px" }}
-                          style={{ width: 599, backgroundColor: "transparent" }}
-                        >
-                          <div style={{ height: 30 }}></div>
-                          <div style={{ marginLeft: 30 }}>Do you think the classification is accurate?</div>
-                          <div style={{ height: 30 }}></div>
-                          <div style={{ height: 30 }}></div>
-                          <div>
-                            <Row gutter={[16, 8]}>
-                              <Col span={14}>
-                              </Col>
-                              <Col span={2}>
-                                <CheckOutlined onClick={onClickLike} style={{ cursor: likeClicked ? 'not-allowed' : 'pointer' }} />
-                              </Col>
-                              <Col span={3} >
-                                {result ? result.likeNum : ''}
-                              </Col>
-                              <Col span={2}>
-                                <CloseOutlined onClick={onClickDislike} style={{ cursor: dislikeClicked ? 'not-allowed' : 'pointer' }} />
-                              </Col>
-                              <Col span={3}>
-                                {result ? result.dislikeNum : ''}
-                              </Col>
-                            </Row>
-                          </div>
-                          <div style={{ height: 30 }}></div>
-                        </Card>
+                        <Row gutter={[16, 8]}>
+                          <Col span={14}>
+                          </Col>
+                          <Col span={2}>
+                            <CheckOutlined onClick={onClickLike} style={{ cursor: likeClicked ? 'not-allowed' : 'pointer' }} />
+                          </Col>
+                          <Col span={3} >
+                            {result ? result.likeNum : ''}
+                          </Col>
+                          <Col span={2}>
+                            <CloseOutlined onClick={onClickDislike} style={{ cursor: dislikeClicked ? 'not-allowed' : 'pointer' }} />
+                          </Col>
+                          <Col span={3}>
+                            {result ? result.dislikeNum : ''}
+                          </Col>
+                        </Row>
                       </div>
-                    </TabPane>
+                      <div style={{ height: 30 }}></div>
+                    </Card>
+                  </div>
 
-                  </Tabs>
                 </div>
 
 
