@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const Home = () => {
+  useEffect(() => {
+    document.title = "SMS Detector - Trustify Online"
+ }, []);
+
+
+ 
   return (
     <div className="dhiwise-navigation">
       <h1>Homepage</h1>

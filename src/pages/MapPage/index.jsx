@@ -24,6 +24,11 @@ const MapPage = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    document.title = "Map - Trustify Online"
+ }, []);
+
+
   const popup_text = mapList.map(state => (
     <Popup key={state.stateName}>
       <b>{state.stateName}</b>
