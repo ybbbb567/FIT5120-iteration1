@@ -1,9 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { Text } from "components";
 
 const SMSDetectorPage = () => {
+
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    props.onSubmit(inputValue);
+    setInputValue("");
+  };
+
   return (
     <>
       <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
@@ -21,6 +34,42 @@ const SMSDetectorPage = () => {
           >
             SMS Fraud Detection
           </Text>
+          <br />
+          <div style={{
+            backgroundColor: "#ffffff",
+            padding: "16px",
+            height: "400px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between"
+          }}>
+            <textarea
+              type="text"
+              placeholder="Please type or paste the text here"
+              value={inputValue}
+              onChange={handleInputChange}
+              style={{
+                border: "none",
+                outline: "none",
+                padding: "8px",
+                fontSize: "16px",
+                width: "100%",
+                height: "100%",
+                resize: "none",
+              }}
+            />
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <button onClick={handleSubmit} style={{
+                backgroundColor: "#0984E3",
+                color: "#ffffff",
+                padding: "8px 16px",
+                fontSize: "16px",
+                cursor: "pointer",
+              }}>
+                Start Check
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <Footer
