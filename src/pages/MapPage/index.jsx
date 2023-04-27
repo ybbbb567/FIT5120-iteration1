@@ -31,6 +31,8 @@ const MapPage = () => {
       Number of Fruad experieced:{state.fraudValue}
       <br />
       <br />
+      <b><i>Related News</i></b>
+      <br />
       {state.urls.map((link, index) => (
         <React.Fragment key={link.link}>
           {index > 0 && <br />}
