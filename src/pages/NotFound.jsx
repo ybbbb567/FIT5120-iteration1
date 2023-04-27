@@ -22,25 +22,29 @@ const NotFound = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div
-          className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
-          <Text
-            className="font-semibold md:ml-[0] ml-[312px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
-            as="h2"
-            variant="h2"
-          >
-            We can't find this page
-          </Text>
-          <Text
-            className="font-semibold md:ml-[0] ml-[312px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
-            as="h4"
-            variant="h4"
-          >
-            This page may used to be here, but seems to have gone missing. We do apologise on it's behalf.
-          </Text>
-          <Button className=" bg-white rounded-full mx-auto border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6"
-            onClick={handleButtonClick}>
-            Home
-          </Button>
+          className="font-pacifico md:h-[1125px] h-[500px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <Text
+              className="font-semibold mx-auto text-black_900 text-left tracking-[-0.72px]"
+              as="h2"
+              variant="h2"
+            >
+              Ops! Cannot find this page
+            </Text>
+            <br />
+            <br />
+            <Text
+              className="font-semibold mx-auto max-w-md text-black_900 text-center tracking-[-0.72px]"
+              as="h7"
+              variant="h7"
+            >
+              This page may used to be here, but seems to have gone missing. We do apologise on this problem.
+            </Text>
+            <br />
+            <Button className=" bg-white rounded-full mx-auto border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6" onClick={handleButtonClick}>
+              Home
+            </Button>
+          </div>
         </div>
       </div>
       <Footer
