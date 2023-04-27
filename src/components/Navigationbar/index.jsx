@@ -43,7 +43,7 @@ export default function Navbar(props) {
                 >
                   
                   <NavLink to="/" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+                color: isActive ? '#756D90' : 'white', borderBottom: isActive ? '3px solid #756D90' : '', fontSize: 20, fontWeight: 'bold'
               })} >Home</NavLink>                </a>
               </li>
               <li className="flex items-center">
@@ -52,7 +52,7 @@ export default function Navbar(props) {
                 >
                   
                   <NavLink to="/map" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+                color: isActive ? '#756D90' : 'white', borderBottom: isActive ? '3px solid #756D90' : '', fontSize: 20, fontWeight: 'bold'
               })} >Map</NavLink>
      </a>
               </li>
@@ -62,7 +62,7 @@ export default function Navbar(props) {
                 >
                   
                   <NavLink to="/smsdetector" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+                color: isActive ? '#756D90' : 'white', borderBottom: isActive ? '3px solid #756D90' : '', fontSize: 20, fontWeight: 'bold'
               })} >SMS Detector</NavLink>      </a>
               </li>
               <li className="flex items-center">
@@ -71,7 +71,7 @@ export default function Navbar(props) {
                 >
                   
                   <NavLink to="/searchpage" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+                color: isActive ? '#756D90' : 'white', borderBottom: isActive ? '3px solid #756D90' : '', fontSize: 20, fontWeight: 'bold'
               })} ><nobr>URL Checker</nobr></NavLink>
             </a>
               </li>
@@ -81,7 +81,7 @@ export default function Navbar(props) {
                 >
                   
                   <NavLink to="/quiz" style={({ isActive }) => ({
-                color: isActive ? '#f15f79' : 'white', borderBottom: isActive ? '3px solid #f15f79' : '', fontSize: 20, fontWeight: 'bold'
+                color: isActive ? '#756D90' : 'white', borderBottom: isActive ? '3px solid #756D90' : '', fontSize: 20, fontWeight: 'bold'
               })} >Quiz</NavLink>         </a>
               </li>
             </ul>
