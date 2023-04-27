@@ -23,11 +23,9 @@ const MapPage = () => {
     };
     fetchData();
   }, []);
-
   useEffect(() => {
-    document.title = "Map - Trustify Online"
+    document.title = "Home Page - Trustify Online"
  }, []);
-
 
   const popup_text = mapList.map(state => (
     <Popup key={state.stateName}>
@@ -58,8 +56,21 @@ const MapPage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div
-          className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
-          <div style={{ height: '500px', width: '100%' }}>
+          className="z-0 font-pacifico h-max	m-max mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
+
+          <div className="flex item-center w-full md:w-5/12 ml-auto mr-auto px-4">
+                <div className="md:pr-12">
+             
+                  <h3 className="text-3xl font-semibold text-blueGray text-center"> MAP
+</h3>
+                  <p className="mt-10 text-lg leading-relaxed ">
+                  The interactive map shows the number of personal fraud experienced in Australia (2021-2022)<br></br> and a List of related news articles if you click the point. 
+                  Where the big red circle is the more personal fraud experienced in that state.
+                  </p>
+                  </div>
+</div>
+
+          <div className="flex justify-center mt-10	" style={{ height: '500px', width: '100%' }}>
             <MapContainer center={[-28.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '50%' }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {mapList.map(state => (

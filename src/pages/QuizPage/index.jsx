@@ -94,15 +94,11 @@ const QuizPage = () => {
     const totalQuestions = questions.length;
     const percentage = Math.round((score / totalQuestions) * 100);
     return (
-      <div className="bg-gradient  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
-        <Navigationbar
-          className="flex items-center justify-center md:px-[20px] w-[100%]"
-          home="Home"
-          picwishone="images/img_picwish2_125x227.png"
-        />
-        <div className="font-pacifico md:h-[1125px] h-[1400px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
+      <div className="flex flex-col font-opensans items-center justify-start  ">
+        <Navigationbar/>
+        <div className="font-pacifico h-full m-full mx-auto p-[129px] md:px-5 relative w-full">
 
-          <div className="absolute bg-gradient1  flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
+          <div className=" bg-gradient1  flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
             {showResult && (
               <div className="quiz-result">
                 <Result
@@ -127,7 +123,7 @@ const QuizPage = () => {
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
             </div>
-            <Button className=" bg-white rounded-full mx-auto border border-blue_500 border-solid cursor-pointer font-bold font-montserrat leading-[normal]  py-5  text-center text-black text-xl tracking-[-0.30px] w-1/6"
+            <Button className="btn cta bg"
               onClick={handleReload}>
               Try again
             </Button>
@@ -149,7 +145,7 @@ const QuizPage = () => {
           home="Home"
           picwishone="images/img_picwish2_125x227.png"
         />
-        <div className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
+        <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
 
           <div className="bg-gradient1 relative">
 
@@ -170,7 +166,7 @@ const QuizPage = () => {
                 <div className="text-white text-center">
                   <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
                   <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
-                    <div className="grid grid-cols-2 gap-4 justify-items-start">
+                    <div className="grid grid-cols-2 gap-4 px-12 py-12 justify-items-start">
                       {options?.[currentQuestion]?.map((option, index) => (
                         <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
                           <span className="mr-2" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
@@ -183,10 +179,10 @@ const QuizPage = () => {
               </div>
 
               {showExplanation && (
-                <div>
+                <div className="text-center py-12">
                   <p>{isCorrect ? 'Correct!' : 'Incorrect.'}</p>
                   <p>Answer: {questions[currentQuestion].answer}</p>
-                  <p>Explanation: {questions[currentQuestion].explanation}</p>
+                  <p>Explanation:<br></br> {questions[currentQuestion].explanation}</p>
                 </div>
               )}
               <div
