@@ -3,14 +3,12 @@ import { useEffect } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { getNews } from "api/map";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import { Icon } from 'leaflet'
 
 const MapPage = () => {
-
-
 
   const [mapList, setMapList] = useState([]);
 
@@ -42,6 +40,8 @@ const MapPage = () => {
     </Popup>
   ));
 
+  const circleRadius = mapList.map((state) => state.fraudValue / 10000);
+
   return (
     <>
       <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
@@ -56,9 +56,26 @@ const MapPage = () => {
             <MapContainer center={[-28.2744, 133.7751]} zoom={4} scrollWheelZoom={false} style={{ height: '100%', width: '50%' }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {mapList.map(state => (
-                <Marker key={state.stateName} position={[state.latitude, state.longitude]} icon={new Icon({ iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41] })}>
+                <Marker
+                  key={state.stateName}
+                  position={[state.latitude, state.longitude]}
+                  icon={new Icon({
+                    iconUrl: markerIconPng,
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41]
+                  })}>
                   {popup_text.find(popup => popup.key === state.stateName)}
                 </Marker>
+              ))}
+              {mapList.map((state, index) => (
+                <CircleMarker
+                  key={index}
+                  center={[state.latitude, state.longitude]}
+                  radius={circleRadius[index]}
+                  stroke={false}
+                  fillOpacity={0.3}
+                  fillColor="red"
+                />
               ))}
             </MapContainer>
           </div>
