@@ -176,14 +176,14 @@ const SearchPagePage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
-          <Text
-            className="font-semibold md:ml-[0] ml-[312px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
-            as="h2"
-            variant="h2"
-          >
-            Type the link of the website you want access below
-          </Text>
           <div className="font-dmsans h-[500px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
+            <Text
+              className="font-semibold text-black_900 text-center ml-[350px] tracking-[-0.72px]"
+              as="h2"
+              variant="h2"
+            >
+              Type the link of the website you want access below
+            </Text>
             <Img
               src="images/img_websitebackgro_500x500.png"
               className="absolute h-[500px] inset-y-[0] left-[0] my-[auto] object-cover w-[500px]"

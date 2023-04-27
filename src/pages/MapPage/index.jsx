@@ -39,7 +39,7 @@ const MapPage = () => {
       {state.urls.map((link, index) => (
         <React.Fragment key={link.link}>
           {index > 0 && <br />}
-          <a href={link.link} target="_blank" rel="noopener noreferrer" onClick={() => window.location.href = link.link}>{link.title}</a><br />
+          <a href={link.link} target="_blank" rel="noopener noreferrer" >{link.title}</a><br />
         </React.Fragment>
       ))}
     </Popup>
