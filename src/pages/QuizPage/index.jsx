@@ -34,6 +34,11 @@ const QuizPage = () => {
   }, []);
 
   useEffect(() => {
+    document.title = "Quiz - Trustify Online"
+ }, []);
+
+
+  useEffect(() => {
     if (questions) {
       setOptions(
         questions.map(question => [

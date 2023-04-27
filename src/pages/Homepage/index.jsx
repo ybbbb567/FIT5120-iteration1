@@ -18,7 +18,7 @@ const HomepagePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Home Page"
+    document.title = "Home Page - Trustify Online"
  }, []);
 
 

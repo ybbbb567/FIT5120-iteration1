@@ -37,6 +37,11 @@ const SearchPagePage = () => {
     initSearchHistory();
   }, []);
 
+  useEffect(() => {
+    document.title = "URL Checker - Trustify Online"
+ }, []);
+
+
   // get history from localStorage
   const getSearchHistoryFromLocalStorage = () => {
     const searchHistoryString = localStorage.getItem('searchHistory');
