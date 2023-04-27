@@ -6,7 +6,7 @@ import App from "./App";
 import "./styles/index.css";
 import "./styles/tailwind.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import "./styles/button.css";
 
 
 ReactDOM.render(

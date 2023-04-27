@@ -44,9 +44,9 @@ const HomepagePage = () => {
               giving away their money and personal information
               </p>
               <div className="mt-10">
-              <Button
-                    className="common-pointer bg-bluegray_700 border-[1px] bg-purple border-solid cursor-pointer font-bold font-montserrat leading-[normal] sm:min-w-[100%] min-w-[548px] md:ml-[0] ml-[32px] mt-[80px] py-[28px] rounded-[6px] text-[20px] text-center text-white_A700 tracking-[-0.30px] w-[auto]"
-                    onClick={() => navigate("/searchpage")}
+             
+ <Button class="btn cta bg"
+ onClick={() => navigate("/searchpage")}
                   >
                     Start Check Website
                   </Button>
@@ -57,7 +57,7 @@ const HomepagePage = () => {
 </div>
 
           <div
-            className="absolute top-0 w-full height-120 bg-center bg-cover"
+            className="absolute top-0 w-full height-170 bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('images/img_asdadwadzscmod.png')",
@@ -84,7 +84,7 @@ const HomepagePage = () => {
          
           </div>
 
-          <div className="justify-around container mx-auto px-4 lg:pt-24 ">
+          <div className="justify-around container mx-auto px-4 pt-72 ">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
 
@@ -100,7 +100,7 @@ const HomepagePage = () => {
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
                 In 2021-2022, 11.5% of people between 15-24 years experienced card fraud, 
-                and that is higher than any other age group.
+                and that is higher than any other age groups.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -145,9 +145,9 @@ const HomepagePage = () => {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
              
-                  <h3 className="text-3xl font-semibold"> Some Questions to challenge your knowledge
+                  <h3 className="text-3xl font-semibold text-blueGray"> Some Questions to challenge your knowledge
 </h3>
-                  <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                  <p className="mt-4 text-lg leading-relaxed ">
                   Here&#39;s a simple test of your knowledge of phishing
                       scams, and online shopping fraud. Take this quiz to find
                       out how to protect yourself from internet fraud.
@@ -155,8 +155,104 @@ const HomepagePage = () => {
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
-                      <Button className="bg-purple border  border-solid cursor-pointer font-bold font-montserrat leading-[normal] min-w-[548px] sm:min-w-full py-7 rounded-md text-center text-white_A700 text-xl tracking-[-0.30px] w-auto"
-                    onClick={() => navigate("/quiz")}>
+                      <Button class="btn cta bg"
+
+                    onClick={() => navigate("/searchpage")}
+                  >
+                    Start the Quiz
+
+
+                  </Button>
+                        </div>
+                        
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+        </section>
+
+        <section className="relative py-20">
+         
+
+         <div className="container mx-auto px-4">
+           <div className="items-center flex ">
+           <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+               <div className="md:pr-12">
+            
+                 <h3 className="text-3xl font-semibold text-blueGray"> Quickly identify the risks of the SMS you receive
+</h3>
+                 <p className="mt-4 text-lg leading-relaxed ">
+                 SMS Detector identifies scam texts by analyzing their content. 
+                 It detects suspicious links, requests for personal info, and common scam phrases. 
+                 This helps users stay safe from fraud.
+                 </p>
+                 <ul className="list-none mt-6">
+                   <li className="py-2">
+                     <div className="flex items-center">
+                     <Button class="btn cta bg"
+
+                   onClick={() => navigate("/searchpage")}
+                 >
+                   Check your SMS
+
+
+                 </Button>
+                       </div>
+                       
+                   </li>
+                 </ul>
+               </div>
+             </div>
+
+             <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+             <Img
+               src="images/Spam.png"
+               className="md:flex-1 h-[663px] sm:h-auto object-cover w-auto md:w-full"
+               alt="quiz"
+             />
+             </div>
+           
+           </div>
+           </div>
+       </section>
+
+
+
+            <section className="relative py-20">
+         
+
+          <div className="container mx-auto px-4">
+            <div className="items-center flex ">
+              <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
+              <Img
+                src="images/Map.png"
+                className="md:flex-1 h-[663px] sm:h-auto object-cover w-auto md:w-full"
+                alt="quiz"
+              />
+              </div>
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+                <div className="md:pr-12">
+             
+                  <h3 className="text-3xl font-semibold text-blueGray"> A Map to visualize the number of people who have fallen victim to scams
+
+
+
+
+
+</h3>
+                  <p className="mt-4 text-lg leading-relaxed ">
+                  The scam victim map visualizes the number of scam victims in a region. It collects data from various sources to display the concentration of victims. 
+                  The tool is useful for individuals to prevent scams. It provides insights to make informed decisions to protect oneself and the community.
+                  </p>
+                  <ul className="list-none mt-6">
+                    <li className="py-2">
+                      <div className="flex items-center">
+                      <Button class="btn cta bg"
+
+                    onClick={() => navigate("/searchpage")}
+                  >
                     Start the Quiz
 
 
