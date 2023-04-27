@@ -17,7 +17,9 @@ import { Carousel } from "antd";
 const HomepagePage = () => {
   const navigate = useNavigate();
 
-
+  useEffect(() => {
+    document.title = "Home Page"
+ }, []);
 
 
   return (
