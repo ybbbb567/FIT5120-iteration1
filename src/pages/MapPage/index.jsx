@@ -42,6 +42,10 @@ const MapPage = () => {
           <a href={link.link} target="_blank" rel="noopener noreferrer" >{link.title}</a><br />
         </React.Fragment>
       ))}
+<br></br>
+<b><i>Where you can report the online sacm</i></b>
+      <br />
+      <a href="https://www.cyber.gov.au/report-and-recover/report">Report Cyber</a>
     </Popup>
   ));
 
