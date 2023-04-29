@@ -9,6 +9,15 @@ export function checkLink (url) {
   })
 }
 
+export function checkSMS (message) {
+  return request({
+    url: '/classification/message',
+    data: { message: message },
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' }
+  })
+}
+
 export function vote (website) {
   return request({
     url: '/classification/vote',
