@@ -70,29 +70,33 @@ const SMSDetectorPage = () => {
             borderRadius: "10px",
             border: "3px solid black",
           }}>
-            <textarea
-              type="text"
-              placeholder="Please type or paste the text here"
-              value={inputValue}
-              onChange={handleInputChange}
-              style={{
-                border: "none",
-                outline: "none",
-                padding: "8px",
-                fontSize: "16px",
-                width: "100%",
-                height: "100%",
-                resize: "none",
-              }}
-            />
-            <div style={{ overflowY: 'scroll', padding: "8px", }}>
-              <Highlighter
-                highlightClassName="highlighted-text"
-                searchWords={wordsToHighlight}
-                autoEscape={true}
-                textToHighlight={inputValue}
-                style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+            <div style={{ display: "flex", flex: "1" }}>
+              <textarea
+                type="text"
+                placeholder="Please type or paste the text here"
+                value={inputValue}
+                onChange={handleInputChange}
+                style={{
+                  border: "none",
+                  outline: "none",
+                  padding: "8px",
+                  fontSize: "16px",
+                  width: "100%",
+                  height: "100%",
+                  resize: "none",
+                  flex: "1",
+                }}
               />
+
+              <div style={{ borderLeft: "1px solid #ccc", overflowY: 'scroll', padding: "8px", flex: "1" }}>
+                <Highlighter
+                  highlightStyle={{ backgroundColor: "#b095da" }}
+                  searchWords={wordsToHighlight}
+                  autoEscape={true}
+                  textToHighlight={inputValue}
+                  style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+                />
+              </div>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <button className="btn cta bg" onClick={handleSubmit}>
