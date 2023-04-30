@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
-import { Text } from "components";
 import { checkSMS } from "api/check";
-import { Card } from 'antd';
+import { Card, message } from 'antd';
 
 
 const SMSDetectorPage = () => {
@@ -18,9 +17,13 @@ const SMSDetectorPage = () => {
   };
 
   const handleSubmit = () => {
+    if (inputValue.trim() === '') {
+      message.error("Please enter email content!");
+      return;
+    }
+
     checkSMS(inputValue).then(res => {
       if (res.result) {
-        console.log(res.result);
         setResult(res.result);
       }
     })
