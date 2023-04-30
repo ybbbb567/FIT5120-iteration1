@@ -34,16 +34,19 @@ const SMSDetectorPage = () => {
           home="Home"
           picwishone="images/img_picwish2_125x227.png"
         />
-        <div
-          className="font-pacifico md:h-[1125px] h-[1800px] max-w-[1660px] mx-auto p-[129px] md:px-5 relative w-full">
-          <Text
-            className="font-semibold md:ml-[0] ml-[312px] text-black_900 text-left tracking-[-0.72px] w-[auto]"
-            as="h4"
-            variant="h4"
-          >
-            SMS Fraud Detection
-          </Text>
-          <br />
+        
+        <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
+        <h3 className="text-3xl text-center font-bold text-blueGray" >SMS Detecotr</h3>
+<h3 className="text-xl text-center font-bold py-12" >SMS Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases. 
+This helps users stay safe from fraud.It will give three different result.</h3>
+
+      <ul className="text-xl text-center font-bold text-blueGray italic">
+        <li>Ham: </li>
+        <li>Spam:</li>
+        <li>Milk</li>
+      </ul>
+  
+
           <div style={{
             backgroundColor: "#ffffff",
             padding: "16px",
@@ -68,13 +71,8 @@ const SMSDetectorPage = () => {
               }}
             />
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <button onClick={handleSubmit} style={{
-                backgroundColor: "#0984E3",
-                color: "#ffffff",
-                padding: "8px 16px",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}>
+              <button class="btn cta bg "onClick={handleSubmit} 
+              >
                 Start Check
               </button>
             </div>
