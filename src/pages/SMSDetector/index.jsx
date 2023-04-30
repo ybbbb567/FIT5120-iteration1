@@ -37,46 +37,53 @@ const SMSDetectorPage = () => {
         
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
         <h3 className="text-3xl text-center font-bold text-blueGray" >SMS Detecotr</h3>
-<h3 className="text-xl text-center font-bold py-12" >SMS Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases. 
-This helps users stay safe from fraud.It will give three different result.</h3>
+<h3 className="text-xl font-bold py-12" >SMS Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases. 
+</h3>
 
-      <ul className="text-xl text-center font-bold text-blueGray italic">
+      <ul className="text-xl font-bold text-blueGray italic pb-7">
+        <li className="text-black not-italic ">It will give three different results and they are: </li>
+        <br></br>
         <li>Ham: </li>
+        <br></br>
+
         <li>Spam:</li>
-        <li>Milk</li>
+        <br></br>
+
       </ul>
   
 
-          <div style={{
-            backgroundColor: "#ffffff",
-            padding: "16px",
-            height: "400px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between"
-          }}>
-            <textarea
-              type="text"
-              placeholder="Please type or paste the text here"
-              value={inputValue}
-              onChange={handleInputChange}
-              style={{
-                border: "none",
-                outline: "none",
-                padding: "8px",
-                fontSize: "16px",
-                width: "100%",
-                height: "100%",
-                resize: "none",
-              }}
-            />
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <button class="btn cta bg "onClick={handleSubmit} 
-              >
-                Start Check
-              </button>
-            </div>
-          </div>
+   <div style={{
+  backgroundColor: "#ffffff",
+  padding: "16px",
+  height: "400px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  borderRadius: "10px",
+  border: "3px solid black", // 初始边框颜色
+
+}}>
+  <textarea
+    type="text"
+    placeholder="Please type or paste the text here"
+    value={inputValue}
+    onChange={handleInputChange}
+    style={{
+      border: "none",
+      outline: "none",
+      padding: "8px",
+      fontSize: "16px",
+      width: "100%",
+      height: "100%",
+      resize: "none",
+    }}
+  />
+  <div style={{ display: "flex", justifyContent: "flex-end" }}>
+    <button class="btn cta bg" onClick={handleSubmit}>
+      Start Check
+    </button>
+  </div>
+</div>
           <div style={{ height: 30 }}></div>
           {result ? (
             <div style={{
