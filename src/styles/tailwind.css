@@ -43,9 +43,6 @@ li:focus-visible{
   outline: none;
 }
 
-li:hover{
-  cursor: pointer;
-}
 
 
 .tab-panel--selected { animation-name: tabPanel; animation-duration: 300ms; animation-timing-function: linear; }
