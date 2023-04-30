@@ -47,7 +47,7 @@ const HomepagePage = () => {
                   </p>
                   <div className="mt-10">
 
-                    <Button class="btn cta bg"
+                    <Button className="btn cta bg"
                       onClick={() => navigate("/searchpage")}
                     >
                       Start Check Website
@@ -89,7 +89,7 @@ const HomepagePage = () => {
             <div className=" flex flex-wrap mt-12 justify-around">
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <div className="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <i class="fas fa-credit-card fa-beat fa-lg"></i>
+                  <i className="fas fa-credit-card fa-beat fa-lg"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
                   Card Fraud
@@ -112,7 +112,7 @@ const HomepagePage = () => {
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <div className="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <i class="fas fa-regular fa-globe fa-lg style=" color="#8a0ec4"></i>
+                  <i className="fas fa-regular fa-globe fa-lg style=" color="#8a0ec4"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
                   Online impersonation
@@ -151,7 +151,7 @@ const HomepagePage = () => {
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
-                        <Button class="btn cta bg"
+                        <Button className="btn cta bg"
 
                           onClick={() => navigate("/quiz")}
                         >
@@ -185,7 +185,7 @@ const HomepagePage = () => {
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
-                        <Button class="btn cta bg"
+                        <Button className="btn cta bg"
 
                           onClick={() => navigate("/smsdetector")}
                         >
@@ -241,7 +241,7 @@ const HomepagePage = () => {
                   <ul className="list-none mt-6">
                     <li className="py-2">
                       <div className="flex items-center">
-                        <Button class="btn cta bg"
+                        <Button className="btn cta bg"
 
                           onClick={() => navigate("/map")}
                         >

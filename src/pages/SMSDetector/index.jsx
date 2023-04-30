@@ -4,6 +4,7 @@ import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { checkSMS } from "api/check";
 import { Card, message } from 'antd';
+import Highlighter from 'react-highlight-words';
 
 
 const SMSDetectorPage = () => {
@@ -11,6 +12,10 @@ const SMSDetectorPage = () => {
   const [inputValue, setInputValue] = useState("");
 
   const [result, setResult] = useState(null);
+
+  const wordsToHighlight = ['act', 'apply', 'buy', 'call', 'cancel', 'cash', 'cheap', 'click', 'collect', 'compare', 'credit', 'deal', 'discount', 'double', 'earn', 'extra', 'for only', 'free', 'get started now', 'guarantee', 'increase', 'insurance', 'limited time', 'lose', 'make money', 'marketing solutions', 'money back', 'new customers only', 'offer', 'one time', 'opportunity', 'order now', 'performance', 'promise', 'pure profit', 'refinance', 'remove', 'reverses aging', 'risk-free', 'sales', 'save big', 'save up to', 'special promotion', 'stop', 'trial', 'unsubscribe', 'urgent', 'viagra', 'win', 'winner'];
+
+  // const regex = new RegExp(`\\b(${wordsToHighlight.join('|')})\\b`, 'ig');
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -63,8 +68,7 @@ const SMSDetectorPage = () => {
             flexDirection: "column",
             justifyContent: "space-between",
             borderRadius: "10px",
-            border: "3px solid black", // 初始边框颜色
-
+            border: "3px solid black",
           }}>
             <textarea
               type="text"
@@ -81,8 +85,17 @@ const SMSDetectorPage = () => {
                 resize: "none",
               }}
             />
+            <div style={{ overflowY: 'scroll', padding: "8px", }}>
+              <Highlighter
+                highlightClassName="highlighted-text"
+                searchWords={wordsToHighlight}
+                autoEscape={true}
+                textToHighlight={inputValue}
+                style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}
+              />
+            </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <button class="btn cta bg" onClick={handleSubmit}>
+              <button className="btn cta bg" onClick={handleSubmit}>
                 Start Check
               </button>
             </div>
@@ -98,8 +111,6 @@ const SMSDetectorPage = () => {
                 headStyle={{ backgroundColor: " #C84E89", fontSize: "24px" }}
                 bodyStyle={{ padding: 0, fontSize: "20px" }}
                 style={{ width: 599, backgroundColor: "transparent" }}>
-
-
 
                 <div style={{ height: 30 }}></div>
                 <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This message is mostely likely to  {result ? result.category : ''}</div>
