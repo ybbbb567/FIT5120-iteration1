@@ -23,6 +23,14 @@ const QuizPage = () => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [answered, setAnswered] = useState(false);
 
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [showStartButton, setShowStartButton] = useState(true);
+
+  const startQuiz = () => {
+    setShowQuiz(true);
+    setShowStartButton(false);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const questionList = await getAllQuiz().then(res => res.result);
@@ -35,7 +43,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     document.title = "Quiz - Trustify Online"
- }, []);
+  }, []);
 
 
   useEffect(() => {
@@ -95,7 +103,7 @@ const QuizPage = () => {
     const percentage = Math.round((score / totalQuestions) * 100);
     return (
       <div className="flex flex-col font-opensans items-center justify-start  ">
-        <Navigationbar/>
+        <Navigationbar />
         <div className="font-pacifico h-full m-full mx-auto p-[129px] md:px-5 relative w-full">
 
           <div className="bg-purple  flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
@@ -146,9 +154,6 @@ const QuizPage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
-<h3 className="text-3xl text-center font-bold text-blueGray" >Quiz</h3>
-<h3 className="text-xl text-center font-bold py-12" >Let's test our knowledge by answering the following six quizzes.<br></br>
-  You will get an explanation of each question and a final score.</h3>
           <div className="bg-purple relative">
 
             <div className="h-[212px] w-full md:w-[29%] mx-auto relative ">
@@ -163,42 +168,56 @@ const QuizPage = () => {
                 </h2>
               </div>
             </div>
-            <div className=" bg-purple container w-full h-auto max-w-full">
+            {showStartButton && (
+              <div className="bg-purple container w-full h-auto max-w-full pb-8" style={{ textAlign: "center" }}>
+                {/* <h3 className="text-3xl text-center font-bold text-blueGray" >Quiz</h3> */}
+                <h3 className="text-xl text-white text-center font-bold py-8" >Let's test our knowledge by answering the following six quizzes.<br></br>
+                  You will get an explanation of each question and a final score.</h3>
+                <button
+                  className="bg-white text-black py-2 px-4 rounded focus:outline-none"
+                  onClick={startQuiz}
+                >
+                  Start Quiz
+                </button>
+              </div>
+            )}
+            {showQuiz && (
+              <div className="bg-purple container w-full h-auto max-w-full">
+                <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
+                  <div className="text-white text-center">
+                    <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
+                    <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
+                      <div className="grid 	 grid-cols-2 gap-4 px-12 py-12 justify-items-start">
+                        {options?.[currentQuestion]?.map((option, index) => (
+                          <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
+                            <span className="mr-2 text-white" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
+                            {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : <span className="text-white" style={{ fontSize: '18px' }}>{option.label}</span>}
+                          </Radio>
+                        ))}
+                      </div>
+                    </Radio.Group>
+                  </div>
+                </div>
 
-              <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
-                <div className="text-white text-center">
-                  <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
-                  <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
-                    <div className="grid 	 grid-cols-2 gap-4 px-12 py-12 justify-items-start">
-                      {options?.[currentQuestion]?.map((option, index) => (
-                        <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
-                          <span className="mr-2 text-white" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
-                          {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : <span className="text-white" style={{ fontSize: '18px' }}>{option.label}</span>}
-                        </Radio>
-                      ))}
-                    </div>
-                  </Radio.Group>
+                {showExplanation && (
+                  <div className="text-center text-white py-12">
+                    <p>{isCorrect ? 'Correct!' : 'Incorrect.'}</p>
+                    <p>Answer: {questions[currentQuestion].answer}</p>
+                    <p>Explanation:<br></br> {questions[currentQuestion].explanation}</p>
+                  </div>
+                )}
+                <div
+                  className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
+                  style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none', bottom: '1rem', right: '7rem', position: 'relative' }}>
+                  <Img onClick={handleNextQuestion}
+                    src="images/img_arrowright.svg"
+                    className="h-24 w-auto"
+                    alt="arrowright"
+
+                  />
                 </div>
               </div>
-
-              {showExplanation && (
-                <div className="text-center text-white py-12">
-                  <p>{isCorrect ? 'Correct!' : 'Incorrect.'}</p>
-                  <p>Answer: {questions[currentQuestion].answer}</p>
-                  <p>Explanation:<br></br> {questions[currentQuestion].explanation}</p>
-                </div>
-              )}
-              <div
-                className="bg-white_A700 flex h-24 items-center cursor-pointer justify-start md:ml-[0] ml-[1100px] mr-[11px] mt-[122px] pl-0.5 rounded-[50%] w-24"
-                style={{ opacity: answered ? 1 : 0, pointerEvents: answered ? 'auto' : 'none', bottom: '1rem', right: '7rem', position: 'relative' }}>
-                <Img onClick={handleNextQuestion}
-                  src="images/img_arrowright.svg"
-                  className="h-24 w-auto"
-                  alt="arrowright"
-
-                />
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
