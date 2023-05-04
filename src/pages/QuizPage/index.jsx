@@ -102,7 +102,7 @@ const QuizPage = () => {
     const totalQuestions = questions.length;
     const percentage = Math.round((score / totalQuestions) * 100);
     return (
-      <div className="flex flex-col font-opensans items-center justify-start  ">
+      <div className="navbar_color flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
         <Navigationbar />
         <div className="font-pacifico h-full m-full mx-auto p-[129px] md:px-5 relative w-full">
 
@@ -170,8 +170,7 @@ const QuizPage = () => {
             </div>
             {showStartButton && (
               <div className="bg-purple container w-full h-auto max-w-full pb-8" style={{ textAlign: "center" }}>
-                {/* <h3 className="text-3xl text-center font-bold text-blueGray" >Quiz</h3> */}
-                <h3 className="text-xl text-white text-center font-bold py-8" >Let's test our knowledge by answering the following six quizzes.<br></br>
+                <h3 className="text-xl text-white text-center font-bold py-8" >Let's test our knowledge by answering the following <span className="text-xl text-blueGray font-bold"><em>SIX</em></span> quizzes.<br></br>
                   You will get an explanation of each question and a final score.</h3>
                 <button
                   className="bg-white text-black py-2 px-4 rounded focus:outline-none"

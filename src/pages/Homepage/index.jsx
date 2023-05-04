@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
-import { getFeedback } from "api/feedback";
-import { Text, Button, Img, Line } from "components";
-import HomepageStackone from "components/HomepageStackone";
+import { Button, Img } from "components";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
 import { useNavigate } from "react-router-dom";
-import { Carousel } from "antd";
 
 
 <meta
