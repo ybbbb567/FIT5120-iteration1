@@ -181,7 +181,7 @@ const SearchPagePage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
-          <div className="font-dmsans h-[700px] md:h-[721px] mb-64 mr-[314px] relative md:w-[100%] w-[80%]">
+          <div className="font-dmsans h-[700px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
             <Text
               className="font-semibold text-black_900 text-center ml-[350px] tracking-[-0.72px]"
               as="h2"
@@ -292,7 +292,19 @@ const SearchPagePage = () => {
 
                     {/* </div> */}
                     <div style={{ height: 30 }}></div>
-                    <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>Based on system analysis, This website is mostely likely to  {result ? result.predict.category : ''}</div>
+                    <div style={{ marginLeft: 30, fontWeight: 'bold', fontStyle: 'italic' }}>
+                      Based on system analysis, This website is mostely likely to&nbsp;
+                      {result ? result.predict.category : ''}</div>
+                    <br />
+                    <div style={{ marginLeft: 30 }}>
+                      {result ? (
+                        result.predict.category === 'benign' ? 'Benign: This refers to a website that does not contain harmful content or code.' :
+                          result.predict.category === 'defacement' ? 'Defacement: This means that the site may have been altered in appearance without the owner\'s consent. This can be done for various reasons such as spreading information, defaming the website owner, or simply to demonstrate hacking skills.' :
+                            result.predict.category === 'phishing' ? 'Phishing: This is when the site may be a fake site that looks similar to a legitimate site and the attacker tries to trick the user into revealing sensitive information, such as login credentials or financial data.' :
+                              result.predict.category === 'malware' ? 'Malware: This refers to a website that has been injected with code that could be used to steal data, infect other computers, or perform other malicious activities without the knowledge or consent of the website owner.' :
+                                ''
+                      ) : ''}
+                    </div>
                     <div style={{ height: 30 }}></div>
                   </Card>
 
