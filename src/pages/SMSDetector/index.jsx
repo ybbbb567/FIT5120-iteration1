@@ -44,9 +44,9 @@ const SMSDetectorPage = () => {
         />
 
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
-        <h3 className="text-3xl text-center font-bold text-blueGray" >Email Detector</h3>
-<h3 className="text-xl font-bold py-12" >Email Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases. 
-</h3>
+          <h3 className="text-3xl text-center font-bold text-blueGray" >Email Detector</h3>
+          <h3 className="text-xl font-bold py-12" >Email Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases.
+          </h3>
 
           <ul className="text-xl font-bold text-blueGray italic pb-7">
             <li className="text-black not-italic ">It will give two different results and they are: </li>
@@ -56,9 +56,7 @@ const SMSDetectorPage = () => {
 
             <li>Spam: "Spam" usually indicates junk email or text intended to deceive or defraud the recipient. These emails may contain undesirable content such as spam, phishing scams, pornographic content, viruses or malware.</li>
             <br></br>
-
           </ul>
-
 
           <div style={{
             backgroundColor: "#ffffff",

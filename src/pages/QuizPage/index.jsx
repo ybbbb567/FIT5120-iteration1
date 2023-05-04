@@ -6,6 +6,7 @@ import { Radio, Result } from 'antd';
 import { getAllQuiz } from "api/quiz";
 import { useEffect } from "react";
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from 'react-share';
+import { useNavigate } from "react-router-dom";
 
 
 const handleReload = () => {
@@ -14,6 +15,7 @@ const handleReload = () => {
 
 
 const QuizPage = () => {
+  const navigate = useNavigate();
   const [showExplanation, setShowExplanation] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
@@ -101,16 +103,16 @@ const QuizPage = () => {
     const score = calculateScore();
     const totalQuestions = questions.length;
     const percentage = Math.round((score / totalQuestions) * 100);
+    const status = percentage < 60 ? "error" : "success";
     return (
       <div className="navbar_color flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
         <Navigationbar />
         <div className="font-pacifico h-full m-full mx-auto p-[129px] md:px-5 relative w-full">
-
-          <div className="bg-purple  flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
+          <div className="bg-purple flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
             {showResult && (
               <div className="quiz-result">
                 <Result
-                  status="success"
+                  status={status}
                   title={`You scored ${percentage}%`}
                   subTitle={`You answered ${score} out of ${totalQuestions} questions correctly.`}
                 />
@@ -131,10 +133,15 @@ const QuizPage = () => {
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
             </div>
-            <Button className="btn cta bg"
-              onClick={handleReload}>
-              Try again
-            </Button>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+              <Button className="btn cta bg" onClick={handleReload}>
+                Try again
+              </Button>
+              <Button className="btn cta bg" onClick={() => navigate("/")}>
+                Homepage
+              </Button>
+            </div>
+
           </div>
         </div>
         <Footer
@@ -169,15 +176,13 @@ const QuizPage = () => {
               </div>
             </div>
             {showStartButton && (
-              <div className="bg-purple container w-full h-auto max-w-full pb-8" style={{ textAlign: "center" }}>
+              <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
                 <h3 className="text-xl text-white text-center font-bold py-8" >Let's test our knowledge by answering the following <span className="text-xl text-blueGray font-bold"><em>SIX</em></span> quizzes.<br></br>
                   You will get an explanation of each question and a final score.</h3>
-                <button
-                  className="bg-white text-black py-2 px-4 rounded focus:outline-none"
-                  onClick={startQuiz}
-                >
+                <Button className="btn cta bg"
+                  onClick={startQuiz}>
                   Start Quiz
-                </button>
+                </Button>
               </div>
             )}
             {showQuiz && (
@@ -186,9 +191,9 @@ const QuizPage = () => {
                   <div className="text-white text-center">
                     <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
                     <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
-                      <div className="grid 	 grid-cols-2 gap-4 px-12 py-12 justify-items-start">
+                      <div className="grid grid-cols-2 gap-4 px-12 py-12 justify-items-start">
                         {options?.[currentQuestion]?.map((option, index) => (
-                          <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center">
+                          <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center text-left">
                             <span className="mr-2 text-white" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
                             {option.label.startsWith('http') ? <img src={option.label} alt="option" /> : <span className="text-white" style={{ fontSize: '18px' }}>{option.label}</span>}
                           </Radio>

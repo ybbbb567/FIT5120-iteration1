@@ -181,7 +181,7 @@ const SearchPagePage = () => {
           picwishone="images/img_picwish2_125x227.png"
         />
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
-          <div className="font-dmsans h-[700px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">
+          <div className="font-dmsans h-[700px] md:h-[721px] mb-64 mr-[314px] relative md:w-[100%] w-[80%]">
             <Text
               className="font-semibold text-black_900 text-center ml-[350px] tracking-[-0.72px]"
               as="h2"
