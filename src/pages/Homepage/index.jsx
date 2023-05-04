@@ -62,12 +62,12 @@ const HomepagePage = () => {
             className="absolute top-0 w-full height-170 bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('images/img_asdadwadzscmod.png')",
+                "url('images/Homepage_mainpicture.jpg')",
             }}
           >
             <span
               id="blackOverlay"
-              className="h-full w-full  absolute opacity-75 bg-black"
+              className="h-full w-full  absolute opacity-40 bg-black"
             ></span>
           </div>
 

@@ -67,7 +67,7 @@ export default function Navbar(props) {
                   
                   <NavLink to="/smsdetector" style={({ isActive }) => ({
                 color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} >SMS Detector</NavLink>      </a>
+              })} >Email Detector</NavLink>      </a>
               </li>
               <li className="flex items-center">
                 <a
