@@ -9,15 +9,15 @@ const Footer = () => {
   return (
     <>
       <footer className=" navbar_color text-zinc-100	 flex flex-row gap-40 items-center justify-start pr-10 sm:pr-20 md:pr-40 w-full max-w-screen-xl">
-       
-       <div className="container mx-auto px-4">
+
+        <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
-            <Img
-          src="images/img_picwish2_125x227.png"
-          className="md:flex-1 h-[145px] sm:h-[auto] object-cover md:w-[100%] "
-          alt="picwishTwo"
-        />
+              <Img
+                src="images/img_picwish2_125x227.png"
+                className="md:flex-1 h-[145px] sm:h-[auto] object-cover md:w-[100%] "
+                alt="picwishTwo"
+              />
             </div>
             <div className="w-full lg:w-6/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
@@ -27,7 +27,7 @@ const Footer = () => {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <NavLink 
+                      <NavLink
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         to="/searchpage"
                       >
@@ -35,7 +35,7 @@ const Footer = () => {
                       </NavLink>
                     </li>
                     <li>
-                    <NavLink 
+                      <NavLink
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         to="/smsdetector"
                       >
@@ -43,39 +43,39 @@ const Footer = () => {
                         </NavLink>
 
                     </li>
-              
+
                   </ul>
                 </div>
                 <div className="w-full lg:w-4/12 px-4">
                   <span className="block uppercase text-blueGray-500 text-st font-semibold mb-2">
-                    Other Feature
+                    Other Features
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                    <NavLink 
+                      <NavLink
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         to="/map"
                       >
                         Map
-                        </NavLink>
+                      </NavLink>
                     </li>
                     <li>
-                    <NavLink 
+                      <NavLink
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         to="/quiz"
                       >
-                      Quiz
+                        Quiz
                       </NavLink>
                     </li>
                     <li>
-                    <NavLink 
+                      <NavLink
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         to="/information"
                       >
-                      Information
+                        Information
                       </NavLink>
                     </li>
-                  
+
                   </ul>
                 </div>
               </div>
@@ -86,13 +86,13 @@ const Footer = () => {
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blueGray-500 font-semibold py-1">
                 Copyright © 2023 by Guardian Team
-             
-                
+
+
               </div>
             </div>
           </div>
         </div>
-   
+
       </footer>
     </>
   );

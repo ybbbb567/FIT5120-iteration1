@@ -8,8 +8,6 @@ import Footer from "components/Footer";
 import { checkLink, vote } from "api/check";
 import { CheckOutlined, CloseOutlined, SmileOutlined } from '@ant-design/icons';
 
-const { TabPane } = Tabs;
-
 const SearchPagePage = () => {
 
 
