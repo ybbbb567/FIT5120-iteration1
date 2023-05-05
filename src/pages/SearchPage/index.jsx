@@ -298,7 +298,7 @@ const SearchPagePage = () => {
                     <br />
                     <div style={{ marginLeft: 30 }}>
                       {result ? (
-                        result.predict.category === 'benign' ? 'Benign: This refers to a website that does not contain harmful content or code.' :
+                        result.predict.category === 'benign' ? 'Benign: This refers to a website which does not contain harmful content or code.' :
                           result.predict.category === 'defacement' ? 'Defacement: This means that the site may have been altered in appearance without the owner\'s consent. This can be done for various reasons such as spreading information, defaming the website owner, or simply to demonstrate hacking skills.' :
                             result.predict.category === 'phishing' ? 'Phishing: This is when the site may be a fake site that looks similar to a legitimate site and the attacker tries to trick the user into revealing sensitive information, such as login credentials or financial data.' :
                               result.predict.category === 'malware' ? 'Malware: This refers to a website that has been injected with code that could be used to steal data, infect other computers, or perform other malicious activities without the knowledge or consent of the website owner.' :
