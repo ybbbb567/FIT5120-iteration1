@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "pages/NotFound";
 const SMSDetector = React.lazy(() => import("pages/SMSDetector"));
-const BadResultPage = React.lazy(() => import("pages/BadResultPage"));
+const SimulatePage = React.lazy(() => import("pages/SimulatePage"));
 const Homepage = React.lazy(() => import("pages/Homepage"));
 const SearchPage = React.lazy(() => import("pages/SearchPage"));
 const MapPage = React.lazy(() => import("pages/MapPage"));
@@ -17,7 +17,7 @@ const ProjectRoutes = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/searchpage" element={<SearchPage />} />
-          <Route path="/badresultpage" element={<BadResultPage />} />
+          <Route path="/simulate" element={<SimulatePage />} />
           <Route path="/smsdetector" element={<SMSDetector />} />
           <Route path="/quiz" element={<QuizPage />} />
 

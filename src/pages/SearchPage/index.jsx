@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from 'react';
-import { Tabs, Button, Input, Card, message, Modal, Col, Row, notification } from 'antd';
+import { Button, Input, Card, message, Modal, Col, Row, notification } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Navigationbar from "components/Navigationbar";
 import { Text, Img } from "components";

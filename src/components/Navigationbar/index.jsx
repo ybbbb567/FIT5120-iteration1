@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 // components
 
 
-export default function Navbar(props) {
+export default function Navbar (props) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -17,14 +17,14 @@ export default function Navbar(props) {
             <div
               className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
             >
-                <NavLink to="/" >
- <Img
-              src="images/Logo.png"
-              className="h-[42px] md:h-[auto] object-cover "
-              alt="picwishOne"
-              
-            />    
-                  </NavLink>     
+              <NavLink to="/" >
+                <Img
+                  src="images/Logo.png"
+                  className="h-[42px] md:h-[auto] object-cover "
+                  alt="picwishOne"
+
+                />
+              </NavLink>
             </div>
             <button
               className="cursor-pointer  text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -45,51 +45,62 @@ export default function Navbar(props) {
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 >
-                  
+
                   <NavLink to="/" style={({ isActive }) => ({
-                color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} >Home</NavLink>                </a>
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Home</NavLink>                </a>
               </li>
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 >
-                  
+
                   <NavLink to="/map" style={({ isActive }) => ({
-                color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} >Map</NavLink>
-     </a>
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Map</NavLink>
+                </a>
               </li>
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 >
-                  
+
                   <NavLink to="/smsdetector" style={({ isActive }) => ({
-                color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} >Email Detector</NavLink>      </a>
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Email Detector</NavLink>      </a>
               </li>
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 >
-                  
+
                   <NavLink to="/searchpage" style={({ isActive }) => ({
-                color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} ><nobr>URL Checker</nobr></NavLink>
-            </a>
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} ><nobr>URL Checker</nobr></NavLink>
+                </a>
               </li>
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                 >
-                  
+
                   <NavLink to="/quiz" style={({ isActive }) => ({
-                color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-              })} >Quiz</NavLink>         </a>
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Quiz</NavLink>
+                </a>
+              </li>
+              <li className="flex items-center">
+                <a
+                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                >
+
+                  <NavLink to="/simulate" style={({ isActive }) => ({
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Simulation</NavLink>
+                </a>
               </li>
             </ul>
-           
+
           </div>
         </div>
       </nav>
