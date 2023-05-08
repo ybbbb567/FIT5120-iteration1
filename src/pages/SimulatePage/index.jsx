@@ -37,22 +37,22 @@ const SimulatePage = () => {
       messageInput.value = "";
     });
 
-    fetch("https://example.com/api/messages")
-      .then(response => response.json())
-      .then(data => {
-        const receivedMessageElement = document.createElement("div");
-        receivedMessageElement.classList.add("message", "received");
-        receivedMessageElement.textContent = data.message;
+    // fetch("https://example.com/api/messages")
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     const receivedMessageElement = document.createElement("div");
+    //     receivedMessageElement.classList.add("message", "received");
+    //     receivedMessageElement.textContent = data.message;
 
-        // Add style to the new message element
-        messageElement.style.marginTop = "10px";
-        messageElement.style.padding = "10px";
-        messageElement.style.backgroundColor = "white";
-        messageElement.style.borderRadius = "5px";
-        messageElement.style.boxShadow = "2px 2px 5px grey";
+    //     // Add style to the new message element
+    //     messageElement.style.marginTop = "10px";
+    //     messageElement.style.padding = "10px";
+    //     messageElement.style.backgroundColor = "white";
+    //     messageElement.style.borderRadius = "5px";
+    //     messageElement.style.boxShadow = "2px 2px 5px grey";
 
-        chatMessages.appendChild(receivedMessageElement);
-      });
+    //     chatMessages.appendChild(receivedMessageElement);
+    //   });
 
     return () => {
       sendButton.removeEventListener("click");
