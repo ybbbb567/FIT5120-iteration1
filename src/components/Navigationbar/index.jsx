@@ -99,6 +99,18 @@ export default function Navbar (props) {
                   })} >Simulation</NavLink>
                 </a>
               </li>
+
+              <li className="flex items-center">
+                <a
+                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                >
+
+                  <NavLink to="/information" style={({ isActive }) => ({
+                    color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
+                  })} >Information</NavLink>
+                </a>
+              </li>
+
             </ul>
 
           </div>
