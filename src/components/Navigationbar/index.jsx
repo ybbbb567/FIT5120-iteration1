@@ -1,8 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
 import { Img } from "components";
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 // components
 
