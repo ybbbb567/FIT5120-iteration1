@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { checkSMS } from "api/check";
@@ -16,6 +16,12 @@ const SMSDetectorPage = () => {
   const wordsToHighlight = ['act', 'apply', 'buy', 'call', 'cancel', 'cash', 'cheap', 'click', 'collect', 'compare', 'credit', 'deal', 'discount', 'double', 'earn', 'extra', 'for only', 'free', 'get started now', 'guarantee', 'increase', 'insurance', 'limited time', 'lose', 'make money', 'marketing solutions', 'money back', 'new customers only', 'offer', 'one time', 'opportunity', 'order now', 'performance', 'promise', 'pure profit', 'refinance', 'remove', 'reverses aging', 'risk-free', 'sales', 'save big', 'save up to', 'special promotion', 'stop', 'trial', 'unsubscribe', 'urgent', 'viagra', 'win', 'winner'];
 
   // const regex = new RegExp(`\\b(${wordsToHighlight.join('|')})\\b`, 'ig');
+
+  useEffect(() => {
+    document.title = "Email Detector - Daliy Fraud Fight"
+  }, []);
+
+
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -36,11 +42,9 @@ const SMSDetectorPage = () => {
 
   return (
     <>
-      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color  mx-[auto] w-[100%]">
         <Navigationbar
-          className="flex items-center justify-center md:px-[20px] w-[100%]"
-          home="Home"
-          picwishone="images/img_picwish2_125x227.png"
+          
         />
 
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">

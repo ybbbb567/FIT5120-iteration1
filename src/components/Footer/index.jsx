@@ -10,11 +10,11 @@ const Footer = () => {
     <>
       <footer className=" navbar_color text-zinc-100	 flex flex-row gap-40 items-center justify-start pr-10 sm:pr-20 md:pr-40 w-full max-w-screen-xl">
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="flex flex-wrap text-center lg:text-left">
             <div className="w-full lg:w-6/12 px-4">
               <Img
-                src="images/img_picwish2_125x227.png"
+                src="images/Footer-logo.png"
                 className="md:flex-1 h-[145px] sm:h-[auto] object-cover md:w-[100%] "
                 alt="picwishTwo"
               />

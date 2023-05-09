@@ -7,6 +7,7 @@ const Homepage = React.lazy(() => import("pages/Homepage"));
 const SearchPage = React.lazy(() => import("pages/SearchPage"));
 const MapPage = React.lazy(() => import("pages/MapPage"));
 const QuizPage = React.lazy(() => import("pages/QuizPage"));
+const InformationPage = React.lazy(() => import("pages/InformationPage"));
 
 const ProjectRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const ProjectRoutes = () => {
           <Route path="/simulate" element={<SimulatePage />} />
           <Route path="/smsdetector" element={<SMSDetector />} />
           <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/information" element={<InformationPage />} />
 
         </Routes>
       </Router>
