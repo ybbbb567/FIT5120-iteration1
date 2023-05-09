@@ -14,7 +14,7 @@ const HomepagePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Trustify Online"
+    document.title = "Daliy Fraud Fight"
   }, []);
 
 

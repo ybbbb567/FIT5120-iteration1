@@ -14,6 +14,10 @@ import Footer from "components/Footer";
 
 const SimulatePage = () => {
 
+  useEffect(() => {
+    document.title = "Simulation - Daliy Fraud Fight"
+  }, []);
+
 
   useEffect(() => {
     const chatMessages = document.getElementById("chat-messages");

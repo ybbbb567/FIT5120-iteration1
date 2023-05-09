@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState,useEffect} from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
 import { getNews } from "api/map";
@@ -24,8 +23,9 @@ const MapPage = () => {
     fetchData();
   }, []);
   useEffect(() => {
-    document.title = "Home Page - Trustify Online"
+    document.title = "Map - Daliy Fraud Fight"
   }, []);
+
 
   const popup_text = mapList.map(state => (
     <Popup key={state.stateName}>

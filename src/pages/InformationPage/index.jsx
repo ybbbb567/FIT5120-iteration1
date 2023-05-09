@@ -1,16 +1,15 @@
 import { Button, Img } from "components";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
-import React, { useState } from 'react';
-import { Radio, Result } from 'antd';
-import { getAllQuiz } from "api/quiz";
-import { useEffect } from "react";
-import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from 'react-share';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+
 
 
 const InformationPage = () => {
 
+  useEffect(() => {
+    document.title = "Information - Daliy Fraud Fight"
+  }, []);
 
   
     return (
