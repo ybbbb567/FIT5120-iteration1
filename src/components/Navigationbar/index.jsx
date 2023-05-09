@@ -12,14 +12,14 @@ export default function Navbar (props) {
   return (
     <>
       <nav className="navbar_color border-none top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <div className="container  mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <div
               className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
             >
               <NavLink to="/" >
                 <Img
-                  src="images/Logo.png"
+                  src="images/daliyfraudfight-log.png"
                   className="h-[42px] md:h-[auto] object-cover "
                   alt="picwishOne"
 

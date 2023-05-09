@@ -53,14 +53,11 @@ const MapPage = () => {
 
   return (
     <>
-      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color mx-[auto] w-[100%]">
         <Navigationbar
-          className="flex items-center justify-center md:px-[20px] w-[100%]"
-          home="Home"
-          picwishone="images/img_picwish2_125x227.png"
         />
         <div
-          className="z-0 font-pacifico h-max	m-max mt-[90px] mx-auto p-[129px] md:px-5 relative w-full">
+          className="z-0 font-pacifico h-max	m-max  mx-auto p-[129px] md:px-5 relative w-full">
 
           <div className="flex item-center w-full md:w-5/12 ml-auto mr-auto px-4">
             <div className="md:pr-12">

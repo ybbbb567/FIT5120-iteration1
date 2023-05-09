@@ -173,12 +173,8 @@ const SearchPagePage = () => {
 
   return (
     <>
-      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color   mx-[auto] w-[100%]">
         <Navigationbar
-          className="flex items-center justify-center md:px-[20px] w-[100%]"
-          home="Home"
-          language="Chinese"
-          picwishone="images/img_picwish2_125x227.png"
         />
         <div className="flex flex-col md:gap-[40px] gap-[76px] justify-start mt-[21px] pr-[122px] sm:pr-[20px] md:pr-[40px] py-[122px] w-[100%]">
           <div className="font-dmsans h-[700px] md:h-[721px] mb-[221px] mr-[314px] relative md:w-[100%] w-[80%]">

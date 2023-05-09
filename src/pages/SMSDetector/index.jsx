@@ -36,11 +36,9 @@ const SMSDetectorPage = () => {
 
   return (
     <>
-      <div className="navbar_color  flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
+      <div className="navbar_color  mx-[auto] w-[100%]">
         <Navigationbar
-          className="flex items-center justify-center md:px-[20px] w-[100%]"
-          home="Home"
-          picwishone="images/img_picwish2_125x227.png"
+          
         />
 
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
