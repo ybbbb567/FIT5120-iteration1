@@ -2,17 +2,11 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
-
-
-// // Example: receive a message after 3 seconds
-// setTimeout(() => {
-//   const receivedMessageElement = document.createElement("div");
-//   receivedMessageElement.classList.add("message", "received");
-//   receivedMessageElement.textContent = "Hi there!";
-//   chatMessages.appendChild(receivedMessageElement);
-// }, 3000);
+import { chat } from "api/chat"
 
 const SimulatePage = () => {
+
+  let chatLog = [];
 
   useEffect(() => {
     document.title = "Simulation - Daliy Fraud Fight"
@@ -40,14 +34,15 @@ const SimulatePage = () => {
 
       chatMessages.appendChild(messageElement);
       messageInput.value = "";
+      chatLog.push({ "role": "user", "content": messageText });
 
-
-      sendPostRequest(messageText)
+      chat(chatLog)
         .then(res => {
           console.log(res);
           const receivedMessageElement = document.createElement("div");
+          const textContent = res.result;
           receivedMessageElement.classList.add("message", "received");
-          receivedMessageElement.textContent = res.choices[0].message.content;
+          receivedMessageElement.textContent = textContent;
 
           // Add style to the new message element
           receivedMessageElement.style.marginTop = "10px";
@@ -57,6 +52,9 @@ const SimulatePage = () => {
           receivedMessageElement.style.boxShadow = "2px 2px 5px grey";
 
           chatMessages.appendChild(receivedMessageElement);
+
+          // Add the sent and received messages to chatLog
+          chatLog.push({ "role": "assistant", "content": textContent });
         })
         .catch(error => {
           console.error("Error while sending POST request:", error); // 处理请求失败的情况
@@ -68,30 +66,30 @@ const SimulatePage = () => {
     }
   }, []);
 
-  async function sendPostRequest (data) {
-    try {
-      const requestData = {
-        model: "gpt-3.5-turbo-0301",
-        messages: [{ role: "user", content: data }]
-      };
-      const requestBody = JSON.stringify(requestData);
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST", // 指定请求的方法为 POST
-        headers: {
-          "Content-Type": "application/json", // 指定请求头中的 Content-Type 为 application/json
-          "Authorization": "Bearer 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"
-        },
-        body: JSON.stringify(requestData), // 将数据转换为 JSON 格式，并作为请求体发送
-      });
-      if (!response.ok) {
-        throw new Error("Network response was not ok"); // 如果请求失败，抛出一个错误
-      }
-      const responseData = await response.json(); // 将响应的 JSON 数据解析为 JavaScript 对象
-      return responseData;
-    } catch (error) {
-      console.error("Error while sending POST request:", error); // 处理请求失败的情况
-    }
-  }
+  // async function chat (data) {
+  //   try {
+  //     const requestData = {
+  //       model: "gpt-3.5-turbo-0301",
+  //       messages: data
+  //       // messages: [{ role: "user", content: data }]
+  //     };
+  //     const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  //       method: "POST", // 指定请求的方法为 POST
+  //       headers: {
+  //         "Content-Type": "application/json", // 指定请求头中的 Content-Type 为 application/json
+  //         "Authorization": "Bearer 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"
+  //       },
+  //       body: JSON.stringify(requestData), // 将数据转换为 JSON 格式，并作为请求体发送
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok"); // 如果请求失败，抛出一个错误
+  //     }
+  //     const responseData = await response.json(); // 将响应的 JSON 数据解析为 JavaScript 对象
+  //     return responseData;
+  //   } catch (error) {
+  //     console.error("Error while sending POST request:", error); // 处理请求失败的情况
+  //   }
+  // }
 
   return (
     <>
