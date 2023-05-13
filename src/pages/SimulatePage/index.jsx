@@ -66,31 +66,6 @@ const SimulatePage = () => {
     }
   }, []);
 
-  // async function chat (data) {
-  //   try {
-  //     const requestData = {
-  //       model: "gpt-3.5-turbo-0301",
-  //       messages: data
-  //       // messages: [{ role: "user", content: data }]
-  //     };
-  //     const response = await fetch("https://api.openai.com/v1/chat/completions", {
-  //       method: "POST", // 指定请求的方法为 POST
-  //       headers: {
-  //         "Content-Type": "application/json", // 指定请求头中的 Content-Type 为 application/json
-  //         "Authorization": "Bearer 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"
-  //       },
-  //       body: JSON.stringify(requestData), // 将数据转换为 JSON 格式，并作为请求体发送
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not ok"); // 如果请求失败，抛出一个错误
-  //     }
-  //     const responseData = await response.json(); // 将响应的 JSON 数据解析为 JavaScript 对象
-  //     return responseData;
-  //   } catch (error) {
-  //     console.error("Error while sending POST request:", error); // 处理请求失败的情况
-  //   }
-  // }
-
   return (
     <>
       <div className="navbar_color mx-[auto] w-[100%]">
