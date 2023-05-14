@@ -2,7 +2,7 @@ import { Button, Img } from "components";
 import Footer from "components/Footer";
 import Navigationbar from "components/Navigationbar";
 import React, { useState, useEffect } from "react";
-import { getCourse, getFraudData } from "api/info";
+import { getCourse, getFraudData, getReportHotline } from "api/info";
 import ReactECharts from 'echarts-for-react';
 
 
@@ -12,6 +12,8 @@ const InformationPage = () => {
   const [courseList, setCourseList] = useState([]);
 
   const [fraudList, setFraudList] = useState([]);
+
+  const [reportList, setReportList] = useState([]);
 
   const [option, setOption] = useState({});
 
@@ -51,6 +53,17 @@ const InformationPage = () => {
       const resultList = await getFraudData().then((res) => res.result);
       if (resultList) {
         setFraudList(resultList);
+        console.log(resultList);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultList = await getReportHotline().then((res) => res.result);
+      if (resultList) {
+        setReportList(resultList);
         console.log(resultList);
       }
     };
@@ -119,6 +132,9 @@ const InformationPage = () => {
             Where to report
 
           </div>
+          {/* <div className="flex flex-col">
+              {reportList.map()}
+            </div> */}
         </section>
 
 

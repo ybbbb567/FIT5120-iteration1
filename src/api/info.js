@@ -13,3 +13,10 @@ export function getFraudData () {
     method: 'get',
   })
 }
+
+export function getReportHotline () {
+  return request({
+    url: `/info/fraud`,
+    method: 'get',
+  })
+}
