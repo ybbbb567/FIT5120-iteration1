@@ -235,23 +235,23 @@ const SimulatePage = () => {
 
         <div className="justify-around container mx-auto px-4 pt-32 pb-96 h-full">
 
-            <nav class="flex pt-10 py-10" aria-label="Breadcrumb">
-  <ol class="inline-flex items-center space-x-1 md:space-x-3">
-    <li class="inline-flex items-center">
-      <a href="#" class="inline-flex text-xl items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-        <svg aria-hidden="true" class="w- 4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-        Home
-      </a>
-    </li>
-    <li aria-current="page">
-      <div class="flex items-center">
-        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-        <span class="text-xl	 ml-1 text-sm font-medium text-purple md:ml-2 dark:text-purple">Simulation</span>
-      </div>
-    </li>
-  </ol>
-</nav>
-          
+          <nav class="flex pt-10 py-10" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+              <li class="inline-flex items-center">
+                <a href="#" class="inline-flex text-xl items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                  <svg aria-hidden="true" class="w- 4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                  Home
+                </a>
+              </li>
+              <li aria-current="page">
+                <div class="flex items-center">
+                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                  <span class="text-xl	 ml-1 text-sm font-medium text-purple md:ml-2 dark:text-purple">Simulation</span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+
           {!showChatBox && (
             <div className="bg-purple relative">
               {showStartButton && (
@@ -270,51 +270,46 @@ const SimulatePage = () => {
 
               {showTemplate && (
 
-                
+
                 <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
                   <h3 className="text-xl text-white text-center font-bold py-8" >Select a template </h3>
-                  <div className="flex">
-
-            
+                  <div className="grid gap-x-4 grid-cols-3 px-4">
                     {templateList.map((buttonText, index) => (
-
-<div
-className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-<div
-  className="relative overflow-hidden bg-cover bg-no-repeat"
-  data-te-ripple-init
-  data-te-ripple-color="light">
-  <img
-    className="rounded-t-lg"
-    src= {buttonText.avatar}
-    alt="" />
-  <a href="#!">
-    <div
-      className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-  </a>
-</div>
-<div className="p-6">
-  <h5
-    className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-    {buttonText.name}  {buttonText.age} years old
-
-  </h5>
-  <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-  {buttonText.type}
-
-  </p>
-
-
-
-                      <Button
-                        key={index.id}
-                        className="btn cta bg"
-                        onClick={() => startByTem(buttonText)}
-                      >
-                      Select this template
-                      </Button>
+                      <div
+                        className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+                        <div
+                          className="relative overflow-hidden bg-cover bg-no-repeat"
+                          data-te-ripple-init
+                          data-te-ripple-color="light">
+                          <div
+                            className="flex items-center justify-center"
+                            style={{
+                              height: "100%",
+                              width: "100%",
+                            }}
+                          >
+                            <img className="rounded-t-lg" src={buttonText.avatar} alt="" />
+                          </div>
+                          <div
+                            className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                        </div>
+                        <div className="p-6">
+                          <h5
+                            className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                            {buttonText.name}  {buttonText.age} years old
+                          </h5>
+                          <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                            {buttonText.type}
+                          </p>
+                          <Button
+                            key={index.id}
+                            className="btn cta bg"
+                            onClick={() => startByTem(buttonText)}
+                          >
+                            Select this template
+                          </Button>
+                        </div>
                       </div>
-</div>
 
                     ))}
                   </div>
