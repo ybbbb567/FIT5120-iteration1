@@ -100,27 +100,27 @@ const InformationPage = () => {
     //   key: "id",
     // },
     {
-      title: "reportType",
+      title: "Report Type",
       dataIndex: "reportType",
       key: "reportType",
     },
     {
-      title: "organization",
+      title: "Organization",
       dataIndex: "organization",
       key: "organization",
     },
     {
-      title: "organizationType",
+      title: "Organization Type",
       dataIndex: "organizationType",
       key: "organizationType",
     },
     {
-      title: "scamType",
+      title: "Scam Type",
       dataIndex: "scamType",
       key: "scamType",
     },
     {
-      title: "detail",
+      title: "Detail",
       dataIndex: "detail",
       key: "detail",
     },
