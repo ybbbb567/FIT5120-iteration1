@@ -4,6 +4,8 @@ import Navigationbar from "components/Navigationbar";
 import React, { useState, useEffect } from "react";
 import { getCourse, getFraudData, getReportHotline } from "api/info";
 import ReactECharts from 'echarts-for-react';
+import { Table } from 'antd';
+
 
 
 
@@ -89,7 +91,40 @@ const InformationPage = () => {
         },
       ],
     });
-  }, [fraudList]);
+  }, [fraudList])
+  
+  const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "reportType",
+      dataIndex: "reportType",
+      key: "reportType",
+    },
+    {
+      title: "organization",
+      dataIndex: "organization",
+      key: "organization",
+    },
+    {
+      title: "organizationType",
+      dataIndex: "organizationType",
+      key: "organizationType",
+    },
+    {
+      title: "scamType",
+      dataIndex: "scamType",
+      key: "scamType",
+    },
+    {
+      title: "detail",
+      dataIndex: "detail",
+      key: "detail",
+    },
+  ];
 
 
 
@@ -132,16 +167,10 @@ const InformationPage = () => {
             Where to report
 
           </div>
-          {/* <div className="flex flex-col">
-              {reportList.map()}
-            </div> */}
+          <div className="flex flex-col">
+              <Table columns={columns} dataSource={reportList} rowKey="id" />
+            </div>
         </section>
-
-
-
-
-
-
 
       </main>
       <Footer />
