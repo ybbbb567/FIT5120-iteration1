@@ -134,10 +134,10 @@ const InformationPage = () => {
       <main className="navbar_color">
 
 
-        <section className="top-14 pb-20 relative block bg-blueGray-800">
+        <section className="top-14 relative block bg-blueGray-800">
           <div className="flex flex-col mt-10	pt-10 items-center	" style={{ height: '500px', width: '100%' }}>
             <div className="text-3xl text-center font-bold text-blueGray">Percentage of different fraud or Scams experienced by Age Group in 2021-2022, Australia</div>
-            <div className="pt-10"style={{ height: '500px', width: '40%' }}>
+            <div className="pt-10" style={{ height: '500px', width: '40%' }}>
               <select onChange={(e) => handleSelect(e.target.value)}>
                 <option value="experiencedOnlineImpersonation">experiencedOnlineImpersonation</option>
                 <option value="exposedToScam">exposedToScam</option>
@@ -153,34 +153,34 @@ const InformationPage = () => {
 
         <section className="relative py-20">
 
-        <div className="container mx-auto  px-4">
+          <div className="container mx-auto  px-4">
             <div className="items-center  flex ">
 
-          <div className="text-3xl text-center font-bold text-blueGray " style={{ height: '500px', width: '100%' }}>
+              <div className="text-3xl text-center font-bold text-blueGray " style={{ height: '500px', width: '100%' }}>
 
-            Where to report
-            <div className="py-20">
-            <Table columns={columns}  dataSource={reportList} rowKey="id" />
+                Where to report
+                <div className="py-10">
+                  <Table columns={columns} dataSource={reportList} rowKey="id" size="small" />
+                </div>
+              </div>
             </div>
-            </div>
-          </div>
           </div>
         </section>
 
 
-        
+
         <section className="  header relative  items-center flex h-full max-h-960-px">
 
 
-          <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
+          <div className="flex flex-col mt-10 pt-10	items-center" style={{ height: '500px', width: '100%' }}>
             <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable online Course</div>
             <p className="mt-10 text-xl leading-relaxed ">
-            Some general information to reduce being Scammed or Fraud:
-<li> Be suspicious and don’t trust unexpected contact.</li>
-<li> Never open attachments or click links in emails if words or images make you unsure about the sender.</li>
-<li> Never share your bank details or sensitive information, and use different passwords to log in to online services.</li>
-Here is a list of freely available online courses to educate yourself. You can more detailed information to minimize your risk.
-              </p>
+              Some general information to reduce being Scammed or Fraud:
+              <li> Be suspicious and don’t trust unexpected contact.</li>
+              <li> Never open attachments or click links in emails if words or images make you unsure about the sender.</li>
+              <li> Never share your bank details or sensitive information, and use different passwords to log in to online services.</li>
+              Here is a list of freely available online courses to educate yourself. You can more detailed information to minimize your risk.
+            </p>
 
             <div className="flex pt-10 flex-col">
               {courseList.map(course => (
