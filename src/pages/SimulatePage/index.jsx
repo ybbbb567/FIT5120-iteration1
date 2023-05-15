@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import Navigationbar from "components/Navigationbar";
 import Footer from "components/Footer";
-import { chat } from "api/chat"
+import { chat, getTemplate } from "api/chat"
 import { Button } from "components";
 import { message } from 'antd'
 
@@ -28,6 +28,7 @@ const SimulatePage = () => {
   const [showTemplate, setShowTemplate] = useState(false);
   const [showChatBox, setShowChatBox] = useState(false);
   const [showStartButton, setShowStartButton] = useState(true);
+  const [templateList, setTemplateList] = useState([])
   const [age, setAge] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [name, setName] = useState("");
@@ -57,6 +58,17 @@ const SimulatePage = () => {
 
   useEffect(() => {
     document.title = "Simulation - Daliy Fraud Fight"
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultList = await getTemplate().then((res) => res.result);
+      if (resultList) {
+        setTemplateList(resultList);
+        console.log(resultList);
+      }
+    };
+    fetchData();
   }, []);
 
   useEffect(() => {

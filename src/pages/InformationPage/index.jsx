@@ -133,8 +133,8 @@ const InformationPage = () => {
       <Navigationbar fixed />
       <main className="navbar_color">
 
+        <section className=" top-20 header relative pt-16 items-center flex h-full max-h-960-px">
 
-        <section className="top-14 pb-20 relative block bg-blueGray-800">
           <div className="flex flex-col mt-10	items-center	" style={{ height: '500px', width: '100%' }}>
             <div>Visulization</div>
             <div style={{ height: '500px', width: '40%' }}>
@@ -150,7 +150,8 @@ const InformationPage = () => {
 
         </section>
 
-        <section className=" top-20 header relative pt-16 items-center flex h-full max-h-960-px">
+        <section className="top-14 pb-20 relative block bg-blueGray-800">
+
 
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
             <div className="flex">Avaliable Course</div>

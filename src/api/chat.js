@@ -8,3 +8,10 @@ export function chat (chatLog) {
     headers: { 'Content-Type': 'application/json' }
   })
 }
+
+export function getTemplate () {
+  return request({
+    url: '/simulate/template',
+    method: 'get',
+  })
+}
