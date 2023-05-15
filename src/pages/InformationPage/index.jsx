@@ -181,7 +181,7 @@ const InformationPage = () => {
 
                 Where to report
                 <div className="py-10">
-                  <Table columns={columns} dataSource={reportList} rowKey="id" size="small" />
+                  <Table columns={columns} dataSource={reportList} rowKey="id" size="small" pagination={false} />
                 </div>
               </div>
             </div>
