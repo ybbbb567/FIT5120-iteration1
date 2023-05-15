@@ -22,6 +22,7 @@ const options = [
 const chatLog = [];
 
 
+
 const SimulatePage = () => {
 
   const [showCus, setShowCus] = useState(false);
@@ -183,11 +184,11 @@ const SimulatePage = () => {
 
   return (
     <>
-      <div className="navbar_color mx-[auto] w-[100%]">
-        <Navigationbar
+      <main class="navbar_color">
+        <Navigationbar fixed
         />
 
-        <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
+        <div className="justify-around container mx-auto px-4 py-96 h-full">
           {!showChatBox && (
             <div className="bg-purple relative">
               {showStartButton && (
@@ -317,10 +318,8 @@ const SimulatePage = () => {
           )}
 
         </div>
-      </div>
+      </main>
       <Footer
-        className="flex flex-col font-spacegrotesk items-center justify-start mt-[171px] w-full"
-        feedback="Feedback"
       />
     </>
   );
