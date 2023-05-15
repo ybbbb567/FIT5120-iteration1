@@ -171,6 +171,7 @@ const InformationPage = () => {
         
         <section className="  header relative  items-center flex h-full max-h-960-px">
 
+
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
             <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable online Course</div>
             <div className="flex pt-20 flex-col">
