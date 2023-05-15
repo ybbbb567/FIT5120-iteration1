@@ -78,6 +78,11 @@ li:focus-visible{
   background-color: #756D90
 }
 
+.text-purple{
+
+ color:#94618E;
+}
+
 .flex {
   display: -webkit-flex;
   display: flex;
