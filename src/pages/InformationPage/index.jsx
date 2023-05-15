@@ -135,9 +135,9 @@ const InformationPage = () => {
 
 
         <section className="top-14 pb-20 relative block bg-blueGray-800">
-          <div className="flex flex-col mt-10	items-center	" style={{ height: '500px', width: '100%' }}>
-            <div>Visulization</div>
-            <div style={{ height: '500px', width: '40%' }}>
+          <div className="flex flex-col mt-10	pt-10 items-center	" style={{ height: '500px', width: '100%' }}>
+            <div className="text-3xl text-center font-bold text-blueGray">Visulization</div>
+            <div className="pt-10"style={{ height: '500px', width: '40%' }}>
               <select onChange={(e) => handleSelect(e.target.value)}>
                 <option value="experiencedOnlineImpersonation">experiencedOnlineImpersonation</option>
                 <option value="exposedToScam">exposedToScam</option>
@@ -150,11 +150,30 @@ const InformationPage = () => {
 
         </section>
 
-        <section className=" top-20 header relative pt-16 items-center flex h-full max-h-960-px">
+
+        <section className="relative py-20">
+
+        <div className="container mx-auto  px-4">
+            <div className="items-center  flex ">
+
+          <div className="text-3xl text-center font-bold text-blueGray " style={{ height: '500px', width: '100%' }}>
+
+            Where to report
+            <div className="py-20">
+            <Table columns={columns}  dataSource={reportList} rowKey="id" />
+            </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+
+        
+        <section className="  header relative  items-center flex h-full max-h-960-px">
 
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
-            <div className="flex">Avaliable Course</div>
-            <div className="flex flex-col">
+            <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable online Course</div>
+            <div className="flex pt-20 flex-col">
               {courseList.map(course => (
                 <a href={course.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">{course.link}</a>
               ))}
@@ -162,16 +181,7 @@ const InformationPage = () => {
           </div>
         </section>
 
-        <section className="top-14 pb-20 relative block bg-blueGray-800">
-          <div className="flex flex-col mt-10	items-center	" style={{ height: '500px', width: '100%' }}>
 
-            Where to report
-
-          </div>
-          <div className="flex flex-col">
-            <Table columns={columns} dataSource={reportList} rowKey="id" />
-          </div>
-        </section>
 
       </main>
       <Footer />
