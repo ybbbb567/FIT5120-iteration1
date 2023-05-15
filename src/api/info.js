@@ -16,7 +16,7 @@ export function getFraudData () {
 
 export function getReportHotline () {
   return request({
-    url: `/info/fraud`,
+    url: `/info/report`,
     method: 'get',
   })
 }
