@@ -92,7 +92,7 @@ const InformationPage = () => {
       ],
     });
   }, [fraudList])
-  
+
   const columns = [
     // {
     //   title: "ID",
@@ -133,17 +133,6 @@ const InformationPage = () => {
       <Navigationbar fixed />
       <main className="navbar_color">
 
-        <section className=" top-20 header relative pt-16 items-center flex h-full max-h-960-px">
-
-          <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
-            <div className="flex">Avaliable Course</div>
-            <div className="flex flex-col">
-              {courseList.map(course => (
-                <a href={course.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">{course.link}</a>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="top-14 pb-20 relative block bg-blueGray-800">
           <div className="flex flex-col mt-10	items-center	" style={{ height: '500px', width: '100%' }}>
@@ -161,6 +150,18 @@ const InformationPage = () => {
 
         </section>
 
+        <section className=" top-20 header relative pt-16 items-center flex h-full max-h-960-px">
+
+          <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
+            <div className="flex">Avaliable Course</div>
+            <div className="flex flex-col">
+              {courseList.map(course => (
+                <a href={course.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">{course.link}</a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="top-14 pb-20 relative block bg-blueGray-800">
           <div className="flex flex-col mt-10	items-center	" style={{ height: '500px', width: '100%' }}>
 
@@ -168,8 +169,8 @@ const InformationPage = () => {
 
           </div>
           <div className="flex flex-col">
-              <Table columns={columns} dataSource={reportList} rowKey="id" />
-            </div>
+            <Table columns={columns} dataSource={reportList} rowKey="id" />
+          </div>
         </section>
 
       </main>
