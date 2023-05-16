@@ -274,7 +274,7 @@ const HomepagePage = () => {
 
                 onClick={() => navigate("/information")}
               >
-                Check your SMS
+                Check the information
               </Button>
             </div>
 
@@ -331,8 +331,7 @@ const HomepagePage = () => {
 
                           onClick={() => navigate("/simulate")}
                         >
-                          View the Map
-                        </Button>
+Start the simulation                        </Button>
                       </div>
 
                     </li>
