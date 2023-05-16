@@ -43,7 +43,7 @@ const SimulatePage = () => {
   function handleBlur () {
     if (age < 15 || age > 99) {
       setAge("");
-      setErrorMessage("请输入10-99之间的整数");
+      setErrorMessage("Please input age between 15-99");
     }
   }
 
@@ -260,9 +260,9 @@ const SimulatePage = () => {
             <div className="bg-purple relative">
               {showStartButton && (
                 <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
-                   <h3 className="text-xl text-white text-center font-bold py-8" >Hello and welcome to our simulation feature where you will  <br></br>take on the role of a character who is being  scammed online.
-                   <br></br>We have set up 3 typical scams based on recent internet scam <br></br>related news.Come and get started!</h3>
-                   <h3 className="text-xl text-white text-center font-bold py-8"  > Please make your choice : </h3>
+                  <h3 className="text-xl text-white text-center font-bold py-8" >Hello and welcome to our simulation feature where you will  <br></br>take on the role of a character who is being  scammed online.
+                    <br></br>We have set up 3 typical scams based on recent internet scam <br></br>related news.Come and get started!</h3>
+                  <h3 className="text-xl text-white text-center font-bold py-8"  > Please make your choice : </h3>
                   <Button className="btn cta bg"
                     onClick={startTemplate}>
                     Use the template
