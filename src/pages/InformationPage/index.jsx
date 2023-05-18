@@ -203,9 +203,9 @@ const InformationPage = () => {
             <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable Online Course</div>
             <p className="mt-10 text-xl leading-relaxed ">
               Some general information to reduce being Scammed or Fraud:
-              <li> Be suspicious and DON’T trust unexpected contact.</li>
-              <li> NEVER open attachments or click links in message or emails if you unsure senders.</li>
-              <li> NEVER share your bank details or sensitive information.</li>
+              <li> Be suspicious and <span className="text-xl text-blueGray font-bold"><em>DON’T</em></span> trust unexpected contact.</li>
+              <li> <span className="text-xl text-blueGray font-bold"><em>NEVER</em></span> open attachments or click links in message or emails if you unsure senders.</li>
+              <li> <span className="text-xl text-blueGray font-bold"><em>NEVER</em></span> share your bank details or sensitive information.</li>
               <li> Use different passwords to log in to online services.</li>
               Here are a list of freely available online courses to self learn. They provide more detailed and efficient information to minimize your risk.
             </p>
