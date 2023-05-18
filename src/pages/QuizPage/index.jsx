@@ -24,6 +24,7 @@ const QuizPage = () => {
   const [options, setOptions] = useState([])
   const [isCorrect, setIsCorrect] = useState(null);
   const [answered, setAnswered] = useState(false);
+  const [showConfirmButton, setShowConfirmButton] = useState(false);
 
   const [showQuiz, setShowQuiz] = useState(false);
   const [showStartButton, setShowStartButton] = useState(true);
@@ -74,7 +75,12 @@ const QuizPage = () => {
 
     const isAnswerCorrect = answer === questions[currentQuestion].answer;
     setIsCorrect(isAnswerCorrect);
+    setShowConfirmButton(true);
+  };
+
+  const handleConfirm = () => {
     setShowExplanation(true);
+    setShowConfirmButton(false);
     setAnswered(true);
   };
 
@@ -106,7 +112,7 @@ const QuizPage = () => {
     const status = percentage < 60 ? "error" : "success";
     return (
       <div className="navbar_color flex flex-col font-opensans items-center justify-start mx-[auto] w-[100%]">
-        <Navigationbar fixed/>
+        <Navigationbar fixed />
         <div className="font-pacifico h-full m-full mx-auto p-[129px] md:px-5 relative w-full">
           <div className="bg-purple flex flex-col inset-x-[0] justify-start mx-auto pb-[37px] sm:pr-5 pr-[37px] top-[0] w-[81%]">
             {showResult && (
@@ -155,25 +161,25 @@ const QuizPage = () => {
   return (
     <>
       <div className="navbar_color ">
-        <Navigationbar/>
+        <Navigationbar />
         <div className="font-pacifico h-full  mx-auto p-[129px] md:px-5 relative w-full">
-          
-        <nav class="flex pt-10 py-10" aria-label="Breadcrumb">
-  <ol class="inline-flex items-center space-x-1 md:space-x-3">
-    <li class="inline-flex items-center">
-      <a href="#" class="inline-flex text-xl items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-        <svg aria-hidden="true" class="w- 4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-        Home
-      </a>
-    </li>
-    <li aria-current="page">
-      <div class="flex items-center">
-        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-        <span class="text-xl	 ml-1 text-sm font-medium text-purple md:ml-2 dark:text-purple">Quiz</span>
-      </div>
-    </li>
-  </ol>
-</nav>
+
+          <nav class="flex pt-10 py-10" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+              <li class="inline-flex items-center">
+                <a href="#" class="inline-flex text-xl items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                  <svg aria-hidden="true" class="w- 4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                  Home
+                </a>
+              </li>
+              <li aria-current="page">
+                <div class="flex items-center">
+                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                  <span class="text-xl	 ml-1 text-sm font-medium text-purple md:ml-2 dark:text-purple">Quiz</span>
+                </div>
+              </li>
+            </ol>
+          </nav>
 
 
           <div className="bg-purple relative">
@@ -204,9 +210,9 @@ const QuizPage = () => {
               <div className="bg-purple container w-full h-auto max-w-full">
                 <div title={`Question ${currentQuestion + 1} of ${questions.length}`} className="mt-8">
                   <div className="text-white text-center">
-                    <p className="col-span-2" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
+                    <p className="col-span-2 px-12" style={{ fontSize: '24px' }}>{questions?.[currentQuestion]?.question}</p>
                     <Radio.Group onChange={handleAnswer} value={userAnswers[currentQuestion]}>
-                      <div className="grid grid-cols-2 gap-4 px-12 py-12 justify-items-start">
+                      <div className="grid grid-cols-2 gap-4 px-16 py-12 justify-items-start">
                         {options?.[currentQuestion]?.map((option, index) => (
                           <Radio key={option.value} value={option.value} disabled={answered} className="flex items-center justify-center text-left">
                             <span className="mr-2 text-white" style={{ fontSize: '18px' }}>{`${String.fromCharCode(65 + index)}.`}</span>
@@ -215,6 +221,14 @@ const QuizPage = () => {
                         ))}
                       </div>
                     </Radio.Group>
+                    {showConfirmButton && (
+                      <div>
+                        <Button className="btn cta bg"
+                          onClick={handleConfirm}>
+                          Confirm
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -222,7 +236,7 @@ const QuizPage = () => {
                   <div className="text-center text-white py-12">
                     <p>{isCorrect ? 'Correct!' : 'Incorrect.'}</p>
                     <p>Answer: {questions[currentQuestion].answer}</p>
-                    <p>Explanation:<br></br> {questions[currentQuestion].explanation}</p>
+                    <p className="px-48">Explanation:<br></br> {questions[currentQuestion].explanation}</p>
                   </div>
                 )}
                 <div
