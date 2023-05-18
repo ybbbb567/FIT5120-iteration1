@@ -58,7 +58,7 @@ const SimulatePage = () => {
 
 
   useEffect(() => {
-    document.title = "Simulation - Daliy Fraud Fight"
+    document.title = "Simulation - Daily Fraud Fight"
   }, []);
 
   useEffect(() => {
@@ -260,8 +260,8 @@ const SimulatePage = () => {
             <div className="bg-purple relative">
               {showStartButton && (
                 <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
-                  <h3 className="text-xl text-white text-center font-bold py-8" >Hello and welcome to our simulation feature where you will  <br></br>take on the role of a character who is being  scammed online.
-                    <br></br>We have set up 3 typical scams based on recent internet scam <br></br>related news.Come and get started!</h3>
+                  <h3 className="text-xl text-white text-center font-bold py-8" >Welcome to our simulation AI where you will  <br></br>take on the role of a character who is being  scammed online.
+                    <br></br>We have set up 3 typical scams based on recent internet scam news<br></br>Come and get started!</h3>
                   <h3 className="text-xl text-white text-center font-bold py-8"  > Please make your choice : </h3>
                   <Button className="btn cta bg"
                     onClick={startTemplate}>
@@ -269,7 +269,7 @@ const SimulatePage = () => {
                   </Button>
                   <Button className="btn cta bg"
                     onClick={startCus}>
-                    Customise the charcter
+                    Customise the character
                   </Button>
                 </div>
               )}

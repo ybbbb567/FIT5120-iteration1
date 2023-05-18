@@ -23,7 +23,7 @@ const MapPage = () => {
     fetchData();
   }, []);
   useEffect(() => {
-    document.title = "Map - Daliy Fraud Fight"
+    document.title = "Map - Daily Fraud Fight"
   }, []);
 
 
@@ -31,7 +31,7 @@ const MapPage = () => {
     <Popup key={state.stateName}>
       <b>{state.stateName}</b>
       <br />
-      Number of Fraud experieced:{state.fraudValue}
+      Number of Fraud:{state.fraudValue}
       <br />
       <br />
       <b><i>Related News</i></b>
@@ -94,8 +94,8 @@ const MapPage = () => {
               <h3 className="text-3xl font-semibold text-blueGray text-center"> MAP
               </h3>
               <p className="mt-10 text-lg leading-relaxed ">
-                The interactive map shows the number of personal fraud experienced in Australia (2021-2022)<br></br> and a List of related news articles if you click the point.
-                Where the big red circle is the more personal fraud experienced in that state.
+                The interactive map shows the number of personal fraud in Australia (2021-2022) and a list of related news articles if you click the blue point
+                where the big red circle is the more personal fraud in that state.
               </p>
             </div>
           </div>

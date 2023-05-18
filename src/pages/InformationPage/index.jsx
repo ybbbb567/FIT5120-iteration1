@@ -36,7 +36,7 @@ const InformationPage = () => {
   };
 
   useEffect(() => {
-    document.title = "Information - Daliy Fraud Fight"
+    document.title = "Information - Daily Fraud Fight"
   }, []);
 
   useEffect(() => {
@@ -160,13 +160,13 @@ const InformationPage = () => {
             </nav>
 
 
-            <div className="text-3xl text-center font-bold text-blueGray">Percentage of different fraud or Scams experienced by Age Group in 2021-2022, Australia</div>
+            <div className="text-3xl text-center font-bold text-blueGray">Percentage of different Frauds or Scams experienced by Age Group in 2021-2022, Australia</div>
             <div className="pt-10 mx-auto" style={{ height: '500px', width: '40%' }}>
               <select onChange={(e) => handleSelect(e.target.value)}>
-                <option value="experiencedOnlineImpersonation">experiencedOnlineImpersonation</option>
-                <option value="exposedToScam">exposedToScam</option>
-                <option value="experiencedCardFraud">experiencedCardFraud</option>
-                <option value="experiencedIdentityTheft">experiencedIdentityTheft</option>
+                <option value="experiencedOnlineImpersonation">Online Impersonation</option>
+                <option value="exposedToScam">Easily Scammed</option>
+                <option value="experiencedCardFraud">Card Fraud</option>
+                <option value="experiencedIdentityTheft">Identity Theft</option>
               </select>
               <ReactECharts option={option} />
             </div>
@@ -182,7 +182,7 @@ const InformationPage = () => {
 
               <div className="text-3xl text-center font-bold text-blueGray " style={{ height: '500px', width: '100%' }}>
 
-                Where to report
+                Scam Report Channels
                 <div className="py-10">
                   <Table columns={columns} dataSource={reportList} rowKey="id" size="small" />
                 </div>
@@ -197,13 +197,14 @@ const InformationPage = () => {
 
 
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
-            <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable online Course</div>
+            <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable Online Course</div>
             <p className="mt-10 text-xl leading-relaxed ">
               Some general information to reduce being Scammed or Fraud:
-              <li> Be suspicious and don’t trust unexpected contact.</li>
-              <li> Never open attachments or click links in emails if words or images make you unsure about the sender.</li>
-              <li> Never share your bank details or sensitive information, and use different passwords to log in to online services.</li>
-              Here is a list of freely available online courses to educate yourself. You can more detailed information to minimize your risk.
+              <li> Be suspicious and DON’T trust unexpected contact.</li>
+              <li> NEVER open attachments or click links in message or emails if you unsure senders.</li>
+              <li> NEVER share your bank details or sensitive information.</li>
+              <li> Use different passwords to log in to online services.</li>
+              Here are a list of freely available online courses to self learn. They provide more detailed and efficient information to minimize your risk.
             </p>
 
             <div className="flex pt-10 flex-col">

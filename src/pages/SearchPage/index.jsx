@@ -36,7 +36,7 @@ const SearchPagePage = () => {
   }, []);
 
   useEffect(() => {
-    document.title = "URL Checker - Daliy Fraud Fight"
+    document.title = "URL Checker - Daily Fraud Fight"
   }, []);
 
 
