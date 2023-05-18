@@ -76,13 +76,16 @@ const InformationPage = () => {
     setOption({
       tooltip: {},
       xAxis: {
+        name: 'Age Group',
         data: fraudList.map((item) => item.ageGroup),
         axisLabel: {
           interval: 0, // show all ageGroup
           rotate: 30, // rotate by 30 degrees
         },
       },
-      yAxis: {},
+      yAxis: {
+        name: 'Percentage'
+      },
       series: [
         {
           name: 'experiencedOnlineImpersonation',
@@ -158,7 +161,7 @@ const InformationPage = () => {
 
 
             <div className="text-3xl text-center font-bold text-blueGray">Percentage of different fraud or Scams experienced by Age Group in 2021-2022, Australia</div>
-            <div className="pt-10" style={{ height: '500px', width: '40%' }}>
+            <div className="pt-10 mx-auto" style={{ height: '500px', width: '40%' }}>
               <select onChange={(e) => handleSelect(e.target.value)}>
                 <option value="experiencedOnlineImpersonation">experiencedOnlineImpersonation</option>
                 <option value="exposedToScam">exposedToScam</option>
