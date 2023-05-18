@@ -186,13 +186,13 @@ const QuizPage = () => {
               />
               <div className="absolute top-0 left-0 text-center w-full h-full flex items-center justify-center">
                 <h2 className="font-normal text-gray_900 text-3xl md:text-4xl absolute left-8 top-15">
-                  Online Trusty Quiz
+                  Online Scam Quiz
                 </h2>
               </div>
             </div>
             {showStartButton && (
               <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
-                <h3 className="text-xl text-white text-center font-bold py-8" >Let's test our knowledge by answering the following <span className="text-xl text-blueGray font-bold"><em>SIX</em></span> quizzes.<br></br>
+                <h3 className="text-xl text-white text-center font-bold py-8" >Let's test your knowledge by answering the following <span className="text-xl text-blueGray font-bold"><em>SIX</em></span> quizzes.<br></br>
                   You will get an explanation of each question and a final score.</h3>
                 <Button className="btn cta bg"
                   onClick={startQuiz}>

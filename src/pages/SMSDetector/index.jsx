@@ -20,7 +20,7 @@ const SMSDetectorPage = () => {
   // const regex = new RegExp(`\\b(${wordsToHighlight.join('|')})\\b`, 'ig');
 
   useEffect(() => {
-    document.title = "Email Detector - Daliy Fraud Fight"
+    document.title = "Email Detector - Daily Fraud Fight"
   }, []);
 
 
@@ -73,11 +73,13 @@ const SMSDetectorPage = () => {
 
 
           <h3 className="text-3xl text-center font-bold text-blueGray" >Email Detector</h3>
-          <h3 className="text-xl font-bold py-12" >Email Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases.
+          <h3 className="text-xl font-bold py-12" >
+            {/* Email Detector identifies scam texts by analyzing their content. It detects suspicious links, requests for personal info, and common scam phrases. */}
+            Email Detector identifies scam by analyzing text content with suspicious links, personal information, or common scam phrases.
           </h3>
 
           <ul className="text-xl font-bold text-blueGray italic pb-7">
-            <li className="text-black not-italic ">It will give two different results and they are: </li>
+            <li className="text-xl text-black not-italic ">It will give two different results below: </li>
             <br></br>
             <li>Ham: "Ham" usually indicates normal emails where the content is legitimate and the purpose is to convey useful information. These emails may be from friends, family, colleagues, or other official sources such as subscription mailing lists, job offers, etc.</li>
             <br></br>

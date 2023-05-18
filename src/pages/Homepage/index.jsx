@@ -14,7 +14,7 @@ const HomepagePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Daliy Fraud Fight"
+    document.title = "Daily Fraud Fight"
   }, []);
 
 
@@ -37,16 +37,17 @@ const HomepagePage = () => {
                   </h3>
                   <p className="mt-4  text-base leading-relaxed text-white">
                     <br></br>
-                    The internet makes it easy for scammers to trick
-                    people into <br></br>
-                    giving away their money and personal information
+                    {/* The internet makes it easy for scammers to trick
+                    people into <br></br> */}
+                    Scams for money and personal information are common on the Internet<br></br>
+                    {/* giving away their money and personal information */}
                   </p>
                   <div className="mt-10">
 
                     <Button className="btn cta bg"
                       onClick={() => navigate("/searchpage")}
                     >
-                      Start Check Website
+                      Start Website Check
                     </Button>
                   </div>
                 </div>
@@ -137,12 +138,15 @@ const HomepagePage = () => {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
 
-                  <h3 className="text-3xl font-semibold text-blueGray"> Some Questions to challenge your knowledge
+                  <h3 className="text-3xl font-semibold text-blueGray"> Knowledge Quiz
                   </h3>
                   <p className="mt-4 text-lg leading-relaxed ">
-                    Here&#39;s a simple test of your knowledge of phishing
+                    {/* Here&#39;s a simple test of your knowledge of phishing
                     scams, and online shopping fraud. Take this quiz to find
-                    out how to protect yourself from internet fraud.
+                    out how to protect yourself from internet fraud. */}
+                    Simply test of your knowledge of phishing scams
+                    and online shopping frauds. Take some quizzes to 
+                    find out how to protect yourself from the internet fraud.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -151,7 +155,7 @@ const HomepagePage = () => {
 
                           onClick={() => navigate("/quiz")}
                         >
-                          Start the Quiz
+                          Start Quiz
                         </Button>
                       </div>
 
@@ -171,12 +175,14 @@ const HomepagePage = () => {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
 
-                  <h3 className="text-3xl font-semibold text-blueGray"> Quickly identify the risks of the SMS you receive
+                  <h3 className="text-3xl font-semibold text-blueGray"> Email Risk Identification
                   </h3>
                   <p className="mt-4 text-lg leading-relaxed ">
-                    Email Detector identifies scam texts by analyzing their content.
+                    {/* Email Detector identifies scam texts by analyzing their content.
                     It detects suspicious links, requests for personal info, and common scam phrases.
-                    This helps users stay safe from fraud.
+                    This helps users stay safe from fraud. */}
+                    Email Detector identifies scam by analyzing text content 
+                    with suspicious links, personal information, or common scam phrases.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -185,7 +191,7 @@ const HomepagePage = () => {
 
                           onClick={() => navigate("/smsdetector")}
                         >
-                          Check your SMS
+                          Start Email Detect
                         </Button>
                       </div>
 
@@ -223,7 +229,8 @@ const HomepagePage = () => {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
 
-                  <h3 className="text-3xl font-semibold text-blueGray"> A Map to visualize the number of people who have fallen victim to scams
+                  <h3 className="text-3xl font-semibold text-blueGray"> Scam Happened in Australia
+                  {/* A Map to visualize the number of people who have fallen victim to scams */}
 
 
 
@@ -231,8 +238,9 @@ const HomepagePage = () => {
 
                   </h3>
                   <p className="mt-4 text-lg leading-relaxed ">
-                    The scam victim map visualizes the number of scam victims in a region. It collects data from various sources to display the concentration of victims.
-                    The tool is useful for individuals to prevent scams. It provides insights to make informed decisions to protect oneself and the community.
+                    {/* The scam victim map visualizes the number of scam victims in a region. It collects data from various sources to display the concentration of victims.
+                    The tool is useful for individuals to prevent scams. It provides insights to make informed decisions to protect oneself and the community. */}
+                    a Map to show the number of people fallen victim to scams in different areas of Australia
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -241,7 +249,7 @@ const HomepagePage = () => {
 
                           onClick={() => navigate("/map")}
                         >
-                          View the Map
+                          View Map
                         </Button>
                       </div>
 
@@ -261,11 +269,21 @@ const HomepagePage = () => {
     <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
       <div className="md:pr-12">
 
-        <h3 className="text-3xl font-semibold text-blueGray"> What you need to know about online scam</h3>
+        <h3 className="text-3xl font-semibold text-blueGray"> 
+        {/* What you need to know about online scam */}
+        Relative Information on Online Scam
+        
+        </h3>
 
         <p className="mt-4 text-lg leading-relaxed ">
-        The  section is where fraud relative information is provided for users. It not only has the correct reporting channels for fraud, but also has links to relevant courses and lectures provided by the government and anti-fraud-related organizations, so that people can 
-        learn about different types of fraud and how to avoid them by accessing those contents.
+        {/* The  section is where fraud relative information is provided for users. 
+        It not only has the correct reporting channels for fraud, 
+        but also has links to relevant courses and lectures provided by the government 
+        and anti-fraud-related organizations, so that people can 
+        learn about different types of fraud and how to avoid them by accessing those contents. */}
+        Relative fraud information provided for users on efficient reporting fraud channels, 
+        and links about relevant courses certified by the government 
+        and anti-fraud-related organizations to help people learn about fraud types and how to get rid of them
         </p>
         <ul className="list-none mt-6">
           <li className="py-2">
@@ -274,7 +292,7 @@ const HomepagePage = () => {
 
                 onClick={() => navigate("/information")}
               >
-                Check the information
+                Start Information Check
               </Button>
             </div>
 
@@ -313,11 +331,7 @@ const HomepagePage = () => {
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
 
-                  <h3 className="text-3xl font-semibold text-blueGray"> Simulate a real-life scam scenario
-
-
-
-
+                  <h3 className="text-3xl font-semibold text-blueGray"> Simulate a Real-Life Scam Scenario
 
                   </h3>
                   <p className="mt-4 text-lg leading-relaxed ">
@@ -330,8 +344,7 @@ const HomepagePage = () => {
                         <Button className="btn cta bg"
 
                           onClick={() => navigate("/simulate")}
-                        >
-Start the simulation                        </Button>
+                        > Start simulation</Button>
                       </div>
 
                     </li>
