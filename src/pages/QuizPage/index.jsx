@@ -199,10 +199,16 @@ const QuizPage = () => {
             {showStartButton && (
               <div className="bg-purple container w-full h-auto max-w-full pb-20" style={{ textAlign: "center" }}>
                 <h3 className="text-xl text-white text-center font-bold py-8" >Let's test your knowledge by answering the following <span className="text-xl text-blueGray font-bold"><em>SIX</em></span> quizzes.<br></br>
-                  You will get an explanation of each question and a final score.</h3>
+                  You will get an explanation of each question and a final score.<br></br> If you are not prepared will you can get the knowledge 
+                   from <br></br>our information page by just click the button at the right</h3>
                 <Button className="btn cta bg"
                   onClick={startQuiz}>
                   Start Quiz
+                </Button>
+                <Button className="btn cta bg"
+                 onClick={() => navigate("/information")}
+                  >
+                  Start Learning
                 </Button>
               </div>
             )}
