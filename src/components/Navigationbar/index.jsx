@@ -94,7 +94,7 @@ export default function Navbar (props) {
 
                   <NavLink to="/simulate" style={({ isActive }) => ({
                     color: isActive ? '#94618E' : 'white', borderBottom: isActive ? '3px solid #F8EEE7' : '', fontSize: 20, fontWeight: 'bold'
-                  })} >Simulation</NavLink>
+                  })} >Role Play</NavLink>
                 </a>
               </li>
 
