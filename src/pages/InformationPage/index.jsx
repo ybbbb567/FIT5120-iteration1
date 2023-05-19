@@ -76,7 +76,7 @@ const InformationPage = () => {
     setOption({
       tooltip: {},
       xAxis: {
-        name: 'Age Group',
+        name: 'Age',
         data: fraudList.map((item) => item.ageGroup),
         axisLabel: {
           interval: 0, // show all ageGroup
@@ -196,7 +196,7 @@ const InformationPage = () => {
         <section className="  pb-96 header relative  items-center flex h-full ">
 
 
- 
+
 
 
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
@@ -213,113 +213,113 @@ const InformationPage = () => {
             <div class="p-10 justify-around grid grid-cols-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 
 
-            <div class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-  <div
-    class="relative overflow-hidden bg-cover bg-no-repeat"
-    
-    data-te-ripple-init
-    data-te-ripple-color="light">
-    <img
-      class="rounded-t-lg"
-      src="images/Information_card_1.png"
-      alt="" />
-    <a href="#!">
-      <div
-        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-    </a>
-  </div>
-  <div class="p-6">
-    <h5
-      class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-Free Training to Learn How to Stay Scam Safe    </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-    Working with people with living experiences of being scammed after a brain injury, this free online training program will help you learn how to stay safe from scams.
-    </p>
-    <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
-  <div style={{ display: 'inline-flex' }}>
-    More information
-    <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-    </svg>
-  </div>
-</Button>
+              <div class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div
+                  class="relative overflow-hidden bg-cover bg-no-repeat"
 
-  </div>
-</div>
+                  data-te-ripple-init
+                  data-te-ripple-color="light">
+                  <img
+                    class="rounded-t-lg"
+                    src="images/Information_card_1.png"
+                    alt="" />
+                  <a href="#!">
+                    <div
+                      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                  </a>
+                </div>
+                <div class="p-6">
+                  <h5
+                    class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                    Free Training to Learn How to Stay Scam Safe    </h5>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    Working with people with living experiences of being scammed after a brain injury, this free online training program will help you learn how to stay safe from scams.
+                  </p>
+                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
+                    <div style={{ display: 'inline-flex' }}>
+                      More information
+                      <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </Button>
 
-<div
-  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-  <div
-    class="relative overflow-hidden bg-cover bg-no-repeat"
-    data-te-ripple-init
-    data-te-ripple-color="light">
-    <img
-      class="rounded-t-lg"
-      src="images/Information_card_2.png"
-      alt="" />
-    <a href="#!">
-      <div
-        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-    </a>
-  </div>
-  <div class="p-6">
-    <h5
-      class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-Be Connected Every Australian Online    </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-    Teach you to browse websites safely, avoid scams, protect sensitive information, 
-    and secure online shopping and payment methods.
-    </p>
-    <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
-  <div style={{ display: 'inline-flex' }}>
-    More information
-    <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-    </svg>
-  </div>
-</Button>
+                </div>
+              </div>
 
-  </div>
-</div>
+              <div
+                class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div
+                  class="relative overflow-hidden bg-cover bg-no-repeat"
+                  data-te-ripple-init
+                  data-te-ripple-color="light">
+                  <img
+                    class="rounded-t-lg"
+                    src="images/Information_card_2.png"
+                    alt="" />
+                  <a href="#!">
+                    <div
+                      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                  </a>
+                </div>
+                <div class="p-6">
+                  <h5
+                    class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                    Be Connected Every Australian Online    </h5>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    Teach you to browse websites safely, avoid scams, protect sensitive information,
+                    and secure online shopping and payment methods.
+                  </p>
+                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
+                    <div style={{ display: 'inline-flex' }}>
+                      More information
+                      <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </Button>
 
-<div
-  class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-  <div
-    class="relative overflow-hidden bg-cover bg-no-repeat"
-    data-te-ripple-init
-    data-te-ripple-color="light">
-    <img
-      class="rounded-t-lg"
-      src="images/Information_card_3.png"
-      alt="" />
-    <a href="#!">
-      <div
-        class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-    </a>
-  </div>
-  <div class="p-6">
-    <h5
-      class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-Learn the basics to protect yourself    </h5>
-    <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-    It’s easy to improve your cyber security! 
-    Take and learn these steps today to protect yourself.    </p>
-    
-    <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
-  <div style={{ display: 'inline-flex' }}>
-    More information
-    <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-    </svg>
-  </div>
-</Button>
+                </div>
+              </div>
 
-  </div>
-</div>
+              <div
+                class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div
+                  class="relative overflow-hidden bg-cover bg-no-repeat"
+                  data-te-ripple-init
+                  data-te-ripple-color="light">
+                  <img
+                    class="rounded-t-lg"
+                    src="images/Information_card_3.png"
+                    alt="" />
+                  <a href="#!">
+                    <div
+                      class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                  </a>
+                </div>
+                <div class="p-6">
+                  <h5
+                    class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                    Learn the basics to protect yourself    </h5>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    It’s easy to improve your cyber security!
+                    Take and learn these steps today to protect yourself.    </p>
+
+                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
+                    <div style={{ display: 'inline-flex' }}>
+                      More information
+                      <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                      </svg>
+                    </div>
+                  </Button>
+
+                </div>
+              </div>
 
 
-   </div>
-   </div>
+            </div>
+          </div>
         </section>
 
 
