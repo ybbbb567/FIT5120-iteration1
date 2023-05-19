@@ -270,7 +270,7 @@ const InformationPage = () => {
                     Teach you to browse websites safely, avoid scams, protect sensitive information,
                     and secure online shopping and payment methods.
                   </p>
-                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
+                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.cyber.gov.au/learn-basics"}>
                     <div style={{ display: 'inline-flex' }}>
                       More information
                       <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -305,7 +305,7 @@ const InformationPage = () => {
                     It’s easy to improve your cyber security!
                     Take and learn these steps today to protect yourself.    </p>
 
-                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.monash.edu/cyberability/free-training"}>
+                  <Button className="btn cta bg text-xs	" onClick={() => window.location.href = "https://www.scamwatch.gov.au/get-help/protect-yourself-from-scams"}>
                     <div style={{ display: 'inline-flex' }}>
                       More information
                       <svg aria-hidden="true" className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
