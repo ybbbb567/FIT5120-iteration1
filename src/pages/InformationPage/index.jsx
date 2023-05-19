@@ -200,7 +200,7 @@ const InformationPage = () => {
 
 
           <div className="flex flex-col mt-10	items-center" style={{ height: '500px', width: '100%' }}>
-            <div className=" text-3xl text-center font-bold text-blueGray">Freely Avaliable Online Course</div>
+            <div className=" text-3xl text-center font-bold text-blueGray">Freely Available Online Course</div>
             <p className="mt-10 text-xl leading-relaxed ">
               Some general information to reduce being Scammed or Fraud:
               <li> Be suspicious and <span className="text-xl text-blueGray font-bold"><em>DON’T</em></span> trust unexpected contact.</li>
