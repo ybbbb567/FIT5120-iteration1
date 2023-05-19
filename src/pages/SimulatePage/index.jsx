@@ -290,7 +290,7 @@ const SimulatePage = () => {
                   </Button>
                   <Button className="btn cta bg"
                     onClick={startCus}>
-                    Customise the character
+                    Customize the character
                   </Button>
                 </div>
               )}
