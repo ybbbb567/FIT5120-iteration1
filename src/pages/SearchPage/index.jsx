@@ -105,7 +105,7 @@ const SearchPagePage = () => {
       message.error("Please enter a valid URL that follows naming conventions!");
       return;
     }
-    if (!targetValue.startsWith("www.")) {
+    if (!targetValue.startsWith("www.") && !targetValue.startsWith("http")) {
       targetValue = "www." + targetValue;
     }
     setLoading(true)
